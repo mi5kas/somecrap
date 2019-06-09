@@ -12,6 +12,11 @@ namespace RVP
     {
         VehicleParent vp;
 
+        Material lightsMaterial;
+        int carId;
+        [SerializeField] Texture[] lightsOnTextures;
+        [SerializeField] Texture[] brakesOnTextures;
+        [SerializeField] Texture[] reverseOnTextures;
         public bool headlightsOn;
         public bool highBeams;
         public bool brakelightsOn;
@@ -26,17 +31,31 @@ namespace RVP
         GearboxTransmission gearTrans;
         ContinuousTransmission conTrans;
 
-        public VehicleLight[] headlights;
+        /*public VehicleLight[] headlights;
         public VehicleLight[] brakeLights;
         public VehicleLight[] RightBlinkers;
         public VehicleLight[] LeftBlinkers;
-        public VehicleLight[] ReverseLights;
+        public VehicleLight[] ReverseLights;*/
 
         void Start()
         {
             vp = GetComponent<VehicleParent>();
-
-            //Get transmission for using reverse lights
+            for(carId=0; carId<transform.GetChild(0).childCount; carId++)
+            {
+                if (transform.GetChild(0).GetChild(carId).gameObject.activeSelf)
+                {
+                    foreach (Material material in transform.GetChild(0).GetChild(carId).GetComponent<Renderer>().materials)
+                    {
+                        if (material.name == "lights (Instance)")
+                        {
+                            lightsMaterial = material;
+                            break;
+                        }
+                    }
+                    break;
+                }
+            }
+                //Get transmission for using reverse lights
             if (transmission)
             {
                 if (transmission is GearboxTransmission)
@@ -98,29 +117,45 @@ namespace RVP
                 }
             }
 
-            SetLights(headlights, highBeams, headlightsOn);
+            /*SetLights(headlights, highBeams, headlightsOn);
             SetLights(brakeLights, headlightsOn || highBeams, brakelightsOn);
             SetLights(RightBlinkers, rightBlinkersOn && blinkerIntervalOn);
             SetLights(LeftBlinkers, leftBlinkersOn && blinkerIntervalOn);
-            SetLights(ReverseLights, reverseLightsOn);
+            SetLights(ReverseLights, reverseLightsOn);*/
+            SetLights();
         }
 
         //Set if lights are on or off based on the condition
-        void SetLights(VehicleLight[] lights, bool condition)
+        /*void SetLights(VehicleLight[] lights, bool condition)
         {
             foreach (VehicleLight curLight in lights)
             {
                 curLight.on = condition;
             }
+        }*/
+        void SetLights()
+        {
+            if(reverseLightsOn)
+            {
+                lightsMaterial.SetTexture("_EmissionMap", reverseOnTextures[carId]);
+            }
+            else if(brakelightsOn)
+            {
+                lightsMaterial.SetTexture("_EmissionMap", brakesOnTextures[carId]);
+            }
+            else
+            {
+                lightsMaterial.SetTexture("_EmissionMap", lightsOnTextures[carId]);
+            }
         }
 
-        void SetLights(VehicleLight[] lights, bool condition, bool halfCondition)
+        /*void SetLights(VehicleLight[] lights, bool condition, bool halfCondition)
         {
             foreach (VehicleLight curLight in lights)
             {
                 curLight.on = condition;
                 curLight.halfOn = halfCondition;
             }
-        }
+        }*/
     }
 }
