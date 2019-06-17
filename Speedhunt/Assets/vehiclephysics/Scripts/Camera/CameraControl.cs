@@ -3,8 +3,8 @@ using System.Collections;
 
 namespace RVP
 {
-    [RequireComponent(typeof(Camera))]
-    [RequireComponent(typeof(AudioListener))]
+    //[RequireComponent(typeof(Camera))]
+   // [RequireComponent(typeof(AudioListener))]
     [DisallowMultipleComponent]
     [AddComponentMenu("RVP/Camera/Camera Control", 0)]
 
@@ -12,7 +12,7 @@ namespace RVP
     public class CameraControl : MonoBehaviour
     {
         Transform tr;
-        Camera cam;
+        //Camera cam;
         VehicleParent vp;
         public Transform target;//The target vehicle
         Rigidbody targetBody;
@@ -39,7 +39,7 @@ namespace RVP
         void Start()
         {
             tr = transform;
-            cam = GetComponent<Camera>();
+            //cam = GetComponent<Camera>();
             Initialize();
         }
 
@@ -65,7 +65,7 @@ namespace RVP
 
             //Set the audio listener update mode to fixed, because the camera moves in FixedUpdate
             //This is necessary for doppler effects to sound correct
-            GetComponent<AudioListener>().velocityUpdateMode = AudioVelocityUpdateMode.Fixed;
+            //GetComponent<AudioListener>().velocityUpdateMode = AudioVelocityUpdateMode.Fixed;
         }
 
         void FixedUpdate()
@@ -101,14 +101,14 @@ namespace RVP
                 Vector3 localOffset = lookObj.TransformPoint(-lookDirActual * distance - lookDirActual * Mathf.Min(targetBody.velocity.magnitude * 0.05f, 2) + new Vector3(0, height, 0));
 
                 //Check if there is an object between the camera and target vehicle and move the camera in front of it
-                if (Physics.Linecast(target.position, localOffset, out hit, castMask))
+                /* if (Physics.Linecast(target.position, localOffset, out hit, castMask))
                 {
                     tr.position = hit.point + (target.position - localOffset).normalized * (cam.nearClipPlane + 0.1f);
                 }
                 else
                 {
                     tr.position = localOffset;
-                }
+                }*/
 
                 tr.rotation = Quaternion.LookRotation(forwardDir, lookObj.up);
             }
