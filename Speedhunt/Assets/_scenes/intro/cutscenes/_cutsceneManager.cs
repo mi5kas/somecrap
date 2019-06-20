@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
 
 public class _cutsceneManager : MonoBehaviour
 {
@@ -9,6 +10,16 @@ public class _cutsceneManager : MonoBehaviour
     [SerializeField] GameObject carsounds;
     [SerializeField] Animator blackBars;
     private int whichTake = 0;
+    void Start()
+    {
+        Invoke("StartCutscene", 1f);
+        
+        
+    }
+    void StartCutscene()
+    {
+        this.GetComponent<PlayableDirector>().Play();
+    }
     public void PlayTake()
     {
         if(whichTake == 0)
