@@ -9,6 +9,7 @@ public class _cutsceneManager : MonoBehaviour
     [SerializeField] Animator[] cars;
     [SerializeField] GameObject carsounds;
     [SerializeField] Animator blackBars;
+    [SerializeField] GameObject nextCutscene;
     private int whichTake = 0;
     void Start()
     {

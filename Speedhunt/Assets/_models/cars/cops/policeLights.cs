@@ -35,7 +35,6 @@ public class policeLights : MonoBehaviour
             transform.GetChild(1).gameObject.SetActive(false);
             transform.GetChild(0).gameObject.SetActive(true);
         }
-        Debug.Log(Vector3.Distance(transform.position, Camera.main.transform.position));
         whichLight = !whichLight;
     }
     // Update is called once per fram
