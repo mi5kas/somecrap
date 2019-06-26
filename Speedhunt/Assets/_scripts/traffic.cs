@@ -31,7 +31,7 @@ public class traffic : MonoBehaviour
     {
         if(push)
         {
-            rb.AddRelativeForce(Vector3.forward * 300f);
+            rb.velocity = Vector3.forward * 30f;
             wheels[0].transform.Rotate(wheels[0].rotation.x+40f, 0, 0);
             wheels[1].transform.Rotate(wheels[1].rotation.x+40f, 0, 0);
         }

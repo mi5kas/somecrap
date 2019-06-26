@@ -6,6 +6,7 @@ public class cutscene2 : MonoBehaviour
 {
     [SerializeField] GameObject nextCutscene;
     [SerializeField] Animator cars;
+    [SerializeField] GameObject music;
     // Start is called before the first frame update
     void OnTriggerEnter(Collider collider)
     {
@@ -13,6 +14,7 @@ public class cutscene2 : MonoBehaviour
         {
             nextCutscene.SetActive(true);
             cars.enabled = true;
+            music.SetActive(false);
             cars.Play("cutscene5");
         }
     }
