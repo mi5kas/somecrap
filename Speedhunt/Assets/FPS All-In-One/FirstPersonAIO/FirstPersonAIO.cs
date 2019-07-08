@@ -40,6 +40,7 @@ using UnityEngine.UI;
 using UnityEditor;
 using System.Collections.Generic;
 using System.Collections;
+using Cinemachine;
 
 [AddComponentMenu("First Person AIO")]
 [RequireComponent(typeof(Rigidbody))]
@@ -305,7 +306,7 @@ public class BETA_SETTINGS{
         #endregion
 
         #region BETA_SETTINGS - Start
-        fOVKick.fovStart = playerCamera.GetComponent<Camera>().fieldOfView;
+        fOVKick.fovStart = playerCamera.GetComponent<CinemachineVirtualCamera>().m_Lens.FieldOfView;
         #endregion
     }
 
@@ -442,8 +443,8 @@ public class BETA_SETTINGS{
             }
 
 
-        float horizontalInput = Input.GetAxis("Horizontal");
-        float verticalInput = Input.GetAxis("Vertical");
+        float horizontalInput = Input.GetAxis("Horizontal_Walk");
+        float verticalInput = Input.GetAxis("Vertical_Walk");
         inputXY = new Vector2(horizontalInput, verticalInput);
         if(inputXY.magnitude > 1) { inputXY.Normalize(); }
        
@@ -649,10 +650,10 @@ public class BETA_SETTINGS{
 
     public IEnumerator FOVKickOut()
     {
-        float t = Mathf.Abs((playerCamera.GetComponent<Camera>().fieldOfView - fOVKick.fovStart) / fOVKick.FOVKickAmount);
+        float t = Mathf.Abs((GetComponent<CinemachineVirtualCamera>().m_Lens.FieldOfView - fOVKick.fovStart) / fOVKick.FOVKickAmount);
         while(t < fOVKick.changeTime)
         {
-            playerCamera.GetComponent<Camera>().fieldOfView = fOVKick.fovStart + (fOVKick.KickCurve.Evaluate(t / fOVKick.changeTime) * fOVKick.FOVKickAmount);
+            GetComponent<CinemachineVirtualCamera>().m_Lens.FieldOfView = fOVKick.fovStart + (fOVKick.KickCurve.Evaluate(t / fOVKick.changeTime) * fOVKick.FOVKickAmount);
             t += Time.deltaTime;
             yield return new WaitForEndOfFrame();
         }
@@ -660,14 +661,14 @@ public class BETA_SETTINGS{
 
     public IEnumerator FOVKickIn()
     {
-        float t = Mathf.Abs((playerCamera.GetComponent<Camera>().fieldOfView - fOVKick.fovStart) / fOVKick.FOVKickAmount);
+        float t = Mathf.Abs((playerCamera.GetComponent<CinemachineVirtualCamera>().m_Lens.FieldOfView - fOVKick.fovStart) / fOVKick.FOVKickAmount);
         while(t > 0)
         {
-            playerCamera.GetComponent<Camera>().fieldOfView = fOVKick.fovStart + (fOVKick.KickCurve.Evaluate(t / fOVKick.changeTime) * fOVKick.FOVKickAmount);
+            playerCamera.GetComponent<CinemachineVirtualCamera>().m_Lens.FieldOfView = fOVKick.fovStart + (fOVKick.KickCurve.Evaluate(t / fOVKick.changeTime) * fOVKick.FOVKickAmount);
             t -= Time.deltaTime;
             yield return new WaitForEndOfFrame();
         }
-        playerCamera.GetComponent<Camera>().fieldOfView = fOVKick.fovStart;
+        playerCamera.GetComponent<CinemachineVirtualCamera>().m_Lens.FieldOfView = fOVKick.fovStart;
     }
 
     public IEnumerator CameraShake(float Duration, float Magnitude){
