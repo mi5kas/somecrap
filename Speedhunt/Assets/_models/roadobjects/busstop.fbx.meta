@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 68cb1567f07ccb54ba64afb12450e88f
+guid: 19c6e183289c02640943d0e6cf8d25e4
 ModelImporter:
   serializedVersion: 25
   internalIDToNameTable: []
@@ -7,38 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: 2x2 lane road
-    second: {fileID: 2100000, guid: 9abe9b4853edc0849932ec7ba84676f1, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: pereja
-    second: {fileID: 2100000, guid: 390c88b2c1a4ff24783893263f83dddb, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: race track material
-    second: {fileID: 2100000, guid: 36e7b445bcbc95d45b9aa65dc3851f69, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: road material
-    second: {fileID: 2100000, guid: 011fdae67b4606848a8b71605d1b4467, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: sidewalk
-    second: {fileID: 2100000, guid: fc9a0e5bef9938e49b0c65d371e89c59, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: sidewalk 1
-    second: {fileID: 2100000, guid: 6f4f80f328f1d3f47bb077c27e5b686f, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: zole
-    second: {fileID: 2100000, guid: 3e5350590d1becc42b851674bcb9cee5, type: 2}
+      name: FrontColor.001_NONE
+    second: {fileID: 2100000, guid: 930a1047847bb8e47857a84f1be0f4b0, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -78,7 +48,7 @@ ModelImporter:
     importCameras: 1
     importLights: 1
     swapUVChannels: 0
-    generateSecondaryUV: 1
+    generateSecondaryUV: 0
     useFileUnits: 1
     keepQuads: 0
     weldVertices: 1
@@ -95,7 +65,7 @@ ModelImporter:
     useFileScale: 1
   tangentSpace:
     normalSmoothAngle: 60
-    normalImportMode: 1
+    normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
