@@ -14,8 +14,6 @@ public class _cutsceneManager : MonoBehaviour
     void Start()
     {
         Invoke("StartCutscene", 1f);
-        
-        
     }
     void StartCutscene()
     {
@@ -48,7 +46,7 @@ public class _cutsceneManager : MonoBehaviour
         {
             cars[2].gameObject.SetActive(false);
             cars[0].enabled = false;
-            cars[0].transform.position = new Vector3(139.4808f, 4.55f, 1400.09f);
+            cars[0].transform.position = new Vector3(139.4808f, 4.55f, 1420.09f);
             cars[0].transform.eulerAngles = Vector3.zero;
             cars[0].gameObject.GetComponent<Rigidbody>().AddRelativeForce(Vector3.forward * 5000);
             cars[1].enabled = false;

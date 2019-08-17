@@ -5,7 +5,16 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/_scenes/intro.unity
+    guid: 4db0447722ed23847ab8bf9145da71c3
+  - enabled: 1
+    path: Assets/_scenes/forest.unity
+    guid: 16de150fc35c0b8469f388d30c2f5c90
+  - enabled: 1
+    path: Assets/_scenes/police.unity
+    guid: a7685d3ee73705b49bb991f236e30eae
+  - enabled: 1
+    path: Assets/_scenes/police_garage.unity
+    guid: 6afd63c72ae99d94394f1a30db674524
   m_configObjects: {}

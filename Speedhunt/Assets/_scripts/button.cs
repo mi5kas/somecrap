@@ -11,10 +11,10 @@ public class button : MonoBehaviour
     [SerializeField] Image template;
     //[SerializeField] Transform player;
     [SerializeField] float opaqueDistance = 10;
+    [SerializeField] Text objectiveObject;
     Image iconClone;
     Sprite defaultIcon;
     Text iconText;
-
     void Start()
     {
         iconClone = Instantiate(template.gameObject, Vector3.zero, Quaternion.identity, template.transform.parent).GetComponent<Image>();
@@ -23,26 +23,44 @@ public class button : MonoBehaviour
         iconText = iconClone.gameObject.transform.GetChild(0).GetComponent<Text>();
         iconText.text = buttonName;
     }
+    void OnDisable()
+    {
+        if(iconClone != null)
+            iconClone.gameObject.SetActive(false);
+    }
     void Update()
     {
-        float distance = Vector3.Distance(this.transform.position, Camera.main.transform.position);
-        Vector3 visTest = Camera.main.WorldToViewportPoint(this.transform.position);
-        if ((visTest.x >= 0 && visTest.y >= 0) && (visTest.x <= 1 && visTest.y <= 1) && visTest.z >= 0)
+        Vector3 viewPos = Camera.main.WorldToViewportPoint(this.transform.position);
+        if (viewPos.x >= 0 && viewPos.x <= 1 && viewPos.y >= 0 && viewPos.y <= 1 && viewPos.z > 0)
         {
+            float distance = Vector3.Distance(this.transform.position, Camera.main.transform.position);
             Vector3 namePose = Camera.main.WorldToScreenPoint(this.transform.position);
+            if(objectiveObject)
+            {
+                objectiveObject.gameObject.SetActive(true);
+                objectiveObject.color = new Color(1, 1, 1, 0 + 1*(distance/100f));
+                objectiveObject.text = "OBJECTIVE " + Mathf.RoundToInt(distance) + "M";
+                objectiveObject.transform.position = namePose;
+            }
             iconClone.transform.position = namePose;
             if (distance < 10f)
             {
-                iconClone.color = new Color32(255, 255, 255, (byte)(255 - 255*(distance/opaqueDistance)));
-                //icon.rectTransform.sizeDelta = new Vector2(70 / distance, 70 / distance);
-                //icon.color = new Color32(255, 255, 255, 255);
-                //icon.gameObject.SetActive(true);
+                iconClone.gameObject.SetActive(true);
+                iconClone.color = new Color(1, 1, 1, 1 - 1*(distance/opaqueDistance));
             }
-            else
-                iconClone.color = new Color32(255, 255, 255, 0);
+            else if(distance > 10f)
+            {
+                iconClone.gameObject.SetActive(false);
+            }
         }
         else
-            iconClone.color = new Color32(255, 255, 255, 0);
+        {
+            iconClone.gameObject.SetActive(false);
+            if(objectiveObject)
+            {
+                objectiveObject.gameObject.SetActive(false);
+            }
+        }
     }
     void OnMouseEnter()
     {
@@ -53,10 +71,6 @@ public class button : MonoBehaviour
     {
         iconClone.sprite = defaultIcon;
         iconText.gameObject.SetActive(false);
-    }
-    void OnMouseOver()
-    {
-        Debug.Log("Turi veikt");
     }
     void OnMouseDown()
     {
