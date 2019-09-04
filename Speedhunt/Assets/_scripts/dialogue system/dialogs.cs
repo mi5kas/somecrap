@@ -93,7 +93,7 @@ public class dialogs : MonoBehaviour
         }
         else if(tempDialogues[1] == "sad")
         {
-            actor.CrossFadeInFixedTime("scared", 1f, 1);
+            actor.CrossFadeInFixedTime("sad", 1f, 1);
         }
 		StopAllCoroutines();
 		StartCoroutine (TypeSentence (tempDialogues[2]));

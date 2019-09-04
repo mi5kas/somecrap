@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/_scenes/police.unity
     guid: a7685d3ee73705b49bb991f236e30eae
   - enabled: 1
+    path: Assets/_scenes/board.unity
+    guid: 0feb12341752035428df85cb9c7cabb7
+  - enabled: 1
     path: Assets/_scenes/police_garage.unity
     guid: 6afd63c72ae99d94394f1a30db674524
   m_configObjects: {}
