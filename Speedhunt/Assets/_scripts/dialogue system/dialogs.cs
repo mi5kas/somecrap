@@ -21,7 +21,7 @@ public class dialogs : MonoBehaviour
         currentDialogue = 0;
         wholeText = dialogueText.transform.GetChild(0).GetComponent<Text>();
         ShowDialogue(dialogues[0]);
-
+        Debug.Log("Shite");
     }
 
     // Update is called once per frame
@@ -67,12 +67,14 @@ public class dialogs : MonoBehaviour
     }
     void AfterDialogue()
     {
-        fader.CrossFadeAlpha(0, 1, true);
+        dialogueText.gameObject.SetActive(false);
+        if(fader)
+            fader.CrossFadeAlpha(0, 1, true);
         afterDialogue.SetActive(false);
         afterDialogue.SetActive(true);
-        actor.CrossFadeInFixedTime("empty", 1f, 1);
+        if(actor)
+            actor.CrossFadeInFixedTime("empty", 1f, 1);
         this.gameObject.SetActive(false);
-        dialogueText.gameObject.SetActive(false);
     }
     void ShowDialogue(string dialogue)
     {
