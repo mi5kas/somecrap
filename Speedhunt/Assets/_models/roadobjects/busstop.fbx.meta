@@ -9,6 +9,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: FrontColor.001_NONE
     second: {fileID: 2100000, guid: 930a1047847bb8e47857a84f1be0f4b0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: g0m0
+    second: {fileID: 2100000, guid: 45beefae6f2dc7042a7ccc9c6ccfa12a, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -85,7 +90,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.015
+    globalScale: 1.5
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0

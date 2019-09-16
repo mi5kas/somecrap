@@ -97,6 +97,10 @@ public class dialogs : MonoBehaviour
         {
             actor.CrossFadeInFixedTime("sad", 1f, 1);
         }
+        else
+        {
+            actor.CrossFadeInFixedTime("empty", 1f, 1);
+        }
 		StopAllCoroutines();
 		StartCoroutine (TypeSentence (tempDialogues[2]));
     }
