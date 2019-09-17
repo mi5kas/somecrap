@@ -10,6 +10,9 @@ public class applyAnimation : MonoBehaviour
     {
         this.GetComponent<Animator>().Play(animationName);
     }
-
+    public void ResetAnimation()
+    {
+        this.transform.GetChild(0).GetComponent<Animator>().CrossFadeInFixedTime("idle", 1f);
+    }
     // Update is called once per fram
 }

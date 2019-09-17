@@ -11,8 +11,13 @@ public class nextScene : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        fader.CrossFadeAlpha(1, 2f, false);
-        Invoke("LoadScene", 2f);
+        if(fader)
+        {
+            fader.CrossFadeAlpha(1, 2f, false);
+            Invoke("LoadScene", 2f);
+        }
+        else
+            LoadScene();
     }
     void LoadScene()
     {
