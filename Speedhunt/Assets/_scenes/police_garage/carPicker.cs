@@ -14,9 +14,11 @@ public class carPicker : MonoBehaviour
     {
         for(int i=0; i<cars.Length; i++)
         {
-            foreach(Material tempMaterial in cars[i].transform.GetChild(2).GetComponent<Renderer>().materials)
+            Transform tempBodykit = cars[i].transform.GetChild(3+PlayerPrefs.GetInt("car" + i + "Status", 0));
+            tempBodykit.gameObject.SetActive(true);
+            foreach(Material tempMaterial in tempBodykit.GetComponent<Renderer>().materials)
             {
-                if(tempMaterial.name == "body")
+                if(tempMaterial.name == "body (Instance)")
                 {
                     tempMaterial.color = new Color(PlayerPrefs.GetFloat("car" + i + "Color1", 1), PlayerPrefs.GetFloat("car" + i + "Color2", 1), PlayerPrefs.GetFloat("car" + i + "Color3", 1), 1);
                     if(PlayerPrefs.GetInt("car" + i + "Status", 0) != 0)
@@ -25,7 +27,17 @@ public class carPicker : MonoBehaviour
                     }
                 }
             }
-            cars[i].transform.GetChild(3+PlayerPrefs.GetInt("car" + i + "Status", 0)).gameObject.SetActive(true);
+            foreach(Material tempMaterial in cars[i].transform.GetChild(5).GetComponent<Renderer>().materials)
+            {
+                if(tempMaterial.name == "body (Instance)")
+                {
+                    tempMaterial.color = new Color(PlayerPrefs.GetFloat("car" + i + "Color1", 1), PlayerPrefs.GetFloat("car" + i + "Color2", 1), PlayerPrefs.GetFloat("car" + i + "Color3", 1), 1);
+                    if(PlayerPrefs.GetInt("car" + i + "Status", 0) != 0)
+                    {
+                        tempMaterial.SetTexture("_MainTex", null);
+                    }
+                }
+            }
             cars[i].transform.GetChild(0).GetChild(0).localScale = new Vector3(cars[i].transform.GetChild(0).GetChild(0).localScale.x+0.4f*PlayerPrefs.GetInt("car" + i + "Power", 0), 1, 1);
             cars[i].transform.GetChild(0).GetChild(0).localScale = new Vector3(cars[i].transform.GetChild(0).GetChild(1).localScale.x+0.4f*PlayerPrefs.GetInt("car" + i + "Handling", 0), 1, 1);
         }
@@ -45,7 +57,6 @@ public class carPicker : MonoBehaviour
                 PlayerPrefs.SetInt("currentCar", i);
                 buttons.SetActive(false);
                 Invoke("TurnOnCar", 1f);
-                cars[i].transform.GetChild(0).gameObject.SetActive(false);
                 break;
             }
         }
@@ -56,16 +67,14 @@ public class carPicker : MonoBehaviour
         {
             if(cars[i].transform.GetChild(0).gameObject.activeSelf)
             {
-                continue;
-            }
-            foreach(Material tempMaterial in cars[i].transform.GetChild(2).GetComponent<Renderer>().materials)
-            {
-                if(tempMaterial.name == "lights (Instance)")
+                foreach(Material tempMaterial in cars[i].transform.GetChild(5).GetComponent<Renderer>().materials)
                 {
-                    tempMaterial.EnableKeyword("_EMISSION");
-                    Debug.Log(tempMaterial.GetColor("_EmissionColor"));
-                    nextScene.SetActive(true);
-                    break;
+                    if(tempMaterial.name == "lights (Instance)")
+                    {
+                        tempMaterial.EnableKeyword("_EMISSION");
+                        nextScene.SetActive(true);
+                        break;
+                    }
                 }
             }
         }
