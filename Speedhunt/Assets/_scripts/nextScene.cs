@@ -15,9 +15,19 @@ public class nextScene : MonoBehaviour
         {
             fader.CrossFadeAlpha(1, 2f, false);
             Invoke("LoadScene", 2f);
+            StartCoroutine("FadeSound");
         }
         else
             LoadScene();
+    }
+    IEnumerator FadeSound()
+    {
+        AudioListener.volume=1f;
+        while(AudioListener.volume > 0)
+        {
+            AudioListener.volume-=0.1f;
+            yield return new WaitForSeconds(0.1f);
+        }
     }
     void LoadScene()
     {
