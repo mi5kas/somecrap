@@ -34,7 +34,6 @@ public class button : MonoBehaviour
         if (viewPos.x >= 0 && viewPos.x <= 1 && viewPos.y >= 0 && viewPos.y <= 1 && viewPos.z > 0)
         {
             float distance = Vector3.Distance(this.transform.position, Camera.main.transform.position);
-            Debug.Log(distance);
             Vector3 namePose = Camera.main.WorldToScreenPoint(this.transform.position);
             if(objectiveObject)
             {
@@ -65,6 +64,7 @@ public class button : MonoBehaviour
     }
     void OnMouseEnter()
     {
+        Debug.Log(Vector3.Distance(this.transform.position, Camera.main.transform.position));
         if(!Cursor.visible && Vector3.Distance(this.transform.position, Camera.main.transform.position) < 3f)
         {
             iconClone.sprite = iconTexture;

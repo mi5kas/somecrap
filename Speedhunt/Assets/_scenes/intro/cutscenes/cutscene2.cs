@@ -14,7 +14,7 @@ public class cutscene2 : MonoBehaviour
         {
             nextCutscene.SetActive(true);
             cars.enabled = true;
-            music.SetActive(false);
+            //music.SetActive(false);
             cars.Play("cutscene5");
         }
     }

@@ -38,6 +38,13 @@ public class carPicker : MonoBehaviour
                     }
                 }
             }
+            for(int w=0; w<4; w++)
+            {
+                Renderer tempWheel = cars[i].transform.GetChild(6+w).GetChild(PlayerPrefs.GetInt("car" + i + "Wheels", 0)).GetComponent<Renderer>();
+                tempWheel.gameObject.SetActive(true);
+                if(PlayerPrefs.GetInt("car" + i + "Wheels", 0) != 0)
+                    tempWheel.materials[0].SetColor("_Color", new Color(PlayerPrefs.GetFloat("car" + i + "WheelColor1", 0.5f), PlayerPrefs.GetFloat("car" + i + "WheelColor2", 0.5f), PlayerPrefs.GetFloat("car" + i + "WheelColor3", 0.5f), 1));
+            }
             cars[i].transform.GetChild(0).GetChild(0).localScale = new Vector3(cars[i].transform.GetChild(0).GetChild(0).localScale.x+0.4f*PlayerPrefs.GetInt("car" + i + "Power", 0), 1, 1);
             cars[i].transform.GetChild(0).GetChild(0).localScale = new Vector3(cars[i].transform.GetChild(0).GetChild(1).localScale.x+0.4f*PlayerPrefs.GetInt("car" + i + "Handling", 0), 1, 1);
         }
@@ -45,7 +52,6 @@ public class carPicker : MonoBehaviour
         {
             cars[0].SetActive(false);
         }
-        cars[PlayerPrefs.GetInt("currentCar", 0)].SetActive(false);
     }
     public void AcceptCar()
     {
@@ -88,6 +94,7 @@ public class carPicker : MonoBehaviour
                 car.transform.GetChild(0).gameObject.SetActive(false);
                 buttons.SetActive(false);
                 Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
                 player.SetActive(true);
                 break;
             }

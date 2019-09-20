@@ -36,15 +36,15 @@ public class mapManager : MonoBehaviour {
 			this.GetComponent<Renderer>().material.SetTexture("_MainTex", daytex);
 		}
 		/*          SHOWING SMS'ES                      */
-		if(PlayerPrefs.GetInt("mainQuest", 0) == 0)//Showing Nicole's SMS
+		if(PlayerPrefs.GetInt("story", 0) == 0)//Showing Nicole's SMS
 		{
 			smses[0].SetActive(true);
-			PlayerPrefs.SetInt("mainQuest", 1);
+			PlayerPrefs.SetInt("story", 1);
 		}
-		else if(PlayerPrefs.GetInt("mainQuest", 0) == 1)//Showing Bob's SMS
+		else if(PlayerPrefs.GetInt("story", 0) == 1)//Showing Bob's SMS
 		{
 			smses[1].SetActive(true);
-			PlayerPrefs.SetInt("mainQuest", 2);
+			PlayerPrefs.SetInt("story", 2);
 		}
 		moneytext.text = "MONEY: $" + PlayerPrefs.GetInt("money", 0);
 		reptext.text = "REPUTATION: " + PlayerPrefs.GetInt("reputation", 0);
