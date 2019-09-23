@@ -283,7 +283,7 @@ public class BETA_SETTINGS{
             qui.GetComponent<Canvas>().renderMode = RenderMode.ScreenSpaceOverlay;
             GameObject quic = new GameObject("Crosshair");
             quic.AddComponent<Image>().sprite = Crosshair;
-
+            quic.GetComponent<RectTransform>().sizeDelta = new Vector2(10f, 10f);
             qui.transform.SetParent(this.transform);
             qui.transform.position = Vector3.zero;
             quic.transform.SetParent(qui.transform);
