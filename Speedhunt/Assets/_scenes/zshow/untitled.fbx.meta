@@ -7,8 +7,18 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: 2x2 lane road
+    second: {fileID: 2100000, guid: 6ee1f1085387d374e8a70cba08003fe3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: BUILDING_DEFAULT_0
     second: {fileID: 2100000, guid: 968b4ea7307f91e4b93eb29cb1d18bcf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: crossing material
+    second: {fileID: 2100000, guid: 998f01a792f6eb840b02c792dbfe3976, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -17,8 +27,23 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: road material
+    second: {fileID: 2100000, guid: f3eee0ac7069c7e48810647a038db5d2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: roofs
     second: {fileID: 2100000, guid: 0e9a4f0c1d1146b49bd00c5387334373, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: sidewalk
+    second: {fileID: 2100000, guid: a393177dc2c4a7d428707eb4ea982619, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: sidewalk 1
+    second: {fileID: 2100000, guid: 55948b3f2b2b06149849389550f94e2a, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -58,7 +83,7 @@ ModelImporter:
     importCameras: 1
     importLights: 1
     swapUVChannels: 0
-    generateSecondaryUV: 0
+    generateSecondaryUV: 1
     useFileUnits: 1
     keepQuads: 0
     weldVertices: 1
