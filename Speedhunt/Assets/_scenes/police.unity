@@ -1599,6 +1599,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976201aab8c6f3547aafc10609328d8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ubuntu: {fileID: 12800000, guid: 675fa45de0bab5e45bc9534b6994b188, type: 3}
   actor: {fileID: 3166231813794014674}
   dialogues:
   - mia@none@Greetings, colonel, I brought you the person I talked about. He agreed
@@ -1607,8 +1608,6 @@ MonoBehaviour:
   - colonel@neutral@Good day, suspect. I'm colonel Carl Smith and welcome aboard.
   - colonel@neutral@Time is running low, so I will skip my regards and jump straight
     in to the mission details.
-  dialogueText: {fileID: 2106192018}
-  fader: {fileID: 0}
   afterDialogue: {fileID: 2099203488}
   nextDialogue: 1
 --- !u!114 &155323149
@@ -1631,85 +1630,6 @@ MonoBehaviour:
   - {fileID: 1743904043208185}
   - {fileID: 936753376}
   fader: {fileID: 0}
---- !u!1 &156078545
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 156078546}
-  - component: {fileID: 156078548}
-  - component: {fileID: 156078547}
-  m_Layer: 5
-  m_Name: Text
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!224 &156078546
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 156078545}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 321780732}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -74.81}
-  m_SizeDelta: {x: 160, y: 30}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &156078547
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 156078545}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_FontData:
-    m_Font: {fileID: 12800000, guid: d49ea284430f5924c92ed0b54542b007, type: 3}
-    m_FontSize: 25
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 2
-    m_MaxSize: 40
-    m_Alignment: 4
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: RUDOLPH
---- !u!222 &156078548
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 156078545}
-  m_CullTransparentMesh: 0
 --- !u!1 &162113144
 GameObject:
   m_ObjectHideFlags: 0
@@ -9198,12 +9118,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79aee5ea6d374df4cb6e4cb9d5a89e17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonName: DOOR
   activateIt: {fileID: 1996409473}
-  iconTexture: {fileID: 21300000, guid: 164931c6d16824840ae5303835f1d68b, type: 3}
-  template: {fileID: 321780733}
-  opaqueDistance: 10
-  objectiveObject: {fileID: 0}
+  font: {fileID: 12800000, guid: d49ea284430f5924c92ed0b54542b007, type: 3}
+  buttonText: interrogation
+  defaultButton: {fileID: 21300000, guid: 1abac62db23fd944da5b52e36ddb69bd, type: 3}
+  hoverButton: {fileID: 21300000, guid: bfda1caf92b4aa84483712e8a12a4774, type: 3}
 --- !u!135 &259628712
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -9724,81 +9643,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!1 &321780731
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 321780732}
-  - component: {fileID: 321780734}
-  - component: {fileID: 321780733}
-  m_Layer: 5
-  m_Name: iconTemplate
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!224 &321780732
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 321780731}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 156078546}
-  m_Father: {fileID: 464064399}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &321780733
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 321780731}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 0
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 1abac62db23fd944da5b52e36ddb69bd, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
---- !u!222 &321780734
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 321780731}
-  m_CullTransparentMesh: 0
 --- !u!1 &325481168
 GameObject:
   m_ObjectHideFlags: 0
@@ -9842,11 +9686,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976201aab8c6f3547aafc10609328d8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ubuntu: {fileID: 12800000, guid: 675fa45de0bab5e45bc9534b6994b188, type: 3}
   actor: {fileID: 1203901286}
   dialogues:
   - MIA@none@Follow me.
-  dialogueText: {fileID: 2106192018}
-  fader: {fileID: 0}
   afterDialogue: {fileID: 0}
   nextDialogue: 0
 --- !u!1001 &329489374
@@ -10484,13 +10327,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976201aab8c6f3547aafc10609328d8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ubuntu: {fileID: 12800000, guid: 675fa45de0bab5e45bc9534b6994b188, type: 3}
   actor: {fileID: 1203901286}
   dialogues:
   - MIA@neutral@The mission is quite easy, it should take no more than 2 weeks. Besides,
     we have limited time for this operation.
   - MIA@neutral@Of course, the duration depends on you as well.
-  dialogueText: {fileID: 2106192018}
-  fader: {fileID: 1442081275}
   afterDialogue: {fileID: 1793644604}
   nextDialogue: 1
 --- !u!4 &408969046
@@ -11039,11 +10881,10 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
+  - {fileID: 784664631}
   - {fileID: 2106192016}
-  - {fileID: 321780732}
   - {fileID: 1442081277}
   - {fileID: 371002333}
-  - {fileID: 1990098445}
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -11390,6 +11231,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   toActivate: {fileID: 1726678383}
   fader: {fileID: 1442081275}
+  font: {fileID: 12800000, guid: d49ea284430f5924c92ed0b54542b007, type: 3}
 --- !u!135 &482576485
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -12217,11 +12059,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976201aab8c6f3547aafc10609328d8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ubuntu: {fileID: 12800000, guid: 675fa45de0bab5e45bc9534b6994b188, type: 3}
   actor: {fileID: 1203901286}
   dialogues:
   - MIA@happy@Perfect. Sign these papers, and let's move to my office for more information.
-  dialogueText: {fileID: 2106192018}
-  fader: {fileID: 1442081275}
   afterDialogue: {fileID: 1450172157}
   nextDialogue: 0
 --- !u!1001 &545094744
@@ -13670,6 +13511,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976201aab8c6f3547aafc10609328d8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ubuntu: {fileID: 12800000, guid: 675fa45de0bab5e45bc9534b6994b188, type: 3}
   actor: {fileID: 1203901286}
   dialogues:
   - MIA@neutral@Good evening, my name is Mia Woods, I'm a sergeant in this police
@@ -13682,8 +13524,6 @@ MonoBehaviour:
   - 'MIA@neutral@All you''ll have to do is use your driving skills. The details will
     be revealed as soon as you accept and sign these papers. '
   - MIA@neutral@So, are you in?
-  dialogueText: {fileID: 2106192018}
-  fader: {fileID: 1442081275}
   afterDialogue: {fileID: 1793644604}
   nextDialogue: 1
 --- !u!114 &687784560
@@ -14399,7 +14239,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &784664631
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14411,12 +14251,12 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 2106192016}
+  m_Father: {fileID: 464064399}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: -30}
+  m_AnchoredPosition: {x: 0, y: 61}
   m_SizeDelta: {x: 1440, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &784664632
@@ -15170,14 +15010,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976201aab8c6f3547aafc10609328d8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ubuntu: {fileID: 12800000, guid: 675fa45de0bab5e45bc9534b6994b188, type: 3}
   actor: {fileID: 3166231813794014674}
   dialogues:
   - colonel@neutral@That's all you need to know for now. More details will be revealed
     during the mission.
   - mia@none@Thank you colonel, we will report the status of the mission frequently.
   - colonel@neutral@Our city is counting on you, sergeant. On both of you. Good luck.
-  dialogueText: {fileID: 2106192018}
-  fader: {fileID: 0}
   afterDialogue: {fileID: 1986453593}
   nextDialogue: 1
 --- !u!1001 &913564369
@@ -15864,11 +15703,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976201aab8c6f3547aafc10609328d8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ubuntu: {fileID: 12800000, guid: 675fa45de0bab5e45bc9534b6994b188, type: 3}
   actor: {fileID: 1051375362}
   dialogues:
   - officer@none@Just go to the room there, she's waiting.
-  dialogueText: {fileID: 2106192018}
-  fader: {fileID: 1442081275}
   afterDialogue: {fileID: 0}
   nextDialogue: 0
 --- !u!1 &1107558927
@@ -16414,12 +16252,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79aee5ea6d374df4cb6e4cb9d5a89e17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonName: WOMAN
   activateIt: {fileID: 687784557}
-  iconTexture: {fileID: 21300000, guid: fb20f7c2fd6a96f4a83cde30b8179ff7, type: 3}
-  template: {fileID: 321780733}
-  opaqueDistance: 10
-  objectiveObject: {fileID: 0}
+  font: {fileID: 12800000, guid: d49ea284430f5924c92ed0b54542b007, type: 3}
+  buttonText: woman
+  defaultButton: {fileID: 21300000, guid: 1abac62db23fd944da5b52e36ddb69bd, type: 3}
+  hoverButton: {fileID: 21300000, guid: fb20f7c2fd6a96f4a83cde30b8179ff7, type: 3}
 --- !u!4 &1175050653
 Transform:
   m_ObjectHideFlags: 0
@@ -32234,7 +32071,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1442081275
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33102,6 +32939,7 @@ GameObject:
   - component: {fileID: 1533857600}
   - component: {fileID: 1533857602}
   - component: {fileID: 1533857601}
+  - component: {fileID: 1533857603}
   m_Layer: 0
   m_Name: mentas_Position
   m_TagString: Untagged
@@ -33135,13 +32973,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976201aab8c6f3547aafc10609328d8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ubuntu: {fileID: 12800000, guid: 675fa45de0bab5e45bc9534b6994b188, type: 3}
   actor: {fileID: 1051375362}
   dialogues:
   - officer@none@Hey, get up you lazy prick!
   - officer@none@It's your lucky day, there's someone who wants to see you. Maybe
     you will be out today.
-  dialogueText: {fileID: 2106192018}
-  fader: {fileID: 1442081275}
   afterDialogue: {fileID: 1957128211}
   nextDialogue: 0
 --- !u!114 &1533857602
@@ -33159,6 +32996,102 @@ MonoBehaviour:
   playerObject: {fileID: 1051375359}
   fader: {fileID: 0}
   animationName: idle
+--- !u!82 &1533857603
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1533857599}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: a722544dd5dd5eb4aba872acfb71fb77, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 1
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1542323189 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: c0409c60b56a286459fedd547c6d2a9d,
@@ -33730,12 +33663,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79aee5ea6d374df4cb6e4cb9d5a89e17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonName: OFFICER
   activateIt: {fileID: 1104991630}
-  iconTexture: {fileID: 21300000, guid: fb20f7c2fd6a96f4a83cde30b8179ff7, type: 3}
-  template: {fileID: 321780733}
-  opaqueDistance: 10
-  objectiveObject: {fileID: 0}
+  font: {fileID: 12800000, guid: d49ea284430f5924c92ed0b54542b007, type: 3}
+  buttonText: officer
+  defaultButton: {fileID: 21300000, guid: 1abac62db23fd944da5b52e36ddb69bd, type: 3}
+  hoverButton: {fileID: 21300000, guid: fb20f7c2fd6a96f4a83cde30b8179ff7, type: 3}
 --- !u!1001 &1669335607
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34207,7 +34139,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c51dc2ac3f85c34a88d9eb345f759c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fader: {fileID: 0}
   sceneNumber: 4
 --- !u!1 &1728802929 stripped
 GameObject:
@@ -35047,6 +34978,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   toActivate: {fileID: 155323146}
   fader: {fileID: 1442081275}
+  font: {fileID: 12800000, guid: d49ea284430f5924c92ed0b54542b007, type: 3}
 --- !u!1 &1788803058
 GameObject:
   m_ObjectHideFlags: 0
@@ -38895,6 +38827,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976201aab8c6f3547aafc10609328d8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ubuntu: {fileID: 12800000, guid: 675fa45de0bab5e45bc9534b6994b188, type: 3}
   actor: {fileID: 1203901286}
   dialogues:
   - MIA@neutral@First of all, you will be charged a hefty fine, a minimum of two grand.
@@ -38902,8 +38835,6 @@ MonoBehaviour:
     for at least two years. '
   - MIA@neutral@Additionally, a few officers were injured during the chase so you
     might have to spend a few months in a cell.
-  dialogueText: {fileID: 2106192018}
-  fader: {fileID: 1442081275}
   afterDialogue: {fileID: 1793644604}
   nextDialogue: 1
 --- !u!1 &1918180950
@@ -39721,6 +39652,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976201aab8c6f3547aafc10609328d8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ubuntu: {fileID: 12800000, guid: 675fa45de0bab5e45bc9534b6994b188, type: 3}
   actor: {fileID: 1203901286}
   dialogues:
   - mia@neutral@Alright, I think it's time to set up a vehicle for you.
@@ -39728,98 +39660,8 @@ MonoBehaviour:
     repair it.
   - mia@happy@Luckily, we have a few confiscated cars in our garage that are about
     to be driven to the junkyard. Follow me.
-  dialogueText: {fileID: 2106192018}
-  fader: {fileID: 1442081275}
   afterDialogue: {fileID: 536867775}
   nextDialogue: 0
---- !u!1 &1990098444
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1990098445}
-  - component: {fileID: 1990098448}
-  - component: {fileID: 1990098447}
-  - component: {fileID: 1990098446}
-  m_Layer: 5
-  m_Name: crosshair
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!224 &1990098445
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1990098444}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 464064399}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 10, y: 10}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1990098446
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1990098444}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
-  m_EffectDistance: {x: 1, y: -1}
-  m_UseGraphicAlpha: 1
---- !u!114 &1990098447
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1990098444}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -98529514, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.6}
-  m_RaycastTarget: 0
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Texture: {fileID: 2800000, guid: 1abac62db23fd944da5b52e36ddb69bd, type: 3}
-  m_UVRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
---- !u!222 &1990098448
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1990098444}
-  m_CullTransparentMesh: 0
 --- !u!1001 &1992828243
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -41152,7 +40994,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c51dc2ac3f85c34a88d9eb345f759c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fader: {fileID: 1442081275}
   sceneNumber: 3
 --- !u!1001 &2100337478
 PrefabInstance:
@@ -42346,7 +42187,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2106192016
 RectTransform:
   m_ObjectHideFlags: 0
@@ -42357,10 +42198,9 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 784664631}
+  m_Children: []
   m_Father: {fileID: 464064399}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
@@ -42380,7 +42220,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
-  m_EffectDistance: {x: 2, y: -2}
+  m_EffectDistance: {x: 1, y: -1}
   m_UseGraphicAlpha: 1
 --- !u!114 &2106192018
 MonoBehaviour:

@@ -19,7 +19,6 @@ public class mapControl : MonoBehaviour {
 	}
 	void OnMouseOver()
 	{
-		Debug.Log(FadeImg.color.a);
 		if (Input.GetMouseButton(0) && FadeImg.color.a == 1f)
         {
 			FadeImg.canvasRenderer.SetAlpha(0.0f);

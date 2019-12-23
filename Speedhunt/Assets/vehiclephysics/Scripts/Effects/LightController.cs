@@ -39,6 +39,11 @@ namespace RVP
 
         void Start()
         {
+            //Invoke("Start2", 100);
+            Start2();
+        }
+        void Start2()
+        {
             vp = GetComponent<VehicleParent>();
             for(carId=0; carId<transform.GetChild(0).childCount; carId++)
             {
@@ -68,7 +73,6 @@ namespace RVP
                 }
             }
         }
-
         void Update()
         {
             //Activate blinkers
@@ -145,6 +149,7 @@ namespace RVP
             }
             else
             {
+                Debug.Log(carId);
                 lightsMaterial.SetTexture("_EmissionMap", lightsOnTextures[carId]);
             }
         }

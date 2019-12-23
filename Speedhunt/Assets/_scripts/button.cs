@@ -5,28 +5,49 @@ using UnityEngine.UI;
 
 public class button : MonoBehaviour
 {
-    [SerializeField] string buttonName;
     [SerializeField] GameObject activateIt;
-    [SerializeField] Sprite iconTexture;
-    [SerializeField] Image template;
-    //[SerializeField] Transform player;
-    [SerializeField] float opaqueDistance = 10;
-    [SerializeField] Text objectiveObject;
-    Image iconClone;
-    Sprite defaultIcon;
-    Text iconText;
+    [SerializeField] Font font;
+    [SerializeField] string buttonText;
+    [SerializeField] Sprite defaultButton;
+    [SerializeField] Sprite hoverButton;
+    Image buttonImage;
     void Start()
     {
-        iconClone = Instantiate(template.gameObject, Vector3.zero, Quaternion.identity, template.transform.parent).GetComponent<Image>();
-        iconClone.gameObject.SetActive(true);
-        defaultIcon = iconClone.sprite;
-        iconText = iconClone.gameObject.transform.GetChild(0).GetComponent<Text>();
-        iconText.text = buttonName;
+        CreateButton();
+    }
+    void CreateButton()
+    {
+        GameObject canvas = new GameObject("button Canvas");
+        canvas.AddComponent<RectTransform>();
+        canvas.AddComponent<Canvas>();
+        canvas.AddComponent<CanvasScaler>();
+        canvas.AddComponent<GraphicRaycaster>();
+        canvas.GetComponent<Canvas>().renderMode = RenderMode.ScreenSpaceOverlay;
+        GameObject childObj = new GameObject();
+        GameObject childObj2 = new GameObject();
+
+        //Make block to be parent of this gameobject
+        canvas.transform.parent = this.transform;
+        childObj.transform.parent = canvas.transform;
+        childObj2.transform.parent = childObj.transform;
+        childObj2.SetActive(false);
+        childObj.name = "buttonSprite";
+        childObj2.name = "buttonText";
+        //Create TextMesh and modify its properties
+        buttonImage = childObj.AddComponent<Image>();
+        buttonImage.sprite = defaultButton;
+        Text textMesh = childObj2.AddComponent<Text>();
+        textMesh.fontSize = 20;
+        textMesh.text = buttonText;
+        textMesh.rectTransform.localPosition = new Vector3(0, -75f, 0);
+        textMesh.rectTransform.sizeDelta = new Vector2(160f, 30f);
+        textMesh.alignment = TextAnchor.MiddleCenter;
+        textMesh.font = font;
     }
     void OnDisable()
     {
-        if(iconClone != null)
-            iconClone.gameObject.SetActive(false);
+        if(buttonImage != null)
+            buttonImage.gameObject.SetActive(false);
     }
     void Update()
     {
@@ -35,46 +56,42 @@ public class button : MonoBehaviour
         {
             float distance = Vector3.Distance(this.transform.position, Camera.main.transform.position);
             Vector3 namePose = Camera.main.WorldToScreenPoint(this.transform.position);
-            if(objectiveObject)
+            /*if(objectiveObject)
             {
                 objectiveObject.gameObject.SetActive(true);
                 objectiveObject.color = new Color(1, 1, 1, 0 + 1*(distance/100f));
                 objectiveObject.text = "OBJECTIVE " + Mathf.RoundToInt(distance) + "M";
                 objectiveObject.transform.position = namePose;
-            }
-            iconClone.transform.position = namePose;
+            }*/
+            buttonImage.transform.position = namePose;
             if (distance < 10f)
             {
-                iconClone.gameObject.SetActive(true);
-                iconClone.color = new Color(1, 1, 1, 1 - 1*(distance/opaqueDistance));
+                buttonImage.gameObject.SetActive(true);
+                buttonImage.color = new Color(1, 1, 1, 1 - 1*(distance/10f));
             }
             else if(distance > 10f)
             {
-                iconClone.gameObject.SetActive(false);
+                buttonImage.gameObject.SetActive(false);
             }
         }
         else
         {
-            iconClone.gameObject.SetActive(false);
-            if(objectiveObject)
-            {
-                objectiveObject.gameObject.SetActive(false);
-            }
+            buttonImage.gameObject.SetActive(false);
         }
     }
     void OnMouseEnter()
     {
-        Debug.Log(Vector3.Distance(this.transform.position, Camera.main.transform.position));
+        Debug.Log(Cursor.visible);
         if(!Cursor.visible && Vector3.Distance(this.transform.position, Camera.main.transform.position) < 3f)
         {
-            iconClone.sprite = iconTexture;
-            iconText.gameObject.SetActive(true);
+            buttonImage.sprite = hoverButton;
+            buttonImage.transform.GetChild(0).gameObject.SetActive(true);
         }
     }
     void OnMouseExit()
     {
-        iconClone.sprite = defaultIcon;
-        iconText.gameObject.SetActive(false);
+        buttonImage.sprite = defaultButton;
+        buttonImage.transform.GetChild(0).gameObject.SetActive(false);
     }
     void OnMouseDown()
     {

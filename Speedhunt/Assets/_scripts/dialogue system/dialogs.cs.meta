@@ -3,7 +3,10 @@ guid: 976201aab8c6f3547aafc10609328d8a
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - ubuntu: {fileID: 12800000, guid: 675fa45de0bab5e45bc9534b6994b188, type: 3}
+  - actor: {instanceID: 0}
+  - afterDialogue: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

@@ -5,23 +5,62 @@ using UnityEngine.UI;
 
 public class dialogs : MonoBehaviour
 {
+    [SerializeField] Font ubuntu;
     [SerializeField] Animator actor;
     [TextArea]
     [SerializeField] string[] dialogues;
-    [SerializeField] Text dialogueText;
-    [SerializeField] RawImage fader;
+    Text dialogueText = null;
+    Text nameText = null;
     [SerializeField] GameObject afterDialogue;
     [SerializeField] bool nextDialogue = false;
+    Image fader;
     bool typing = false;
     int currentDialogue = 0;
-    Text wholeText;
     // Start is called before the first frame update
     void OnEnable()
     {
+        if(dialogueText == null)
+        {
+            GameObject canvas = new GameObject("dialogue Canvas");
+            canvas.AddComponent<RectTransform>();
+            canvas.AddComponent<Canvas>();
+            CanvasScaler scaler = canvas.AddComponent<CanvasScaler>();
+            scaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
+            scaler.referenceResolution = new Vector2(1920f, 1080f);
+            scaler.matchWidthOrHeight = 0.5f;
+            canvas.AddComponent<GraphicRaycaster>();
+            canvas.GetComponent<Canvas>().renderMode = RenderMode.ScreenSpaceOverlay;
+            GameObject nameObj = new GameObject("name Text");
+            nameObj.transform.parent = canvas.transform;
+            nameText = nameObj.AddComponent<Text>();
+            RectTransform rect = nameObj.GetComponent<RectTransform>();
+            rect.anchorMin = new Vector2(0.5f, 0);
+            rect.anchorMax = new Vector2(0.5f, 0);
+            rect.pivot = new Vector2(0.5f, 0.5f);
+            rect.sizeDelta = new Vector2(1440f, 80f);
+            rect.anchoredPosition = new Vector3(0, 130f, 0);
+            nameText.font = ubuntu;
+            nameText.fontSize = 35;
+            nameText.color = new Color32(45, 170, 210, 255);
+            nameText.alignment = TextAnchor.MiddleCenter;
+            nameObj.AddComponent<Outline>();
+            GameObject textObj = new GameObject("dialogue Text");
+            textObj.transform.parent = canvas.transform;
+            dialogueText = textObj.AddComponent<Text>();
+            rect = dialogueText.GetComponent<RectTransform>();
+            rect.anchorMin = new Vector2(0.5f, 0);
+            rect.anchorMax = new Vector2(0.5f, 0);
+            rect.pivot = new Vector2(0.5f, 0.5f);
+            rect.sizeDelta = new Vector2(1440f, 80f);
+            rect.anchoredPosition = new Vector3(0, 60f, 0);
+            dialogueText.font = ubuntu;
+            dialogueText.alignment = TextAnchor.MiddleCenter;
+            dialogueText.fontSize = 30;
+            textObj.AddComponent<Outline>();
+            canvas.transform.parent = this.transform;
+        }
         currentDialogue = 0;
-        wholeText = dialogueText.transform.GetChild(0).GetComponent<Text>();
         ShowDialogue(dialogues[0]);
-        Debug.Log("Shite");
     }
 
     // Update is called once per frame
@@ -48,16 +87,38 @@ public class dialogs : MonoBehaviour
         }
         else
         {
+            Destroy(dialogueText.transform.parent.gameObject);
             if(!nextDialogue)
             {
-                dialogueText.gameObject.SetActive(false);
                 if(afterDialogue != null)
                 {
-                    fader.CrossFadeAlpha(1, 1, true);
+                    GameObject canvas = new GameObject("fader Canvas");
+                    canvas.AddComponent<RectTransform>();
+                    canvas.AddComponent<Canvas>();
+                    CanvasScaler scaler = canvas.AddComponent<CanvasScaler>();
+                    scaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
+                    scaler.referenceResolution = new Vector2(1920f, 1080f);
+                    scaler.matchWidthOrHeight = 0.5f;
+                    canvas.AddComponent<GraphicRaycaster>();
+                    canvas.GetComponent<Canvas>().renderMode = RenderMode.ScreenSpaceOverlay;
+                    GameObject faderObj = new GameObject("fader");
+                    canvas.transform.parent = this.transform;
+                    faderObj.transform.parent = canvas.transform;
+                    fader = faderObj.AddComponent<Image>();
+                    fader.color = new Color(0, 0, 0, 1);
+                    fader.rectTransform.anchoredPosition = new Vector3(0, 0, 0);
+                    fader.CrossFadeAlpha(0f, 0.0001f, true);
+                    RectTransform rect = fader.GetComponent<RectTransform>();
+                    rect.anchorMin = new Vector2(0, 0);
+                    rect.anchorMax = new Vector2(1, 1);
+                    rect.pivot = new Vector2(0.5f, 0.5f);
+                    fader.CrossFadeAlpha(1f, 1f, true);
                     Invoke("AfterDialogue", 2);
                 }
                 else
+                {
                     this.gameObject.SetActive(false);
+                }
             }
             else
             {
@@ -67,20 +128,25 @@ public class dialogs : MonoBehaviour
     }
     void AfterDialogue()
     {
-        dialogueText.gameObject.SetActive(false);
         if(fader)
+        {
+            Invoke("DestroyFader", 2f);
             fader.CrossFadeAlpha(0, 1, true);
+        }
         afterDialogue.SetActive(false);
         afterDialogue.SetActive(true);
         if(actor)
             actor.CrossFadeInFixedTime("empty", 1f, 1);
+    }
+    void DestroyFader()
+    {
+        Destroy(fader.transform.parent.gameObject);
         this.gameObject.SetActive(false);
     }
     void ShowDialogue(string dialogue)
     {
         string[] tempDialogues = dialogue.Split('@');
-        dialogueText.text = tempDialogues[0].ToUpper();
-        dialogueText.gameObject.SetActive(true);
+        nameText.text = tempDialogues[0].ToUpper();
         if(tempDialogues[1] == "happy")
         {
             actor.CrossFadeInFixedTime("happy", 1f, 1);
@@ -97,7 +163,7 @@ public class dialogs : MonoBehaviour
         {
             actor.CrossFadeInFixedTime("sad", 1f, 1);
         }
-        else
+        else if(tempDialogues[1] != "none")
         {
             actor.CrossFadeInFixedTime("empty", 1f, 1);
         }
@@ -107,15 +173,15 @@ public class dialogs : MonoBehaviour
     IEnumerator TypeSentence(string sentence)
 	{
         typing = true; 
-        wholeText.text = "";
+        dialogueText.text = "";
 		foreach (char letter in sentence.ToCharArray())
 		{
             if(!typing)
             {
-                wholeText.text = sentence;
+                dialogueText.text = sentence;
                 break;
             }
-			wholeText.text += letter;
+			dialogueText.text += letter;
 			yield return null;
 		}
         typing = false;

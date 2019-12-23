@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class fader : MonoBehaviour
+public class fade : MonoBehaviour
 {
+    [SerializeField] GameObject afterFade;
+    Image fader = null;
     // Start is called before the first frame update
     void Start()
     {
@@ -12,19 +14,34 @@ public class fader : MonoBehaviour
     }
     void OnEnable()
     {
-        RawImage temp = GetComponent<RawImage>();
-        StartCoroutine("FadeSound");
-        temp.CrossFadeAlpha(1, 0, false);
-        temp.CrossFadeAlpha(0, 1, false);
-    }
-    IEnumerator FadeSound()
-    {
-        AudioListener.volume=0f;
-        while(AudioListener.volume < 1)
+        if(fader == null)
         {
-            AudioListener.volume+=0.1f;
-            yield return new WaitForSeconds(0.1f);
+            GameObject canvas = new GameObject("fader Canvas");
+            canvas.AddComponent<RectTransform>();
+            canvas.AddComponent<Canvas>();
+            CanvasScaler scaler = canvas.AddComponent<CanvasScaler>();
+            scaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
+            scaler.referenceResolution = new Vector2(1920f, 1080f);
+            scaler.matchWidthOrHeight = 0.5f;
+            canvas.AddComponent<GraphicRaycaster>();
+            canvas.GetComponent<Canvas>().renderMode = RenderMode.ScreenSpaceOverlay;
+            GameObject faderObj = new GameObject("fader");
+            canvas.transform.parent = this.transform;
+            faderObj.transform.parent = canvas.transform;
+            fader = faderObj.AddComponent<Image>();
+            fader.color = new Color(0, 0, 0, 0);
+            RectTransform rect = fader.GetComponent<RectTransform>();
+            rect.anchorMin = new Vector2(0, 0);
+            rect.anchorMax = new Vector2(1, 1);
+            rect.pivot = new Vector2(0.5f, 0.5f);
         }
+        
+        fader.CrossFadeAlpha(1f, 1f, true);
+        Invoke("AfterFade", 2f);
+    }
+    void AfterFade()
+    {
+        fader.CrossFadeAlpha(0, 1f, true);
     }
     // Update is called once per frame
 }

@@ -580,6 +580,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976201aab8c6f3547aafc10609328d8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ubuntu: {fileID: 12800000, guid: 675fa45de0bab5e45bc9534b6994b188, type: 3}
   actor: {fileID: 0}
   dialogues:
   - colonel@none@Secondly, prostitution thrives more than before.
@@ -587,8 +588,6 @@ MonoBehaviour:
     services in public spots even in daytime.
   - colonel@none@There's even a website called publicbitches.com that shows how easy
     it is to get pleasure in our city.
-  dialogueText: {fileID: 1739871740}
-  fader: {fileID: 0}
   afterDialogue: {fileID: 1189634312}
   nextDialogue: 1
 --- !u!1 &329609653
@@ -745,7 +744,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c51dc2ac3f85c34a88d9eb345f759c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fader: {fileID: 700200458}
   sceneNumber: 2
 --- !u!1 &557471458
 GameObject:
@@ -959,91 +957,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 680606177}
   m_CullTransparentMesh: 0
---- !u!1 &700200456
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 700200457}
-  - component: {fileID: 700200459}
-  - component: {fileID: 700200458}
-  - component: {fileID: 700200460}
-  m_Layer: 5
-  m_Name: fader
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!224 &700200457
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 700200456}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1614054969}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1920, y: 1080}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &700200458
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 700200456}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -98529514, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Texture: {fileID: 0}
-  m_UVRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
---- !u!222 &700200459
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 700200456}
-  m_CullTransparentMesh: 0
---- !u!114 &700200460
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 700200456}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e2c2ef1fda9ef9439bc90d1ebf1ff9d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &840360689
 GameObject:
   m_ObjectHideFlags: 0
@@ -1310,6 +1223,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976201aab8c6f3547aafc10609328d8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ubuntu: {fileID: 12800000, guid: 675fa45de0bab5e45bc9534b6994b188, type: 3}
   actor: {fileID: 0}
   dialogues:
   - colonel@none@What shocked us the most, is that few weeks ago the surveillance
@@ -1321,8 +1235,6 @@ MonoBehaviour:
     special challenge and take out whoever is hosting it.
   - colonel@none@If our theory is true, the information received from the suspect
     can be very useful for shutting down the other activities.
-  dialogueText: {fileID: 1739871740}
-  fader: {fileID: 0}
   afterDialogue: {fileID: 529252266}
   nextDialogue: 1
 --- !u!114 &966988331
@@ -2004,6 +1916,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976201aab8c6f3547aafc10609328d8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ubuntu: {fileID: 12800000, guid: 675fa45de0bab5e45bc9534b6994b188, type: 3}
   actor: {fileID: 0}
   dialogues:
   - colonel@none@The country's dark web has an increased number of smugglers who sell
@@ -2012,8 +1925,6 @@ MonoBehaviour:
   - colonel@none@The local car advertisement page Autoguide have reported a 30% increase
     in car sales. Most of them were reported in neighbour countries as stolen or unsuitable
     for daily use.
-  dialogueText: {fileID: 1739871740}
-  fader: {fileID: 0}
   afterDialogue: {fileID: 1868486972}
   nextDialogue: 1
 --- !u!1 &1350315570
@@ -2171,112 +2082,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976201aab8c6f3547aafc10609328d8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ubuntu: {fileID: 12800000, guid: 675fa45de0bab5e45bc9534b6994b188, type: 3}
   actor: {fileID: 0}
   dialogues:
   - colonel@none@7 months ago we have started a case on disappearance of Andrew Williams,
     local police detective.
   - colonel@none@During the investigation we have noticed a sudden rise of four criminal
     activities.
-  dialogueText: {fileID: 1739871740}
-  fader: {fileID: 0}
   afterDialogue: {fileID: 1611233456}
   nextDialogue: 1
---- !u!1 &1512977607
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1512977608}
-  - component: {fileID: 1512977611}
-  - component: {fileID: 1512977610}
-  - component: {fileID: 1512977609}
-  m_Layer: 5
-  m_Name: Text (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1512977608
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1512977607}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1739871743}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: -30}
-  m_SizeDelta: {x: 1440, y: 80}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1512977609
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1512977607}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
-  m_EffectDistance: {x: 2, y: -2}
-  m_UseGraphicAlpha: 1
---- !u!114 &1512977610
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1512977607}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_FontData:
-    m_Font: {fileID: 12800000, guid: 675fa45de0bab5e45bc9534b6994b188, type: 3}
-    m_FontSize: 30
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 2
-    m_MaxSize: 40
-    m_Alignment: 1
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: Mom's spaghetti, knees weak arm's spaghetti, there's womit on his sweater
-    already mom's spaghetti. He's nervous, but on the surface he looks calm spaghetti.
---- !u!222 &1512977611
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1512977607}
-  m_CullTransparentMesh: 0
 --- !u!1 &1549780255
 GameObject:
   m_ObjectHideFlags: 0
@@ -2373,14 +2187,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976201aab8c6f3547aafc10609328d8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ubuntu: {fileID: 12800000, guid: 675fa45de0bab5e45bc9534b6994b188, type: 3}
   actor: {fileID: 0}
   dialogues:
   - colonel@none@First of all, we have noticed a slight jump in statistics of drug
     dealing cases.
   - colonel@none@There were more suspects that sold drugs and even more that bought
     them. Our hospitals report an increased count of overdosed patients as well.
-  dialogueText: {fileID: 1739871740}
-  fader: {fileID: 0}
   afterDialogue: {fileID: 214186257}
   nextDialogue: 1
 --- !u!1 &1614054965
@@ -2473,9 +2286,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 700200457}
   - {fileID: 1841444683}
-  - {fileID: 1739871743}
   - {fileID: 2059312310}
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -2803,102 +2614,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1682611526}
   m_CullTransparentMesh: 0
---- !u!1 &1739871739
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1739871743}
-  - component: {fileID: 1739871742}
-  - component: {fileID: 1739871740}
-  - component: {fileID: 1739871741}
-  m_Layer: 5
-  m_Name: Text
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1739871740
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1739871739}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.8358036, b: 0.6462264, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_FontData:
-    m_Font: {fileID: 12800000, guid: 675fa45de0bab5e45bc9534b6994b188, type: 3}
-    m_FontSize: 35
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 0
-    m_MaxSize: 40
-    m_Alignment: 4
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: EMINEM
---- !u!114 &1739871741
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1739871739}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
-  m_EffectDistance: {x: 2, y: -2}
-  m_UseGraphicAlpha: 1
---- !u!222 &1739871742
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1739871739}
-  m_CullTransparentMesh: 0
---- !u!224 &1739871743
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1739871739}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1512977608}
-  m_Father: {fileID: 1614054969}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 131}
-  m_SizeDelta: {x: 1440, y: 80}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1770947377
 GameObject:
   m_ObjectHideFlags: 0
@@ -3102,7 +2817,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1614054969}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3322,6 +3037,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976201aab8c6f3547aafc10609328d8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ubuntu: {fileID: 12800000, guid: 675fa45de0bab5e45bc9534b6994b188, type: 3}
   actor: {fileID: 0}
   dialogues:
   - colonel@none@A big boost of illegal street races and reckless driving has been
@@ -3329,8 +3045,6 @@ MonoBehaviour:
   - colonel@none@According to the social media, there is an unknown group of people
     that hosts private drag races with large prices. The most respected and skilled
     drivers receive an invitation from the gang members for one on one challenges.
-  dialogueText: {fileID: 1739871740}
-  fader: {fileID: 0}
   afterDialogue: {fileID: 966988328}
   nextDialogue: 1
 --- !u!1 &1914468774
@@ -3448,6 +3162,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2059312310}
+  - component: {fileID: 2059312311}
   m_Layer: 5
   m_Name: cutscene1
   m_TagString: Untagged
@@ -3473,10 +3188,106 @@ RectTransform:
   - {fileID: 1868486973}
   - {fileID: 966988329}
   m_Father: {fileID: 1614054969}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!82 &2059312311
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2059312309}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: e0cd74d43e4908248809d8a1142af1fc, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
