@@ -13,6 +13,7 @@ public class dialogs : MonoBehaviour
     Text nameText = null;
     [SerializeField] GameObject afterDialogue;
     [SerializeField] bool nextDialogue = false;
+    [SerializeField] bool LookAtCamera = false;
     Image fader;
     bool typing = false;
     int currentDialogue = 0;
@@ -61,12 +62,15 @@ public class dialogs : MonoBehaviour
         }
         currentDialogue = 0;
         ShowDialogue(dialogues[0]);
+        if(LookAtCamera)
+            actor.GetComponentInChildren<eyeMovement>().LookAtCamera();
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(dialogueText.gameObject.activeSelf && Input.GetMouseButtonDown(0))
+        if(dialogueText != null && Input.GetMouseButtonDown(0))
 		{
 			if(typing)
 			{
@@ -133,6 +137,8 @@ public class dialogs : MonoBehaviour
             Invoke("DestroyFader", 2f);
             fader.CrossFadeAlpha(0, 1, true);
         }
+        if(LookAtCamera)
+            actor.GetComponentInChildren<eyeMovement>().ResetEyes();
         afterDialogue.SetActive(false);
         afterDialogue.SetActive(true);
         if(actor)

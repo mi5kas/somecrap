@@ -81,8 +81,7 @@ public class button : MonoBehaviour
     }
     void OnMouseEnter()
     {
-        Debug.Log(Cursor.visible);
-        if(!Cursor.visible && Vector3.Distance(this.transform.position, Camera.main.transform.position) < 3f)
+        if(Cursor.lockState == CursorLockMode.Locked && Vector3.Distance(this.transform.position, Camera.main.transform.position) < 3f)
         {
             buttonImage.sprite = hoverButton;
             buttonImage.transform.GetChild(0).gameObject.SetActive(true);
@@ -95,7 +94,7 @@ public class button : MonoBehaviour
     }
     void OnMouseDown()
     {
-        if(!Cursor.visible && Vector3.Distance(this.transform.position, Camera.main.transform.position) < 3f)
+        if(Cursor.lockState == CursorLockMode.Locked && Vector3.Distance(this.transform.position, Camera.main.transform.position) < 3f)
         {
             activateIt.SetActive(false);
             activateIt.SetActive(true);

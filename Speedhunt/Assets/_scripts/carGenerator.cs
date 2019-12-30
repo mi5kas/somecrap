@@ -6,6 +6,8 @@ public class carGenerator : MonoBehaviour
 {
     [SerializeField] bool playerCar = true;
     [SerializeField] int debugCar = 0;
+    [SerializeField] Material carMaterial;
+    [SerializeField] Texture dirtTexture;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,16 +21,23 @@ public class carGenerator : MonoBehaviour
         if(playerCar)
         {
             tempCarID = PlayerPrefs.GetInt("currentCar");
-            this.transform.GetChild(0).GetChild(tempCarID).GetChild(PlayerPrefs.GetInt("car" + tempCarID + "Status")).gameObject.SetActive(true);
-            suspension[0].GetChild(0).GetChild(0).GetChild(PlayerPrefs.GetInt("car" + tempCarID + "Wheels")).gameObject.SetActive(true);
-            suspension[1].GetChild(0).GetChild(0).GetChild(PlayerPrefs.GetInt("car" + tempCarID + "Wheels")).gameObject.SetActive(true);
-            suspension[2].GetChild(0).GetChild(0).GetChild(PlayerPrefs.GetInt("car" + tempCarID + "Wheels")).gameObject.SetActive(true);
-            suspension[3].GetChild(0).GetChild(0).GetChild(PlayerPrefs.GetInt("car" + tempCarID + "Wheels")).gameObject.SetActive(true);
+            this.transform.GetChild(0).GetChild(tempCarID).GetChild(PlayerPrefs.GetInt("car" + tempCarID + "Status", 0)).gameObject.SetActive(true);
+            carMaterial.color = new Color(PlayerPrefs.GetFloat("car" + tempCarID + "Color1", 0), PlayerPrefs.GetFloat("car" + tempCarID + "Color2", 0), PlayerPrefs.GetFloat("car" + tempCarID + "Color2", 0), 1);
+            if(PlayerPrefs.GetInt("car" + tempCarID + "Status", 0) == 0)
+            {
+                carMaterial.SetTexture("_BaseMap", dirtTexture);
+            }
+            suspension[0].GetChild(0).GetChild(0).GetChild(PlayerPrefs.GetInt("car" + tempCarID + "Wheels", 0)).gameObject.SetActive(true);
+            suspension[1].GetChild(0).GetChild(0).GetChild(PlayerPrefs.GetInt("car" + tempCarID + "Wheels", 0)).gameObject.SetActive(true);
+            suspension[2].GetChild(0).GetChild(0).GetChild(PlayerPrefs.GetInt("car" + tempCarID + "Wheels", 0)).gameObject.SetActive(true);
+            suspension[3].GetChild(0).GetChild(0).GetChild(PlayerPrefs.GetInt("car" + tempCarID + "Wheels", 0)).gameObject.SetActive(true);
         }
         else
         {
             tempCarID = Random.Range(0, 3);
             int randomWheels = Random.Range(1, 9);
+            carMaterial.color = new Color(Random.Range(0f, 1f), Random.Range(0f, 1f), Random.Range(0f, 1f), 1);
+            this.transform.GetChild(0).GetChild(tempCarID).GetChild(Random.Range(0, 2)).gameObject.SetActive(true);
             suspension[0].GetChild(0).GetChild(0).GetChild(randomWheels).gameObject.SetActive(true);
             suspension[1].GetChild(0).GetChild(0).GetChild(randomWheels).gameObject.SetActive(true);
             suspension[2].GetChild(0).GetChild(0).GetChild(randomWheels).gameObject.SetActive(true);

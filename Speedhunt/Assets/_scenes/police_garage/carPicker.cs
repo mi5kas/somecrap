@@ -9,12 +9,17 @@ public class carPicker : MonoBehaviour
     [SerializeField] GameObject buttons;
     [SerializeField] GameObject nextScene;
     [SerializeField] GameObject player;
+    [SerializeField] GameObject introCutscene;
     // Start is called before the first frame update
     void Start()
     {
+        if(PlayerPrefs.GetInt("story", 0) == 1)
+        {
+            introCutscene.SetActive(true);
+        }
         for(int i=0; i<cars.Length; i++)
         {
-            Transform tempBodykit = cars[i].transform.GetChild(3+PlayerPrefs.GetInt("car" + i + "Status", 0));
+            Transform tempBodykit = cars[i].transform.GetChild(2+PlayerPrefs.GetInt("car" + i + "Status", 0));
             tempBodykit.gameObject.SetActive(true);
             foreach(Material tempMaterial in tempBodykit.GetComponent<Renderer>().materials)
             {

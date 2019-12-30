@@ -78,9 +78,9 @@ public class FirstPersonAIO : MonoBehaviour {
 
     [HideInInspector]
     public Vector3 targetAngles;
-    private Vector3 followAngles;
+    public Vector3 followAngles;
     private Vector3 followVelocity;
-    private Vector3 originalRotation;
+    public Vector3 originalRotation;
     [Space(15, order = 4)]
 
     #endregion

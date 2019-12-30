@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
+using TMPro;
 
 namespace RVP
 {
@@ -21,16 +23,19 @@ namespace RVP
         List<Stunt> doneStunts = new List<Stunt>();
         bool drifting;
         float driftDist;
-        float driftScore;
+        float driftScore=0;
         float endDriftTime;//Time during which drifting counts even if the vehicle is not actually drifting
         float jumpDist;
         float jumpTime;
         Vector3 jumpStart;
 
-        public bool detectDrift = true;
-        public bool detectJump = true;
-        public bool detectFlips = true;
-
+        bool detectDrift = true;
+        [SerializeField] Text totalScore;
+        [SerializeField] Text timeLeft;
+        [SerializeField] Text currentScore;
+        [SerializeField] TextMeshPro endDrift;
+        [SerializeField] GameObject backToMap;
+        [SerializeField] racemusic racemusic;
         string driftString;//String indicating drift distance
         string jumpString;//String indicating jump distance
         string flipString;//String indicating flips
@@ -38,14 +43,39 @@ namespace RVP
         public string stuntString;//String containing all stunts
 
         public Motor engine;
+        int timeRemaining=60;
 
         void Start()
         {
             tr = transform;
             rb = GetComponent<Rigidbody>();
             vp = GetComponent<VehicleParent>();
+            totalScore.transform.parent.gameObject.SetActive(true);
+            timeLeft.transform.parent.gameObject.SetActive(true);
+            InvokeRepeating("Countdown", 1f, 1f);
         }
-
+        void Countdown()
+        {
+            timeRemaining-=1;
+            timeLeft.text = "0:" + timeRemaining;
+            if(timeRemaining == 0)
+            {
+                endDrift.transform.parent.gameObject.SetActive(true);
+                this.GetComponent<BasicInput>().enabled=false;
+                currentScore.gameObject.SetActive(false);
+                timeLeft.transform.parent.gameObject.SetActive(false);
+                totalScore.transform.parent.gameObject.SetActive(false);
+                rb.velocity = Vector3.zero;
+                vp.SetEbrake(1);
+                score+=driftScore;
+                racemusic.PlayEnding();
+                PlayerPrefs.SetInt("reputation", PlayerPrefs.GetInt("reputation", 0) + Mathf.RoundToInt(score/10f));
+                endDrift.text = Mathf.RoundToInt(score/10f) + "\n\n" + PlayerPrefs.GetInt("reputation", 0);
+                this.GetComponent<speedometer>().enabled=false;
+                detectDrift=false;
+                this.enabled=false;
+            }
+        }
         void FixedUpdate()
         {
             //Detect drifts
@@ -60,29 +90,13 @@ namespace RVP
                 driftScore = 0;
                 driftString = "";
             }
-
+            if(!detectDrift && Input.GetKeyDown(KeyCode.Return))
+            {
+                backToMap.SetActive(true);
+            }
             //Detect jumps
-            if (detectJump && !vp.crashing)
-            {
-                DetectJump();
-            }
-            else
-            {
-                jumpTime = 0;
-                jumpDist = 0;
-                jumpString = "";
-            }
 
             //Detect flips
-            if (detectFlips && !vp.crashing)
-            {
-                DetectFlips();
-            }
-            else
-            {
-                stunts.Clear();
-                flipString = "";
-            }
 
             //Combine strings into final stunt string
             stuntString = vp.crashing ? "Crashed" : driftString + jumpString + (string.IsNullOrEmpty(flipString) || string.IsNullOrEmpty(jumpString) ? "" : " + ") + flipString;
@@ -97,7 +111,33 @@ namespace RVP
             {
                 driftScore += (StuntManager.driftScoreRateStatic * Mathf.Abs(vp.localVelocity.x)) * Time.timeScale * TimeMaster.inverseFixedTimeFactor;
                 driftDist += vp.velMag * Time.fixedDeltaTime;
-                driftString = "Drift: " + driftDist.ToString("n0") + " m";
+                string driftText = "GOOD DRIFT";
+                currentScore.gameObject.SetActive(true);
+                if(driftScore < 10)
+                {
+                    driftText = "GOOD DRIFT";
+                }
+                else if(driftScore < 30)
+                {
+                    driftText = "GREAT DRIFT!";
+                }
+                else if(driftScore < 60)
+                {
+                    driftText = "FANTASTIC!";
+                }
+                else if(driftScore < 120)
+                {
+                    driftText = "OH MY GOD!";
+                }
+                else if(driftScore < 200)
+                {
+                    driftText = "I'M GONNA CUM!";
+                }
+                else
+                {
+                    driftText = "AAAAAAHHHHHHHHH";
+                }
+                currentScore.text = driftText +"\n" + Mathf.RoundToInt(driftScore*10);
 
                 if (engine)
                 {
@@ -106,124 +146,15 @@ namespace RVP
             }
             else
             {
-                score += driftScore;
+                score += driftScore*10;
+                totalScore.text = Mathf.RoundToInt(score).ToString();
+                currentScore.gameObject.SetActive(false);
                 driftDist = 0;
                 driftScore = 0;
                 driftString = "";
             }
         }
 
-        void DetectJump()
-        {
-            if (vp.groundedWheels == 0)
-            {
-                jumpDist = Vector3.Distance(jumpStart, tr.position);
-                jumpTime += Time.fixedDeltaTime;
-                jumpString = "Jump: " + jumpDist.ToString("n0") + " m";
-
-                if (engine)
-                {
-                    engine.boost += StuntManager.jumpBoostAddStatic * Time.timeScale * 0.01f * TimeMaster.inverseFixedTimeFactor;
-                }
-            }
-            else
-            {
-                score += (jumpDist + jumpTime) * StuntManager.jumpScoreRateStatic;
-
-                if (engine)
-                {
-                    engine.boost += (jumpDist + jumpTime) * StuntManager.jumpBoostAddStatic * Time.timeScale * 0.01f * TimeMaster.inverseFixedTimeFactor;
-                }
-
-                jumpStart = tr.position;
-                jumpDist = 0;
-                jumpTime = 0;
-                jumpString = "";
-            }
-        }
-
-        void DetectFlips()
-        {
-            if (vp.groundedWheels == 0)
-            {
-                //Check to see if vehicle is performing a stunt and add it to the stunts list
-                foreach (Stunt curStunt in StuntManager.stuntsStatic)
-                {
-                    if (Vector3.Dot(vp.localAngularVel.normalized, curStunt.rotationAxis) >= curStunt.precision)
-                    {
-                        bool stuntExists = false;
-
-                        foreach (Stunt checkStunt in stunts)
-                        {
-                            if (curStunt.name == checkStunt.name)
-                            {
-                                stuntExists = true;
-                                break;
-                            }
-                        }
-
-                        if (!stuntExists)
-                        {
-                            stunts.Add(new Stunt(curStunt));
-                        }
-                    }
-                }
-
-                //Check the progress of stunts and compile the flip string listing all stunts
-                foreach (Stunt curStunt2 in stunts)
-                {
-                    if (Vector3.Dot(vp.localAngularVel.normalized, curStunt2.rotationAxis) >= curStunt2.precision)
-                    {
-                        curStunt2.progress += rb.angularVelocity.magnitude * Time.fixedDeltaTime;
-                    }
-
-                    if (curStunt2.progress * Mathf.Rad2Deg >= curStunt2.angleThreshold)
-                    {
-                        bool stuntDoneExists = false;
-
-                        foreach (Stunt curDoneStunt in doneStunts)
-                        {
-                            if (curDoneStunt == curStunt2)
-                            {
-                                stuntDoneExists = true;
-                                break;
-                            }
-                        }
-
-                        if (!stuntDoneExists)
-                        {
-                            doneStunts.Add(curStunt2);
-                        }
-                    }
-                }
-
-                string stuntCount = "";
-                flipString = "";
-
-                foreach (Stunt curDoneStunt2 in doneStunts)
-                {
-                    stuntCount = curDoneStunt2.progress * Mathf.Rad2Deg >= curDoneStunt2.angleThreshold * 2 ? " x" + Mathf.FloorToInt((curDoneStunt2.progress * Mathf.Rad2Deg) / curDoneStunt2.angleThreshold).ToString() : "";
-                    flipString = string.IsNullOrEmpty(flipString) ? curDoneStunt2.name + stuntCount : flipString + " + " + curDoneStunt2.name + stuntCount;
-                }
-            }
-            else
-            {
-                //Add stunt points to the score
-                foreach (Stunt curStunt in stunts)
-                {
-                    score += curStunt.progress * Mathf.Rad2Deg * curStunt.scoreRate * Mathf.FloorToInt((curStunt.progress * Mathf.Rad2Deg) / curStunt.angleThreshold) * curStunt.multiplier;
-
-                    //Add boost to the engine
-                    if (engine)
-                    {
-                        engine.boost += curStunt.progress * Mathf.Rad2Deg * curStunt.boostAdd * curStunt.multiplier * 0.01f;
-                    }
-                }
-
-                stunts.Clear();
-                doneStunts.Clear();
-                flipString = "";
-            }
-        }
+        
     }
 }

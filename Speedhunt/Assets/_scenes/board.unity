@@ -539,6 +539,7 @@ GameObject:
   m_Component:
   - component: {fileID: 214186258}
   - component: {fileID: 214186259}
+  - component: {fileID: 214186260}
   m_Layer: 5
   m_Name: dialogue3
   m_TagString: Untagged
@@ -590,6 +591,22 @@ MonoBehaviour:
     it is to get pleasure in our city.
   afterDialogue: {fileID: 1189634312}
   nextDialogue: 1
+--- !u!114 &214186260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 214186257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e8db960dbf3d2b4f90c1a879c8fac86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toEnable: []
+  toDisable:
+  - {fileID: 1611233456}
+  fader: {fileID: 0}
 --- !u!1 &329609653
 GameObject:
   m_ObjectHideFlags: 0
@@ -1180,6 +1197,7 @@ GameObject:
   - component: {fileID: 966988329}
   - component: {fileID: 966988330}
   - component: {fileID: 966988331}
+  - component: {fileID: 966988332}
   m_Layer: 5
   m_Name: dialogue6
   m_TagString: Untagged
@@ -1251,6 +1269,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   variableName: story
   variableValue: 1
+--- !u!114 &966988332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 966988328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e8db960dbf3d2b4f90c1a879c8fac86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toEnable: []
+  toDisable:
+  - {fileID: 1868486972}
+  fader: {fileID: 0}
 --- !u!1 &987191788
 GameObject:
   m_ObjectHideFlags: 0
@@ -1874,6 +1908,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1189634313}
   - component: {fileID: 1189634314}
+  - component: {fileID: 1189634315}
   m_Layer: 5
   m_Name: dialogue4
   m_TagString: Untagged
@@ -1927,6 +1962,22 @@ MonoBehaviour:
     for daily use.
   afterDialogue: {fileID: 1868486972}
   nextDialogue: 1
+--- !u!114 &1189634315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1189634312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e8db960dbf3d2b4f90c1a879c8fac86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toEnable: []
+  toDisable:
+  - {fileID: 214186257}
+  fader: {fileID: 0}
 --- !u!1 &1350315570
 GameObject:
   m_ObjectHideFlags: 0
@@ -2147,6 +2198,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1611233457}
   - component: {fileID: 1611233458}
+  - component: {fileID: 1611233459}
   m_Layer: 5
   m_Name: dialogue2
   m_TagString: Untagged
@@ -2196,6 +2248,22 @@ MonoBehaviour:
     them. Our hospitals report an increased count of overdosed patients as well.
   afterDialogue: {fileID: 214186257}
   nextDialogue: 1
+--- !u!114 &1611233459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1611233456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e8db960dbf3d2b4f90c1a879c8fac86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toEnable: []
+  toDisable:
+  - {fileID: 1369241812}
+  fader: {fileID: 0}
 --- !u!1 &1614054965
 GameObject:
   m_ObjectHideFlags: 0
@@ -2994,6 +3062,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1868486973}
   - component: {fileID: 1868486974}
+  - component: {fileID: 1868486975}
   m_Layer: 5
   m_Name: dialogue5
   m_TagString: Untagged
@@ -3047,6 +3116,22 @@ MonoBehaviour:
     drivers receive an invitation from the gang members for one on one challenges.
   afterDialogue: {fileID: 966988328}
   nextDialogue: 1
+--- !u!114 &1868486975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1868486972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e8db960dbf3d2b4f90c1a879c8fac86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toEnable: []
+  toDisable:
+  - {fileID: 1189634312}
+  fader: {fileID: 0}
 --- !u!1 &1914468774
 GameObject:
   m_ObjectHideFlags: 0

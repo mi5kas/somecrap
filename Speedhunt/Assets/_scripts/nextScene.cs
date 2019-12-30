@@ -11,6 +11,8 @@ public class nextScene : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        this.transform.parent = null;
+        DontDestroyOnLoad(this.gameObject);
         GameObject canvas = new GameObject("fader Canvas");
         canvas.AddComponent<RectTransform>();
         canvas.AddComponent<Canvas>();
@@ -24,35 +26,37 @@ public class nextScene : MonoBehaviour
         canvas.transform.parent = this.transform;
         faderObj.transform.parent = canvas.transform;
         fader = faderObj.AddComponent<Image>();
-        fader.color = new Color(0, 0, 0, 0);
+        fader.color = new Color(0, 0, 0, 1);
+        fader.CrossFadeAlpha(0f, 0.01f, true);
         RectTransform rect = fader.GetComponent<RectTransform>();
         rect.anchorMin = new Vector2(0, 0);
         rect.anchorMax = new Vector2(1, 1);
         rect.pivot = new Vector2(0.5f, 0.5f);
+        rect.anchoredPosition = Vector3.zero;
         fader.CrossFadeAlpha(1f, 1f, true);
         StartCoroutine(FadeSound());
-        DontDestroyOnLoad(this);
     }
     IEnumerator FadeSound()
     {
-        fader.CrossFadeAlpha(1, 2f, true);
         AudioListener.volume=1f;
         while(AudioListener.volume > 0)
         {
             AudioListener.volume-=0.1f;
             yield return new WaitForSeconds(0.1f);
         }
-        Time.timeScale=0;
-        SceneManager.LoadScene(sceneNumber);
-        yield return new WaitForSeconds(2f);
-        Time.timeScale=1;
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneNumber);
+        // Wait until the asynchronous scene fully loads
+        while (!asyncLoad.isDone)
+        {
+            yield return new WaitForSeconds(1f);
+        }
         fader.CrossFadeAlpha(0, 2f, true);
         while(AudioListener.volume < 1)
         {
             AudioListener.volume+=0.1f;
             yield return new WaitForSeconds(0.1f);
         }
-        Destroy(this);
+        Destroy(this.gameObject);
     }
     // Update is called once per frame
 }

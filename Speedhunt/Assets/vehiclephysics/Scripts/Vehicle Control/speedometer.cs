@@ -21,6 +21,11 @@ public class speedometer : MonoBehaviour {
 		vcam = carCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
 		vp = GetComponent<VehicleParent>();
 		engine = GetComponentInChildren<Motor>();
+		rpm.parent.gameObject.SetActive(true);
+	}
+	void OnDisable()
+	{
+		rpm.parent.gameObject.SetActive(false);
 	}
 	void Update () {
         rpm.transform.eulerAngles =  new Vector3(0, 0, -4 - 140 * engine.targetPitch);

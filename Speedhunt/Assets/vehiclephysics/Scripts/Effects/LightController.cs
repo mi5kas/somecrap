@@ -13,7 +13,6 @@ namespace RVP
         VehicleParent vp;
 
         Material lightsMaterial;
-        int carId;
         [SerializeField] Texture[] lightsOnTextures;
         [SerializeField] Texture[] brakesOnTextures;
         [SerializeField] Texture[] reverseOnTextures;
@@ -45,18 +44,12 @@ namespace RVP
         void Start2()
         {
             vp = GetComponent<VehicleParent>();
-            for(carId=0; carId<transform.GetChild(0).childCount; carId++)
+            foreach (Material material in this.transform.GetChild(0).GetChild(PlayerPrefs.GetInt("currentCar", 0)).GetComponent<Renderer>().materials)
             {
-                if (transform.GetChild(0).GetChild(carId).gameObject.activeSelf)
+                if (material.name == "lights (Instance)")
                 {
-                    foreach (Material material in transform.GetChild(0).GetChild(carId).GetComponent<Renderer>().materials)
-                    {
-                        if (material.name == "lights (Instance)")
-                        {
-                            lightsMaterial = material;
-                            break;
-                        }
-                    }
+                    lightsMaterial = material;
+                    lightsMaterial.EnableKeyword("_EMISSION");                  
                     break;
                 }
             }
@@ -141,16 +134,15 @@ namespace RVP
         {
             if(reverseLightsOn)
             {
-                lightsMaterial.SetTexture("_EmissionMap", reverseOnTextures[carId]);
+                lightsMaterial.SetTexture("_EmissionMap", reverseOnTextures[PlayerPrefs.GetInt("currentCar", 0)]);
             }
             else if(brakelightsOn)
             {
-                lightsMaterial.SetTexture("_EmissionMap", brakesOnTextures[carId]);
+                lightsMaterial.SetTexture("_EmissionMap", brakesOnTextures[PlayerPrefs.GetInt("currentCar", 0)]);
             }
             else
             {
-                Debug.Log(carId);
-                lightsMaterial.SetTexture("_EmissionMap", lightsOnTextures[carId]);
+                lightsMaterial.SetTexture("_EmissionMap", lightsOnTextures[PlayerPrefs.GetInt("currentCar", 0)]);
             }
         }
 
