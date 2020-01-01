@@ -11,7 +11,7 @@ public class enableThem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        OnEnable();
+        //OnEnable();
     }
     void OnEnable()
     {

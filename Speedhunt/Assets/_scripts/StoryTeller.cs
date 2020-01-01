@@ -13,9 +13,22 @@ public class StoryTeller : MonoBehaviour
     [SerializeField] PostProcessProfile pProfile;
     void Start()
     {
-        if(PlayerPrefs.GetInt("story", 0) != 0)
+        if(PlayerPrefs.GetInt("story", 0) == 9000)
         {
             scene5.SetActive(true);
+        }
+        else
+        {
+            PlayerPrefs.DeleteAll();
+            PlayerPrefs.SetFloat("car0Color1", Random.Range(0f, 1f));
+            PlayerPrefs.SetFloat("car0Color2", Random.Range(0f, 1f));
+            PlayerPrefs.SetFloat("car0Color3", Random.Range(0f, 1f));
+            PlayerPrefs.SetFloat("car1Color1", Random.Range(0f, 1f));
+            PlayerPrefs.SetFloat("car1Color2", Random.Range(0f, 1f));
+            PlayerPrefs.SetFloat("car1Color3", Random.Range(0f, 1f));
+            PlayerPrefs.SetFloat("car2Color1", Random.Range(0f, 1f));
+            PlayerPrefs.SetFloat("car2Color2", Random.Range(0f, 1f));
+            PlayerPrefs.SetFloat("car2Color3", Random.Range(0f, 1f));
         }
         if(QualitySettings.GetQualityLevel() == 2)
         {

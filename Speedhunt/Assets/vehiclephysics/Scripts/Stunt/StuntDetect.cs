@@ -73,7 +73,6 @@ namespace RVP
                 endDrift.text = Mathf.RoundToInt(score/10f) + "\n\n" + PlayerPrefs.GetInt("reputation", 0);
                 this.GetComponent<speedometer>().enabled=false;
                 detectDrift=false;
-                this.enabled=false;
             }
         }
         void FixedUpdate()

@@ -96,9 +96,11 @@ public class choices : MonoBehaviour
     }
     void ButtonClicked(int whichButton)
     {
-        Debug.Log(whichButton);
-        afterButton[whichButton].SetActive(false);
-        afterButton[whichButton].SetActive(true);
+        if(afterButton[whichButton])
+        {
+            afterButton[whichButton].SetActive(false);
+            afterButton[whichButton].SetActive(true);
+        }
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         Destroy(canvas);

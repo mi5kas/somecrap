@@ -11,7 +11,7 @@ public class nextScene : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        this.transform.parent = null;
+        this.transform.SetParent(null);
         DontDestroyOnLoad(this.gameObject);
         GameObject canvas = new GameObject("fader Canvas");
         canvas.AddComponent<RectTransform>();
@@ -23,8 +23,8 @@ public class nextScene : MonoBehaviour
         canvas.AddComponent<GraphicRaycaster>();
         canvas.GetComponent<Canvas>().renderMode = RenderMode.ScreenSpaceOverlay;
         GameObject faderObj = new GameObject("fader");
-        canvas.transform.parent = this.transform;
-        faderObj.transform.parent = canvas.transform;
+        canvas.transform.SetParent(this.transform);
+        faderObj.transform.SetParent(canvas.transform);
         fader = faderObj.AddComponent<Image>();
         fader.color = new Color(0, 0, 0, 1);
         fader.CrossFadeAlpha(0f, 0.01f, true);
@@ -44,6 +44,7 @@ public class nextScene : MonoBehaviour
             AudioListener.volume-=0.1f;
             yield return new WaitForSeconds(0.1f);
         }
+        yield return new WaitForSeconds(3f);
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneNumber);
         // Wait until the asynchronous scene fully loads
         while (!asyncLoad.isDone)
