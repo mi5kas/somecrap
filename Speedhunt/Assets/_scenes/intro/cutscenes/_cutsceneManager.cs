@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
+using RVP;
 
 public class _cutsceneManager : MonoBehaviour
 {
@@ -48,6 +49,8 @@ public class _cutsceneManager : MonoBehaviour
             cars[0].enabled = false;
             cars[0].transform.position = new Vector3(139.4808f, 4.55f, 1420.09f);
             cars[0].transform.eulerAngles = Vector3.zero;
+            cars[0].GetComponent<Rigidbody>().isKinematic = false;
+            cars[0].GetComponent<speedometer>().enabled = true;
             cars[0].gameObject.GetComponent<Rigidbody>().AddRelativeForce(Vector3.forward * 5000);
             cars[1].enabled = false;
             cars[1].transform.position = new Vector3(139.4808f, 4.55f, 1390.286f);
