@@ -8,10 +8,20 @@ using UnityEngine.Networking;
 public class testux : MonoBehaviour
 {
     // Start is called before the first frame update
-    [SerializeField] string text;
+    Texture2D texture;
+    [SerializeField] Text text;
+    Vector2 screenSize;
+    Vector2 positionRatio;
     void Start()
     {
-        Debug.Log(UnityWebRequest.Post("https://texttospeech.googleapis.com/v1/text:synthesize", text));
+        texture = this.GetComponent<RawImage>().mainTexture as Texture2D;
+    }
+    void Update()
+    {
+        if(Input.GetMouseButton(0))
+        {
+            text.color = texture.GetPixel(Mathf.RoundToInt(Input.mousePosition.x-960f-500f), Mathf.RoundToInt(Input.mousePosition.y-540-500));
+        }
     }
     // Update is called once per frame
 }
