@@ -309,7 +309,14 @@ public class BETA_SETTINGS{
         fOVKick.fovStart = playerCamera.GetComponent<CinemachineVirtualCamera>().m_Lens.FieldOfView;
         #endregion
     }
-
+    void OnEnable()
+    {
+        if(lockAndHideCursor) { Cursor.lockState = CursorLockMode.Locked; Cursor.visible = false; }
+    }
+    void OnDisable()
+    {
+        if(lockAndHideCursor) { Cursor.lockState = CursorLockMode.None; Cursor.visible = true; }
+    }
     private void Update()
     {
         #region Look Settings - Update
