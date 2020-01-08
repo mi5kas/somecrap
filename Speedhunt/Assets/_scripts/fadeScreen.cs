@@ -45,6 +45,7 @@ public class fadeScreen : MonoBehaviour
     void AfterFade()
     {
         fader.CrossFadeAlpha(0, 1f, true);
+        Destroy(fader.transform.parent.gameObject, 1f);
         afterFade.SetActive(true);
     }
     // Update is called once per frame

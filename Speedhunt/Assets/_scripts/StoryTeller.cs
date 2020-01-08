@@ -20,6 +20,7 @@ public class StoryTeller : MonoBehaviour
         else
         {
             PlayerPrefs.DeleteAll();
+            PlayerPrefs.SetInt("currentCar", 4);
             PlayerPrefs.SetFloat("car0Color1", Random.Range(0f, 1f));
             PlayerPrefs.SetFloat("car0Color2", Random.Range(0f, 1f));
             PlayerPrefs.SetFloat("car0Color3", Random.Range(0f, 1f));

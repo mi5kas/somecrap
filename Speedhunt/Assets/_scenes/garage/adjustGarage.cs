@@ -143,12 +143,12 @@ public class adjustGarage : MonoBehaviour
         }
         else if(whichMod == 4)
         {
+            tuningCameras[0].SetActive(true);
             colorPalette.gameObject.SetActive(true);
             powerLine.transform.parent.gameObject.SetActive(false);
             handlingLine.transform.parent.gameObject.SetActive(false);
             defaultColor = playerMaterial.GetColor("_Color");
             colorPalette.CurrentColor = playerMaterial.GetColor("_Color");
-            tuningCameras[0].SetActive(true);
             tuningButtons[0].transform.parent.gameObject.SetActive(false);
         }
         else if(whichMod == 5)
@@ -176,6 +176,7 @@ public class adjustGarage : MonoBehaviour
         }
         else
         {
+            endTuning.SetActive(false);
             endTuning.SetActive(true);
         }
     }
