@@ -47,16 +47,16 @@ public class _cutsceneManager : MonoBehaviour
         {
             cars[2].gameObject.SetActive(false);
             cars[0].enabled = false;
-            cars[0].transform.position = new Vector3(139.4808f, 4.55f, 1420.09f);
+            cars[0].transform.position = new Vector3(139.4808f, 4.53f, 1420.09f);
             cars[0].transform.eulerAngles = Vector3.zero;
             cars[0].GetComponent<Rigidbody>().isKinematic = false;
             cars[0].GetComponent<speedometer>().enabled = true;
-            cars[0].gameObject.GetComponent<Rigidbody>().AddRelativeForce(Vector3.forward * 5000);
+            cars[0].gameObject.GetComponent<Rigidbody>().AddRelativeForce(Vector3.forward * 2000);
             cars[1].enabled = false;
-            cars[1].transform.position = new Vector3(139.4808f, 4.55f, 1390.286f);
+            cars[1].transform.position = new Vector3(139.4808f, 4.53f, 1350.286f);
             cars[1].transform.eulerAngles = Vector3.zero;
             cars[1].gameObject.GetComponent<RVP.FollowAI>().enabled = true;
-            cars[1].gameObject.GetComponent<Rigidbody>().AddRelativeForce(Vector3.forward * 5000);
+            cars[1].gameObject.GetComponent<Rigidbody>().AddRelativeForce(Vector3.forward * 2000);
             blackBars.Play("HideIt");
             carsounds.SetActive(false);
 
