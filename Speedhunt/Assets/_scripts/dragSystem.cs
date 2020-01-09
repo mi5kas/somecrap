@@ -9,7 +9,6 @@ public class dragSystem : MonoBehaviour
 {
     [SerializeField] Animator playerCar;
     [SerializeField] Animator enemyCar;
-    [SerializeField] float enemyPower = 0.25f;
     [SerializeField] Transform rpmNeedle;
     [SerializeField] Text speedText;
     [SerializeField] Transform carCamera;
@@ -27,6 +26,7 @@ public class dragSystem : MonoBehaviour
     float playerRPM=1000f;
     int currentGear=1;
     float playerPower = 0.3f;
+    float enemyPower;
     float gearRatio = 1;
     float enemyRPM;
     float enemyGear = 1;
@@ -38,6 +38,8 @@ public class dragSystem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        playerPower = PlayerPrefs.GetFloat("car" + PlayerPrefs.GetInt("currentCar") + "Power");
+        enemyPower = enemyCar.GetComponent<carGenerator>().enemyPower;
         InvokeRepeating("SetSpeed", 1f, 0.05f);
         vcam = carCamera.GetComponent<CinemachineVirtualCamera>().GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
         roadSlider.maxValue = Vector3.Distance(playerCar.transform.position, finishLine.transform.position);

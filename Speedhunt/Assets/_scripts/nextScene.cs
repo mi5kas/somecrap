@@ -44,12 +44,12 @@ public class nextScene : MonoBehaviour
             AudioListener.volume-=0.1f;
             yield return new WaitForSeconds(0.1f);
         }
-        yield return new WaitForSeconds(3f);
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneNumber);
+        yield return new WaitForSeconds(2f);
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneNumber, LoadSceneMode.Single);
         // Wait until the asynchronous scene fully loads
         while (!asyncLoad.isDone)
         {
-            yield return new WaitForSeconds(1f);
+            yield return null;
         }
         fader.CrossFadeAlpha(0, 2f, true);
         while(AudioListener.volume < 1)

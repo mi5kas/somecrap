@@ -68,7 +68,7 @@ namespace RVP
             //GetComponent<AudioListener>().velocityUpdateMode = AudioVelocityUpdateMode.Fixed;
         }
 
-        void FixedUpdate()
+        void LateUpdate()
         {
             if (target && targetBody && target.gameObject.activeSelf)
             {

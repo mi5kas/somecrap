@@ -13,7 +13,7 @@ public class StoryTeller : MonoBehaviour
     [SerializeField] PostProcessProfile pProfile;
     void Start()
     {
-        if(PlayerPrefs.GetInt("story", 0) == 9000)
+        if(PlayerPrefs.GetInt("story", 0) >= 2)
         {
             scene5.SetActive(true);
         }
@@ -24,12 +24,18 @@ public class StoryTeller : MonoBehaviour
             PlayerPrefs.SetFloat("car0Color1", Random.Range(0f, 1f));
             PlayerPrefs.SetFloat("car0Color2", Random.Range(0f, 1f));
             PlayerPrefs.SetFloat("car0Color3", Random.Range(0f, 1f));
+            PlayerPrefs.SetFloat("car0Power", 0.3f);
+            PlayerPrefs.SetFloat("car0Handling", 0.3f);
             PlayerPrefs.SetFloat("car1Color1", Random.Range(0f, 1f));
             PlayerPrefs.SetFloat("car1Color2", Random.Range(0f, 1f));
             PlayerPrefs.SetFloat("car1Color3", Random.Range(0f, 1f));
+            PlayerPrefs.SetFloat("car1Power", 0.3f);
+            PlayerPrefs.SetFloat("car1Handling", 0.3f);
             PlayerPrefs.SetFloat("car2Color1", Random.Range(0f, 1f));
             PlayerPrefs.SetFloat("car2Color2", Random.Range(0f, 1f));
             PlayerPrefs.SetFloat("car2Color3", Random.Range(0f, 1f));
+            PlayerPrefs.SetFloat("car2Power", 0.3f);
+            PlayerPrefs.SetFloat("car2Handling", 0.3f);
         }
         if(QualitySettings.GetQualityLevel() == 2)
         {

@@ -172,6 +172,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationName: anim1
+  randomizeSpeed: 0
 --- !u!95 &27176997
 Animator:
   serializedVersion: 3
@@ -278,6 +279,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationName: anim2
+  randomizeSpeed: 0
 --- !u!95 &44759087
 Animator:
   serializedVersion: 3
@@ -384,6 +386,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationName: anim4
+  randomizeSpeed: 0
 --- !u!95 &81615944
 Animator:
   serializedVersion: 3
@@ -448,6 +451,7 @@ GameObject:
   m_Component:
   - component: {fileID: 111108103}
   - component: {fileID: 111108102}
+  - component: {fileID: 111108104}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -529,6 +533,28 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!114 &111108104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 111108101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 976201aab8c6f3547aafc10609328d8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ubuntu: {fileID: 12800000, guid: 675fa45de0bab5e45bc9534b6994b188, type: 3}
+  actor: {fileID: 0}
+  dialogues:
+  - colonel@none@7 months ago we have started a case on disappearance of Andrew Williams,
+    local police detective.
+  - colonel@none@During the investigation we have noticed a sudden rise of four criminal
+    activities.
+  afterDialogue: {fileID: 1611233456}
+  nextDialogue: 1
+  LookAtCamera: 0
 --- !u!1 &214186257
 GameObject:
   m_ObjectHideFlags: 0
@@ -591,6 +617,7 @@ MonoBehaviour:
     it is to get pleasure in our city.
   afterDialogue: {fileID: 1189634312}
   nextDialogue: 1
+  LookAtCamera: 0
 --- !u!114 &214186260
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -659,6 +686,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationName: anim1
+  randomizeSpeed: 0
 --- !u!95 &329609656
 Animator:
   serializedVersion: 3
@@ -814,6 +842,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationName: anim2
+  randomizeSpeed: 0
 --- !u!95 &557471461
 Animator:
   serializedVersion: 3
@@ -920,6 +949,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationName: anim6
+  randomizeSpeed: 0
 --- !u!95 &680606180
 Animator:
   serializedVersion: 3
@@ -1026,6 +1056,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationName: animx
+  randomizeSpeed: 0
 --- !u!95 &840360692
 Animator:
   serializedVersion: 3
@@ -1132,6 +1163,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationName: animx
+  randomizeSpeed: 0
 --- !u!95 &921316529
 Animator:
   serializedVersion: 3
@@ -1255,6 +1287,7 @@ MonoBehaviour:
     can be very useful for shutting down the other activities.
   afterDialogue: {fileID: 529252266}
   nextDialogue: 1
+  LookAtCamera: 0
 --- !u!114 &966988331
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1337,6 +1370,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationName: anim2
+  randomizeSpeed: 0
 --- !u!95 &987191791
 Animator:
   serializedVersion: 3
@@ -1443,6 +1477,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationName: anim2
+  randomizeSpeed: 0
 --- !u!95 &1066485541
 Animator:
   serializedVersion: 3
@@ -1549,6 +1584,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationName: anim1
+  randomizeSpeed: 0
 --- !u!95 &1116977440
 Animator:
   serializedVersion: 3
@@ -1655,6 +1691,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationName: anim4
+  randomizeSpeed: 0
 --- !u!95 &1123341056
 Animator:
   serializedVersion: 3
@@ -1761,6 +1798,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationName: anim1
+  randomizeSpeed: 0
 --- !u!95 &1137390476
 Animator:
   serializedVersion: 3
@@ -1962,6 +2000,7 @@ MonoBehaviour:
     for daily use.
   afterDialogue: {fileID: 1868486972}
   nextDialogue: 1
+  LookAtCamera: 0
 --- !u!114 &1189634315
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2030,6 +2069,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationName: anim3
+  randomizeSpeed: 0
 --- !u!95 &1350315573
 Animator:
   serializedVersion: 3
@@ -2128,7 +2168,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1369241812}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 976201aab8c6f3547aafc10609328d8a, type: 3}
   m_Name: 
@@ -2142,6 +2182,7 @@ MonoBehaviour:
     activities.
   afterDialogue: {fileID: 1611233456}
   nextDialogue: 1
+  LookAtCamera: 0
 --- !u!1 &1549780255
 GameObject:
   m_ObjectHideFlags: 0
@@ -2248,6 +2289,7 @@ MonoBehaviour:
     them. Our hospitals report an increased count of overdosed patients as well.
   afterDialogue: {fileID: 214186257}
   nextDialogue: 1
+  LookAtCamera: 0
 --- !u!114 &1611233459
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2312,12 +2354,12 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -2416,6 +2458,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationName: anim0
+  randomizeSpeed: 0
 --- !u!95 &1624542454
 Animator:
   serializedVersion: 3
@@ -2522,6 +2565,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationName: anim3
+  randomizeSpeed: 0
 --- !u!95 &1647280653
 Animator:
   serializedVersion: 3
@@ -2628,6 +2672,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationName: anim3
+  randomizeSpeed: 0
 --- !u!95 &1682611529
 Animator:
   serializedVersion: 3
@@ -2800,6 +2845,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationName: animx
+  randomizeSpeed: 0
 --- !u!95 &1802422597
 Animator:
   serializedVersion: 3
@@ -2998,6 +3044,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationName: anim1
+  randomizeSpeed: 0
 --- !u!95 &1853469203
 Animator:
   serializedVersion: 3
@@ -3116,6 +3163,7 @@ MonoBehaviour:
     drivers receive an invitation from the gang members for one on one challenges.
   afterDialogue: {fileID: 966988328}
   nextDialogue: 1
+  LookAtCamera: 0
 --- !u!114 &1868486975
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3184,6 +3232,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationName: anim5
+  randomizeSpeed: 0
 --- !u!95 &1914468777
 Animator:
   serializedVersion: 3

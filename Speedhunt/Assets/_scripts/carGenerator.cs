@@ -5,15 +5,15 @@ using UnityEngine;
 public class carGenerator : MonoBehaviour
 {
     [SerializeField] bool playerCar = true;
-    [SerializeField] int debugCar = 0;
     [SerializeField] Material carMaterial;
+    [SerializeField] Vector2 enemyCar;
     [SerializeField] Texture dirtTexture;
+    public float enemyPower;
     // Start is called before the first frame update
     void Start()
     {
         int tempCarID;
         Transform[] suspension = new Transform[4];
-        PlayerPrefs.SetInt("currentCar", debugCar);
         for(int i=0; i<4; i++)
         {
             suspension[i] = this.transform.GetChild(4+i);
@@ -34,7 +34,7 @@ public class carGenerator : MonoBehaviour
         }
         else
         {
-            tempCarID = Random.Range(0, 3);
+            tempCarID = Random.Range(Mathf.RoundToInt(enemyCar.x), Mathf.RoundToInt(enemyCar.y));
             int randomWheels = Random.Range(1, 9);
             carMaterial.color = new Color(Random.Range(0f, 1f), Random.Range(0f, 1f), Random.Range(0f, 1f), 1);
             this.transform.GetChild(0).GetChild(tempCarID).GetChild(Random.Range(0, 2)).gameObject.SetActive(true);
@@ -54,6 +54,10 @@ public class carGenerator : MonoBehaviour
             suspension[1].GetChild(0).GetChild(0).localScale = new Vector3(0.9f, 0.9f, 0.9f);
             suspension[2].GetChild(0).GetChild(0).localScale = new Vector3(0.9f, 0.9f, 0.9f);
             suspension[3].GetChild(0).GetChild(0).localScale = new Vector3(0.9f, 0.9f, 0.9f);
+            if(!playerCar)
+            {
+                enemyPower = 0.3f;
+            }
         }
         else if(tempCarID == 1) //E36
         {
@@ -65,6 +69,10 @@ public class carGenerator : MonoBehaviour
             suspension[1].GetChild(0).GetChild(0).localScale = new Vector3(1f, 1f, 1f);
             suspension[2].GetChild(0).GetChild(0).localScale = new Vector3(1f, 1f, 1f);
             suspension[3].GetChild(0).GetChild(0).localScale = new Vector3(1f, 1f, 1f);
+            if(!playerCar)
+            {
+                enemyPower = 0.3f;
+            }
         }
         else if(tempCarID == 2) //Golf
         {
@@ -76,6 +84,10 @@ public class carGenerator : MonoBehaviour
             suspension[1].GetChild(0).GetChild(0).localScale = new Vector3(0.9f, 0.9f, 0.9f);
             suspension[2].GetChild(0).GetChild(0).localScale = new Vector3(0.9f, 0.9f, 0.9f);
             suspension[3].GetChild(0).GetChild(0).localScale = new Vector3(0.9f, 0.9f, 0.9f);
+            if(!playerCar)
+            {
+                enemyPower = 0.3f;
+            }
         }
         else if(tempCarID == 3) //Miata
         {
@@ -87,6 +99,10 @@ public class carGenerator : MonoBehaviour
             suspension[1].GetChild(0).GetChild(0).localScale = new Vector3(0.9f, 0.9f, 0.9f);
             suspension[2].GetChild(0).GetChild(0).localScale = new Vector3(0.9f, 0.9f, 0.9f);
             suspension[3].GetChild(0).GetChild(0).localScale = new Vector3(0.9f, 0.9f, 0.9f);
+            if(!playerCar)
+            {
+                enemyPower = 0.35f;
+            }
         }
         else if(tempCarID == 4) //RX8
         {  
@@ -98,6 +114,10 @@ public class carGenerator : MonoBehaviour
             suspension[1].GetChild(0).GetChild(0).localScale = new Vector3(1f, 1f, 1f);
             suspension[2].GetChild(0).GetChild(0).localScale = new Vector3(1f, 1f, 1f);
             suspension[3].GetChild(0).GetChild(0).localScale = new Vector3(1f, 1f, 1f);
+            if(!playerCar)
+            {
+                enemyPower = 0.45f;
+            }
         }
         else if(tempCarID == 5) //Skyline
         {
@@ -109,6 +129,10 @@ public class carGenerator : MonoBehaviour
             suspension[1].GetChild(0).GetChild(0).localScale = new Vector3(1f, 1f, 1f);
             suspension[2].GetChild(0).GetChild(0).localScale = new Vector3(1f, 1f, 1f);
             suspension[3].GetChild(0).GetChild(0).localScale = new Vector3(1f, 1f, 1f);
+            if(!playerCar)
+            {
+                enemyPower = 0.55f;
+            }
         }
     }
 }

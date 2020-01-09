@@ -48,8 +48,8 @@ namespace RVP
             {
                 if (material.name == "lights (Instance)")
                 {
-                    lightsMaterial.EnableKeyword("_EMISSION");
-                    lightsMaterial = material;                  
+                    lightsMaterial = material;
+                    lightsMaterial.EnableKeyword("_EMISSION");                  
                     break;
                 }
             }
