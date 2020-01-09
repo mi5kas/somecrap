@@ -555,6 +555,42 @@ MonoBehaviour:
   afterDialogue: {fileID: 1611233456}
   nextDialogue: 1
   LookAtCamera: 0
+--- !u!1 &111506148
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 111506149}
+  m_Layer: 0
+  m_Name: cutscene1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &111506149
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 111506148}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 93.973885, y: 0.9158841, z: 663.1199}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 313133369}
+  - {fileID: 1563378681}
+  - {fileID: 1640874557}
+  - {fileID: 932289916}
+  - {fileID: 1024644797}
+  - {fileID: 1273746291}
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &214186257
 GameObject:
   m_ObjectHideFlags: 0
@@ -564,8 +600,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 214186258}
-  - component: {fileID: 214186259}
-  - component: {fileID: 214186260}
   m_Layer: 5
   m_Name: dialogue3
   m_TagString: Untagged
@@ -595,13 +629,61 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &214186259
+--- !u!1 &313133368
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 313133369}
+  - component: {fileID: 313133371}
+  - component: {fileID: 313133370}
+  m_Layer: 0
+  m_Name: dialogue1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &313133369
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 313133368}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 111506149}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &313133370
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 214186257}
+  m_GameObject: {fileID: 313133368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e8db960dbf3d2b4f90c1a879c8fac86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toEnable:
+  - {fileID: 1116977437}
+  toDisable: []
+  fader: {fileID: 0}
+--- !u!114 &313133371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 313133368}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 976201aab8c6f3547aafc10609328d8a, type: 3}
@@ -610,30 +692,13 @@ MonoBehaviour:
   ubuntu: {fileID: 12800000, guid: 675fa45de0bab5e45bc9534b6994b188, type: 3}
   actor: {fileID: 0}
   dialogues:
-  - colonel@none@Secondly, prostitution thrives more than before.
-  - colonel@none@We have received a number of complains about women offering their
-    services in public spots even in daytime.
-  - colonel@none@There's even a website called publicbitches.com that shows how easy
-    it is to get pleasure in our city.
-  afterDialogue: {fileID: 1189634312}
+  - colonel@none@7 months ago we have started a case on disappearance of Andrew Williams,
+    local police detective.
+  - colonel@none@During the investigation we have noticed a sudden rise of four criminal
+    activities.
+  afterDialogue: {fileID: 1563378680}
   nextDialogue: 1
   LookAtCamera: 0
---- !u!114 &214186260
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 214186257}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e8db960dbf3d2b4f90c1a879c8fac86, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  toEnable: []
-  toDisable:
-  - {fileID: 1611233456}
-  fader: {fileID: 0}
 --- !u!1 &329609653
 GameObject:
   m_ObjectHideFlags: 0
@@ -1218,6 +1283,79 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 921316526}
   m_CullTransparentMesh: 0
+--- !u!1 &932289915
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 932289916}
+  - component: {fileID: 932289918}
+  - component: {fileID: 932289917}
+  m_Layer: 0
+  m_Name: dialogue4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &932289916
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 932289915}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 111506149}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &932289917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 932289915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e8db960dbf3d2b4f90c1a879c8fac86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toEnable:
+  - {fileID: 1189634312}
+  toDisable:
+  - {fileID: 214186257}
+  fader: {fileID: 0}
+--- !u!114 &932289918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 932289915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 976201aab8c6f3547aafc10609328d8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ubuntu: {fileID: 12800000, guid: 675fa45de0bab5e45bc9534b6994b188, type: 3}
+  actor: {fileID: 0}
+  dialogues:
+  - colonel@none@The country's dark web has an increased number of smugglers who sell
+    forbidden foreign products such as cigarettes, alcohol, medicine, vehicles and
+    more.
+  - colonel@none@The local car advertisement page Autoguide have reported a 30% increase
+    in car sales. Most of them were reported in neighbour countries as stolen or unsuitable
+    for daily use.
+  afterDialogue: {fileID: 1024644796}
+  nextDialogue: 1
+  LookAtCamera: 0
 --- !u!1 &966988328
 GameObject:
   m_ObjectHideFlags: 0
@@ -1227,9 +1365,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 966988329}
-  - component: {fileID: 966988330}
   - component: {fileID: 966988331}
-  - component: {fileID: 966988332}
   m_Layer: 5
   m_Name: dialogue6
   m_TagString: Untagged
@@ -1261,33 +1397,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &966988330
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 966988328}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 976201aab8c6f3547aafc10609328d8a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ubuntu: {fileID: 12800000, guid: 675fa45de0bab5e45bc9534b6994b188, type: 3}
-  actor: {fileID: 0}
-  dialogues:
-  - colonel@none@What shocked us the most, is that few weeks ago the surveillance
-    cameras have spotted Andrew Williams making contact with the suspects.
-  - colonel@none@Our theory is that these activities are linked to one group of people
-    and our police detective might take part in this whole business. Perhaps he's
-    the organizer.
-  - colonel@none@Your job is to participate in the street racing activities, get that
-    special challenge and take out whoever is hosting it.
-  - colonel@none@If our theory is true, the information received from the suspect
-    can be very useful for shutting down the other activities.
-  afterDialogue: {fileID: 529252266}
-  nextDialogue: 1
-  LookAtCamera: 0
 --- !u!114 &966988331
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1302,22 +1411,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   variableName: story
   variableValue: 1
---- !u!114 &966988332
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 966988328}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e8db960dbf3d2b4f90c1a879c8fac86, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  toEnable: []
-  toDisable:
-  - {fileID: 1868486972}
-  fader: {fileID: 0}
 --- !u!1 &987191788
 GameObject:
   m_ObjectHideFlags: 0
@@ -1425,6 +1518,78 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 987191788}
   m_CullTransparentMesh: 0
+--- !u!1 &1024644796
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1024644797}
+  - component: {fileID: 1024644799}
+  - component: {fileID: 1024644798}
+  m_Layer: 0
+  m_Name: dialogue5
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1024644797
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1024644796}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 111506149}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1024644798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1024644796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e8db960dbf3d2b4f90c1a879c8fac86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toEnable:
+  - {fileID: 1868486972}
+  toDisable:
+  - {fileID: 1189634312}
+  fader: {fileID: 0}
+--- !u!114 &1024644799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1024644796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 976201aab8c6f3547aafc10609328d8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ubuntu: {fileID: 12800000, guid: 675fa45de0bab5e45bc9534b6994b188, type: 3}
+  actor: {fileID: 0}
+  dialogues:
+  - colonel@none@A big boost of illegal street races and reckless driving has been
+    spotted along.
+  - colonel@none@According to the social media, there is an unknown group of people
+    that hosts private drag races with large prices. The most respected and skilled
+    drivers receive an invitation from the gang members for one on one challenges.
+  afterDialogue: {fileID: 1273746290}
+  nextDialogue: 1
+  LookAtCamera: 0
 --- !u!1 &1066485538
 GameObject:
   m_ObjectHideFlags: 0
@@ -1559,11 +1724,11 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1116977437}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1369241813}
+  m_Father: {fileID: 2059312310}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -1945,8 +2110,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1189634313}
-  - component: {fileID: 1189634314}
-  - component: {fileID: 1189634315}
   m_Layer: 5
   m_Name: dialogue4
   m_TagString: Untagged
@@ -1977,13 +2140,62 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1189634314
+--- !u!1 &1273746290
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1273746291}
+  - component: {fileID: 1273746293}
+  - component: {fileID: 1273746292}
+  m_Layer: 0
+  m_Name: dialogue6
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1273746291
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1273746290}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 111506149}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1273746292
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1189634312}
+  m_GameObject: {fileID: 1273746290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e8db960dbf3d2b4f90c1a879c8fac86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toEnable:
+  - {fileID: 966988328}
+  toDisable:
+  - {fileID: 1868486972}
+  fader: {fileID: 0}
+--- !u!114 &1273746293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1273746290}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 976201aab8c6f3547aafc10609328d8a, type: 3}
@@ -1992,31 +2204,18 @@ MonoBehaviour:
   ubuntu: {fileID: 12800000, guid: 675fa45de0bab5e45bc9534b6994b188, type: 3}
   actor: {fileID: 0}
   dialogues:
-  - colonel@none@The country's dark web has an increased number of smugglers who sell
-    forbidden foreign products such as cigarettes, alcohol, medicine, vehicles and
-    more.
-  - colonel@none@The local car advertisement page Autoguide have reported a 30% increase
-    in car sales. Most of them were reported in neighbour countries as stolen or unsuitable
-    for daily use.
-  afterDialogue: {fileID: 1868486972}
+  - colonel@none@What shocked us the most, is that few weeks ago the surveillance
+    cameras have spotted Andrew Williams making contact with the suspects.
+  - colonel@none@Our theory is that these activities are linked to one group of people
+    and our police detective might take part in this whole business. Perhaps he's
+    the organizer.
+  - colonel@none@Your job is to participate in the street racing activities, get that
+    special challenge and take out whoever is hosting it.
+  - colonel@none@If our theory is true, the information received from the suspect
+    can be very useful for shutting down the other activities.
+  afterDialogue: {fileID: 529252266}
   nextDialogue: 1
   LookAtCamera: 0
---- !u!114 &1189634315
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1189634312}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e8db960dbf3d2b4f90c1a879c8fac86, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  toEnable: []
-  toDisable:
-  - {fileID: 214186257}
-  fader: {fileID: 0}
 --- !u!1 &1350315570
 GameObject:
   m_ObjectHideFlags: 0
@@ -2124,65 +2323,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1350315570}
   m_CullTransparentMesh: 0
---- !u!1 &1369241812
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1369241813}
-  - component: {fileID: 1369241814}
-  m_Layer: 5
-  m_Name: dialogue1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1369241813
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1369241812}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1116977438}
-  m_Father: {fileID: 2059312310}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1369241814
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1369241812}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 976201aab8c6f3547aafc10609328d8a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ubuntu: {fileID: 12800000, guid: 675fa45de0bab5e45bc9534b6994b188, type: 3}
-  actor: {fileID: 0}
-  dialogues:
-  - colonel@none@7 months ago we have started a case on disappearance of Andrew Williams,
-    local police detective.
-  - colonel@none@During the investigation we have noticed a sudden rise of four criminal
-    activities.
-  afterDialogue: {fileID: 1611233456}
-  nextDialogue: 1
-  LookAtCamera: 0
 --- !u!1 &1549780255
 GameObject:
   m_ObjectHideFlags: 0
@@ -2229,6 +2369,77 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1563378680
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1563378681}
+  - component: {fileID: 1563378683}
+  - component: {fileID: 1563378682}
+  m_Layer: 0
+  m_Name: dialogue2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1563378681
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1563378680}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 111506149}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1563378682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1563378680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 976201aab8c6f3547aafc10609328d8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ubuntu: {fileID: 12800000, guid: 675fa45de0bab5e45bc9534b6994b188, type: 3}
+  actor: {fileID: 0}
+  dialogues:
+  - colonel@none@First of all, we have noticed a slight jump in statistics of drug
+    dealing cases.
+  - colonel@none@There were more suspects that sold drugs and even more that bought
+    them. Our hospitals report an increased count of overdosed patients as well.
+  afterDialogue: {fileID: 1640874556}
+  nextDialogue: 1
+  LookAtCamera: 0
+--- !u!114 &1563378683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1563378680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e8db960dbf3d2b4f90c1a879c8fac86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toEnable:
+  - {fileID: 1611233456}
+  toDisable:
+  - {fileID: 1116977437}
+  fader: {fileID: 0}
 --- !u!1 &1611233456
 GameObject:
   m_ObjectHideFlags: 0
@@ -2238,8 +2449,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1611233457}
-  - component: {fileID: 1611233458}
-  - component: {fileID: 1611233459}
   m_Layer: 5
   m_Name: dialogue2
   m_TagString: Untagged
@@ -2268,44 +2477,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1611233458
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1611233456}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 976201aab8c6f3547aafc10609328d8a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ubuntu: {fileID: 12800000, guid: 675fa45de0bab5e45bc9534b6994b188, type: 3}
-  actor: {fileID: 0}
-  dialogues:
-  - colonel@none@First of all, we have noticed a slight jump in statistics of drug
-    dealing cases.
-  - colonel@none@There were more suspects that sold drugs and even more that bought
-    them. Our hospitals report an increased count of overdosed patients as well.
-  afterDialogue: {fileID: 214186257}
-  nextDialogue: 1
-  LookAtCamera: 0
---- !u!114 &1611233459
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1611233456}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e8db960dbf3d2b4f90c1a879c8fac86, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  toEnable: []
-  toDisable:
-  - {fileID: 1369241812}
-  fader: {fileID: 0}
 --- !u!1 &1614054965
 GameObject:
   m_ObjectHideFlags: 0
@@ -2513,6 +2684,78 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1624542451}
   m_CullTransparentMesh: 0
+--- !u!1 &1640874556
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1640874557}
+  - component: {fileID: 1640874559}
+  - component: {fileID: 1640874558}
+  m_Layer: 0
+  m_Name: dialogue3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1640874557
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1640874556}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 111506149}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1640874558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1640874556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e8db960dbf3d2b4f90c1a879c8fac86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toEnable:
+  - {fileID: 214186257}
+  toDisable:
+  - {fileID: 1611233456}
+  fader: {fileID: 0}
+--- !u!114 &1640874559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1640874556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 976201aab8c6f3547aafc10609328d8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ubuntu: {fileID: 12800000, guid: 675fa45de0bab5e45bc9534b6994b188, type: 3}
+  actor: {fileID: 0}
+  dialogues:
+  - colonel@none@Secondly, prostitution thrives more than before.
+  - colonel@none@We have received a number of complains about women offering their
+    services in public spots even in daytime.
+  - colonel@none@There's even a website called publicbitches.com that shows how easy
+    it is to get pleasure in our city.
+  afterDialogue: {fileID: 932289915}
+  nextDialogue: 1
+  LookAtCamera: 0
 --- !u!1 &1647280650
 GameObject:
   m_ObjectHideFlags: 0
@@ -2933,10 +3176,10 @@ RectTransform:
   m_Father: {fileID: 1614054969}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 147}
-  m_SizeDelta: {x: 2000, y: 2000}
+  m_SizeDelta: {x: 0, y: 1064}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1841444684
 MonoBehaviour:
@@ -3108,8 +3351,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1868486973}
-  - component: {fileID: 1868486974}
-  - component: {fileID: 1868486975}
   m_Layer: 5
   m_Name: dialogue5
   m_TagString: Untagged
@@ -3141,45 +3382,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1868486974
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1868486972}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 976201aab8c6f3547aafc10609328d8a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ubuntu: {fileID: 12800000, guid: 675fa45de0bab5e45bc9534b6994b188, type: 3}
-  actor: {fileID: 0}
-  dialogues:
-  - colonel@none@A big boost of illegal street races and reckless driving has been
-    spotted along.
-  - colonel@none@According to the social media, there is an unknown group of people
-    that hosts private drag races with large prices. The most respected and skilled
-    drivers receive an invitation from the gang members for one on one challenges.
-  afterDialogue: {fileID: 966988328}
-  nextDialogue: 1
-  LookAtCamera: 0
---- !u!114 &1868486975
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1868486972}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e8db960dbf3d2b4f90c1a879c8fac86, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  toEnable: []
-  toDisable:
-  - {fileID: 1189634312}
-  fader: {fileID: 0}
 --- !u!1 &1914468774
 GameObject:
   m_ObjectHideFlags: 0
@@ -3315,7 +3517,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1369241813}
+  - {fileID: 1116977438}
   - {fileID: 1611233457}
   - {fileID: 214186258}
   - {fileID: 1189634313}

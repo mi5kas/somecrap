@@ -23,7 +23,8 @@ public class carPicker : MonoBehaviour
         }
         for(int i=0; i<cars.childCount; i++)
         {
-            if(PlayerPrefs.GetInt("car" + i + "Power") > 0)
+            Debug.Log(PlayerPrefs.GetFloat("car" + i + "Power"));
+            if(PlayerPrefs.GetFloat("car" + i + "Power") > 0)
             {
                 cars.GetChild(i).gameObject.SetActive(true);
                 Transform tempBodykit = cars.GetChild(i).transform.GetChild(2+PlayerPrefs.GetInt("car" + i + "Status", 0));
@@ -57,8 +58,8 @@ public class carPicker : MonoBehaviour
                     if(PlayerPrefs.GetInt("car" + i + "Wheels", 0) != 0)
                         tempWheel.materials[0].SetColor("_Color", new Color(PlayerPrefs.GetFloat("car" + i + "WheelColor1", 0.5f), PlayerPrefs.GetFloat("car" + i + "WheelColor2", 0.5f), PlayerPrefs.GetFloat("car" + i + "WheelColor3", 0.5f), 1));
                 }
-                cars.GetChild(i).transform.GetChild(0).GetChild(0).localScale = new Vector3(5*PlayerPrefs.GetInt("car" + i + "Power", 0), 0.5f, 1);
-                cars.GetChild(i).transform.GetChild(0).GetChild(1).localScale = new Vector3(5*PlayerPrefs.GetInt("car" + i + "Handling", 0), 0.5f, 1);
+                cars.GetChild(i).transform.GetChild(0).GetChild(0).localScale = new Vector3(5f*PlayerPrefs.GetFloat("car" + i + "Power", 0), 0.5f, 1);
+                cars.GetChild(i).transform.GetChild(0).GetChild(1).localScale = new Vector3(5f*PlayerPrefs.GetFloat("car" + i + "Handling", 0), 0.5f, 1);
             }
         }
     }
@@ -96,7 +97,7 @@ public class carPicker : MonoBehaviour
     }
     public void RejectCar()
     {
-        foreach(GameObject car in cars)
+        foreach(Transform car in cars)
         {
             if(car.transform.GetChild(0).gameObject.activeSelf)
             {
