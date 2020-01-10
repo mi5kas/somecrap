@@ -49,7 +49,7 @@ public class mapManager : MonoBehaviour {
 			this.GetComponent<Renderer>().material.SetTexture("_MainTex", daytex);
 		}
 		/*          SHOWING SMS'ES                      */
-		if(PlayerPrefs.GetInt("story", 0) == 1)//Showing Nicole's SMS
+		if(PlayerPrefs.GetInt("story", 0) == 1)//Showing Mia's SMS
 		{
 			smses[0].SetActive(true);
 			PlayerPrefs.SetInt("story", 2);
@@ -58,6 +58,11 @@ public class mapManager : MonoBehaviour {
 		{
 			smses[1].SetActive(true);
 			PlayerPrefs.SetInt("story", 3);
+		}
+		else if(PlayerPrefs.GetInt("story", 0) == 3) //Showing Mia's SMS about extra work
+		{
+			smses[2].SetActive(true);
+			PlayerPrefs.SetInt("story", 4);
 		}
 		moneytext.text = "MONEY: $" + PlayerPrefs.GetInt("money", 0);
 		reptext.text = "REPUTATION: " + PlayerPrefs.GetInt("reputation", 0);

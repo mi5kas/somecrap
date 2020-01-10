@@ -13,10 +13,10 @@ public class sceneManager : MonoBehaviour
         {
             if(PlayerPrefs.GetInt("story", 0) == requirements[i])
             {
-                cutscenes[i].SetActive(true);
+                cutscenes[i+1].SetActive(true);
                 return;
             }
         }
-        cutscenes[requirements.Length].SetActive(true);
+        cutscenes[0].SetActive(true);
     }
 }

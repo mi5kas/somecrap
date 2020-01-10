@@ -81,8 +81,6 @@ public class button : MonoBehaviour
     }
     void OnMouseEnter()
     {
-        Debug.Log(Vector3.Distance(this.transform.position, Camera.main.transform.position));
-        Debug.Log(Cursor.lockState);
         if(Cursor.lockState == CursorLockMode.Locked && Vector3.Distance(this.transform.position, Camera.main.transform.position) < 3f)
         {
             buttonImage.sprite = hoverButton;
