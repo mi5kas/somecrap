@@ -13819,7 +13819,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &591413710
 Transform:
   m_ObjectHideFlags: 0
@@ -15406,7 +15406,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &774746709
 Transform:
   m_ObjectHideFlags: 0
@@ -18128,17 +18128,17 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: d95dbe86c34448040a00fdc3e0795802,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -20.242
+      value: -27.604
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: d95dbe86c34448040a00fdc3e0795802,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 26.307
+      value: 26.25
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: d95dbe86c34448040a00fdc3e0795802,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -71.208
+      value: -55.28
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: d95dbe86c34448040a00fdc3e0795802,
         type: 3}
@@ -18148,7 +18148,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: d95dbe86c34448040a00fdc3e0795802,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.99998766
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: d95dbe86c34448040a00fdc3e0795802,
         type: 3}
@@ -18158,7 +18158,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: d95dbe86c34448040a00fdc3e0795802,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.0049743694
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: d95dbe86c34448040a00fdc3e0795802,
         type: 3}
@@ -18173,7 +18173,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: d95dbe86c34448040a00fdc3e0795802,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 179.43
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: d95dbe86c34448040a00fdc3e0795802,
         type: 3}
@@ -18188,7 +18188,7 @@ PrefabInstance:
     - target: {fileID: -6057140222963153312, guid: d95dbe86c34448040a00fdc3e0795802,
         type: 3}
       propertyPath: m_ApplyRootMotion
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -6057140222963153312, guid: d95dbe86c34448040a00fdc3e0795802,
         type: 3}
@@ -25338,17 +25338,17 @@ PrefabInstance:
     - target: {fileID: 7125524514667652073, guid: 7386056a87ccf174bae91f8c65bf5c54,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 8.271805e-25
+      value: -1.654361e-24
       objectReference: {fileID: 0}
     - target: {fileID: 7125524514667652073, guid: 7386056a87ccf174bae91f8c65bf5c54,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 9.629651e-35
+      value: 2.8888942e-34
       objectReference: {fileID: 0}
     - target: {fileID: 7125524514667652073, guid: 7386056a87ccf174bae91f8c65bf5c54,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 6.938895e-18
+      value: 6.9388898e-18
       objectReference: {fileID: 0}
     - target: {fileID: 7125524514667652073, guid: 7386056a87ccf174bae91f8c65bf5c54,
         type: 3}
@@ -42771,7 +42771,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1996771994
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42956,7 +42956,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2007033813
 Transform:
   m_ObjectHideFlags: 0
@@ -42989,6 +42989,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   toEnable:
   - {fileID: 1743904043208185}
+  - {fileID: 774746708}
   toDisable: []
   fader: {fileID: 0}
 --- !u!1 &2010567592

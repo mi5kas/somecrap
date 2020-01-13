@@ -2355,6 +2355,7 @@ MonoBehaviour:
   requirements: 00000000
   cutscenes:
   - {fileID: 111506148}
+  - {fileID: 111506148}
 --- !u!4 &1549780257
 Transform:
   m_ObjectHideFlags: 0

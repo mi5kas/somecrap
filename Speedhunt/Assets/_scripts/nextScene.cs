@@ -57,6 +57,7 @@ public class nextScene : MonoBehaviour
             AudioListener.volume+=0.1f;
             yield return new WaitForSeconds(0.1f);
         }
+        //AudioListener.volume=1f;
         Destroy(this.gameObject);
     }
     // Update is called once per frame

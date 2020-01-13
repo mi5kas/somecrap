@@ -51,8 +51,6 @@ public class setPlayerPosition : MonoBehaviour
     // Update is called once per frame
     void SetPlayerPos()
     {
-        playerObject.transform.position = this.transform.position;
-        playerObject.transform.rotation = this.transform.rotation;
         if(Fade == true)
         {
             fader.CrossFadeAlpha(0f, 1f, true);
@@ -67,6 +65,8 @@ public class setPlayerPosition : MonoBehaviour
             playerObject.GetComponent<FirstPersonAIO>().originalRotation = this.transform.rotation.eulerAngles;
             playerObject.GetComponent<FirstPersonAIO>().targetAngles = Vector3.zero;
         }
+        playerObject.transform.position = this.transform.position;
+        playerObject.transform.rotation = this.transform.rotation;
     }
     void DestroyFader()
     {

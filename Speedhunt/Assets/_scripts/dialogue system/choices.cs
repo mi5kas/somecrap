@@ -94,7 +94,7 @@ public class choices : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         GameObject player = GameObject.FindGameObjectWithTag("Player");
-        if(player.activeSelf)
+        if(player != null && player.activeSelf)
             player.GetComponent<FirstPersonAIO>().enableCameraMovement = false;
     }
     void ButtonClicked(int whichButton)

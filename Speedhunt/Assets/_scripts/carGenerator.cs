@@ -5,7 +5,7 @@ using UnityEngine;
 public class carGenerator : MonoBehaviour
 {
     [SerializeField] bool playerCar = true;
-    [SerializeField] Material carMaterial;
+    //[SerializeField] Material carMaterial;
     [SerializeField] Vector2 enemyCar;
     [SerializeField] Texture dirtTexture;
     public float enemyPower;
@@ -20,23 +20,69 @@ public class carGenerator : MonoBehaviour
         }
         if(playerCar)
         {
+            Material[] carMaterial = null;
             tempCarID = PlayerPrefs.GetInt("currentCar");
+            foreach(Material mat in this.transform.GetChild(0).GetChild(tempCarID).GetChild(PlayerPrefs.GetInt("car" + tempCarID + "Status", 0)).GetComponent<Renderer>().materials)
+            {
+                if(mat.name == "carMaterial (Instance)")
+                {
+                    carMaterial[0] = mat;
+                    break;
+                }
+            }
+            foreach(Material mat in this.transform.GetChild(0).GetChild(tempCarID).GetComponent<Renderer>().materials)
+            {
+                if(mat.name == "carMaterial (Instance)")
+                {
+                    carMaterial[1] = mat;
+                    break;
+                }
+            }
             this.transform.GetChild(0).GetChild(tempCarID).GetChild(PlayerPrefs.GetInt("car" + tempCarID + "Status", 0)).gameObject.SetActive(true);
-            carMaterial.color = new Color(PlayerPrefs.GetFloat("car" + tempCarID + "Color1", 0), PlayerPrefs.GetFloat("car" + tempCarID + "Color2", 0), PlayerPrefs.GetFloat("car" + tempCarID + "Color2", 0), 1);
+            carMaterial[0].color = new Color(PlayerPrefs.GetFloat("car" + tempCarID + "Color1", 0), PlayerPrefs.GetFloat("car" + tempCarID + "Color2", 0), PlayerPrefs.GetFloat("car" + tempCarID + "Color2", 0), 1);
+            carMaterial[1].color = new Color(PlayerPrefs.GetFloat("car" + tempCarID + "Color1", 0), PlayerPrefs.GetFloat("car" + tempCarID + "Color2", 0), PlayerPrefs.GetFloat("car" + tempCarID + "Color2", 0), 1);
             if(PlayerPrefs.GetInt("car" + tempCarID + "Status", 0) == 0)
             {
-                carMaterial.SetTexture("_BaseMap", dirtTexture);
+                carMaterial[0].SetTexture("_BaseMap", dirtTexture);
+                carMaterial[1].SetTexture("_BaseMap", dirtTexture);
             }
-            suspension[0].GetChild(0).GetChild(0).GetChild(PlayerPrefs.GetInt("car" + tempCarID + "Wheels", 0)).gameObject.SetActive(true);
-            suspension[1].GetChild(0).GetChild(0).GetChild(PlayerPrefs.GetInt("car" + tempCarID + "Wheels", 0)).gameObject.SetActive(true);
-            suspension[2].GetChild(0).GetChild(0).GetChild(PlayerPrefs.GetInt("car" + tempCarID + "Wheels", 0)).gameObject.SetActive(true);
-            suspension[3].GetChild(0).GetChild(0).GetChild(PlayerPrefs.GetInt("car" + tempCarID + "Wheels", 0)).gameObject.SetActive(true);
+            for(int i=0; i<4; i++)
+            {
+                Renderer wheelMat = suspension[0].GetChild(0).GetChild(0).GetChild(PlayerPrefs.GetInt("car" + tempCarID + "Wheels", 0)).GetComponent<Renderer>();
+                wheelMat.gameObject.SetActive(true);
+                if(PlayerPrefs.GetInt("car" + tempCarID + "Wheels", 0) != 0)
+                {
+                    foreach(Material mat in wheelMat.materials)
+                    {
+                        if(mat.name == "wheelMaterial")
+                        {
+                            mat.color = new Color(PlayerPrefs.GetFloat("car" + tempCarID + "WheelColor1"), PlayerPrefs.GetFloat("car" + tempCarID + "WheelColor2"), PlayerPrefs.GetFloat("car" + tempCarID + "WheelColor3"), 1);
+                        }
+                    }
+                }
+            }
         }
         else
         {
             tempCarID = Random.Range(Mathf.RoundToInt(enemyCar.x), Mathf.RoundToInt(enemyCar.y));
+            Color enemyColor = new Color(Random.Range(0f, 1f), Random.Range(0f, 1f), Random.Range(0f, 1f), 1);
+            foreach(Material mat in this.transform.GetChild(0).GetChild(tempCarID).GetChild(PlayerPrefs.GetInt("car" + tempCarID + "Status", 0)).GetComponent<Renderer>().materials)
+            {
+                if(mat.name == "carMaterial (Instance)")
+                {
+                    mat.color = enemyColor;
+                    break;
+                }
+            }
+            foreach(Material mat in this.transform.GetChild(0).GetChild(tempCarID).GetComponent<Renderer>().materials)
+            {
+                if(mat.name == "carMaterial (Instance)")
+                {
+                    mat.color = enemyColor;
+                    break;
+                }
+            }
             int randomWheels = Random.Range(1, 9);
-            carMaterial.color = new Color(Random.Range(0f, 1f), Random.Range(0f, 1f), Random.Range(0f, 1f), 1);
             this.transform.GetChild(0).GetChild(tempCarID).GetChild(Random.Range(0, 2)).gameObject.SetActive(true);
             suspension[0].GetChild(0).GetChild(0).GetChild(randomWheels).gameObject.SetActive(true);
             suspension[1].GetChild(0).GetChild(0).GetChild(randomWheels).gameObject.SetActive(true);

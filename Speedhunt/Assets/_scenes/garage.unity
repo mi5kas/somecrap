@@ -2714,6 +2714,36 @@ Transform:
   m_Father: {fileID: 1557136828}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &298792394
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 298792395}
+  m_Layer: 12
+  m_Name: dummy
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &298792395
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 298792394}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 985499798}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &302321164
 GameObject:
   m_ObjectHideFlags: 0
@@ -4098,7 +4128,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 985499798}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &477400970
 MeshRenderer:
@@ -4953,8 +4983,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 580387035}
-  m_LocalRotation: {x: 0.007900639, y: 0.58964056, z: -0.005077095, w: 0.8076112}
-  m_LocalPosition: {x: 3.151545, y: 0.066408426, z: -12.078291}
+  m_LocalRotation: {x: -0.0037156227, y: -0.9376692, z: 0.010220863, w: -0.347359}
+  m_LocalPosition: {x: 9.690637, y: 0.27014726, z: -5.0460377}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -5161,7 +5191,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &596854230
 Transform:
   m_ObjectHideFlags: 0
@@ -6260,9 +6290,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCar: 1
-  debugCar: 0
-  carMaterial: {fileID: 2100000, guid: 8f72f2fdbb90a504aa7769f1f4a26c3d, type: 2}
+  enemyCar: {x: 0, y: 0}
   dirtTexture: {fileID: 2800000, guid: 71c174ddea79a9441adfd3870c6918c7, type: 3}
+  enemyPower: 0
 --- !u!54 &742128483
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6620,11 +6650,6 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
-    - target: {fileID: -178122086980006964, guid: cfa706bef121702489af0728b47d79b7,
-        type: 3}
-      propertyPath: m_CastShadows
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: cfa706bef121702489af0728b47d79b7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6726,6 +6751,11 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -1978795430112025276, guid: cfa706bef121702489af0728b47d79b7,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -178122086980006964, guid: cfa706bef121702489af0728b47d79b7,
         type: 3}
       propertyPath: m_CastShadows
       value: 0
@@ -8139,7 +8169,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &902137548
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8328,7 +8358,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 985499798}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &929325047
 MeshRenderer:
@@ -9135,6 +9165,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children:
+  - {fileID: 298792395}
   - {fileID: 929325046}
   - {fileID: 1063743799}
   - {fileID: 477400969}
@@ -10122,7 +10153,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 985499798}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: -89.98021, y: 0, z: 0}
 --- !u!23 &1063743800
 MeshRenderer:

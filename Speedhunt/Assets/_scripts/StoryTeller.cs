@@ -13,7 +13,7 @@ public class StoryTeller : MonoBehaviour
     [SerializeField] PostProcessProfile pProfile;
     void Start()
     {
-        if(PlayerPrefs.GetInt("story", 0) >= 2)
+        if(PlayerPrefs.GetInt("story", 0) >= 200)
         {
             scene5.SetActive(true);
         }

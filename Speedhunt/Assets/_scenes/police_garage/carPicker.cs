@@ -31,7 +31,7 @@ public class carPicker : MonoBehaviour
                 tempBodykit.gameObject.SetActive(true);
                 foreach(Material tempMaterial in tempBodykit.GetComponent<Renderer>().materials)
                 {
-                    if(tempMaterial.name == "body (Instance)")
+                    if(tempMaterial.name == "carMaterial (Instance)")
                     {
                         tempMaterial.color = new Color(PlayerPrefs.GetFloat("car" + i + "Color1", 1), PlayerPrefs.GetFloat("car" + i + "Color2", 1), PlayerPrefs.GetFloat("car" + i + "Color3", 1), 1);
                         if(PlayerPrefs.GetInt("car" + i + "Status", 0) != 0)
@@ -42,7 +42,7 @@ public class carPicker : MonoBehaviour
                 }
                 foreach(Material tempMaterial in cars.GetChild(i).transform.GetChild(5).GetComponent<Renderer>().materials)
                 {
-                    if(tempMaterial.name == "body (Instance)")
+                    if(tempMaterial.name == "carMaterial (Instance)")
                     {
                         tempMaterial.color = new Color(PlayerPrefs.GetFloat("car" + i + "Color1", 1), PlayerPrefs.GetFloat("car" + i + "Color2", 1), PlayerPrefs.GetFloat("car" + i + "Color3", 1), 1);
                         if(PlayerPrefs.GetInt("car" + i + "Status", 0) != 0)

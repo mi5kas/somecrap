@@ -25,7 +25,8 @@ public class speedometer : MonoBehaviour {
 	}
 	void OnDisable()
 	{
-		rpm.parent.gameObject.SetActive(false);
+		if(rpm != null)
+			rpm.parent.gameObject.SetActive(false);
 	}
 	void Update () {
         rpm.transform.eulerAngles =  new Vector3(0, 0, -4 - 140 * engine.targetPitch);

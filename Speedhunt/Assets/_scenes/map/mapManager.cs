@@ -19,6 +19,10 @@ public class mapManager : MonoBehaviour {
 	public GameObject[] smses;
 	[SerializeField] Transform labels;
 	void Start () {
+		if(PlayerPrefs.GetInt("story", 0) >= 2)
+		{
+			garageicon.SetActive(true);
+		}
 		if(PlayerPrefs.GetInt("isNight", 0) == 1)
 		{
 		   PlayerPrefs.SetInt("isNight", 0);
@@ -45,7 +49,6 @@ public class mapManager : MonoBehaviour {
 		{
 			PlayerPrefs.SetInt("isNight", 1);
 			policeicon.SetActive(true);
-			garageicon.SetActive(true);
 			this.GetComponent<Renderer>().material.SetTexture("_MainTex", daytex);
 		}
 		/*          SHOWING SMS'ES                      */
