@@ -23,7 +23,6 @@ public class carPicker : MonoBehaviour
         }
         for(int i=0; i<cars.childCount; i++)
         {
-            Debug.Log(PlayerPrefs.GetFloat("car" + i + "Power"));
             if(PlayerPrefs.GetFloat("car" + i + "Power") > 0)
             {
                 cars.GetChild(i).gameObject.SetActive(true);
@@ -49,6 +48,10 @@ public class carPicker : MonoBehaviour
                         {
                             tempMaterial.SetTexture("_MainTex", null);
                         }
+                    }
+                    else if(tempMaterial.name == "lights (Instance)")
+                    {
+                        tempMaterial.DisableKeyword("_EMISSION");
                     }
                 }
                 for(int w=0; w<4; w++)
