@@ -27,6 +27,10 @@ public class carGenerator : MonoBehaviour
                 if(mat.name == "carMaterial (Instance)")
                 {
                     carMaterial[0] = mat;
+                    if(PlayerPrefs.GetInt("car" + tempCarID + "Status", 0) != 0)
+                    {
+                        mat.SetTexture("_MainTex", null);
+                    }
                     break;
                 }
             }
@@ -35,6 +39,10 @@ public class carGenerator : MonoBehaviour
                 if(mat.name == "carMaterial (Instance)")
                 {
                     carMaterial[1] = mat;
+                    if(PlayerPrefs.GetInt("car" + tempCarID + "Status", 0) != 0)
+                    {
+                        mat.SetTexture("_MainTex", null);
+                    }
                     break;
                 }
             }
@@ -71,6 +79,7 @@ public class carGenerator : MonoBehaviour
                 if(mat.name == "carMaterial (Instance)")
                 {
                     mat.color = enemyColor;
+                    mat.SetTexture("_MainTex", null);
                     break;
                 }
             }
@@ -79,6 +88,7 @@ public class carGenerator : MonoBehaviour
                 if(mat.name == "carMaterial (Instance)")
                 {
                     mat.color = enemyColor;
+                    mat.SetTexture("_MainTex", null);
                     break;
                 }
             }
