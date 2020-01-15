@@ -12,6 +12,7 @@ public class mapManager : MonoBehaviour {
 	public Text moneytext;
 	public Text heattext;
 	public Text reptext;
+	[SerializeField] Text dayText;
 	public Texture daytex;
 	public Texture nighttex;
 	public GameObject[] races;
@@ -25,6 +26,7 @@ public class mapManager : MonoBehaviour {
 		}
 		if(PlayerPrefs.GetInt("isNight", 0) == 1)
 		{
+		   dayText.text = "NIGHT";
 		   PlayerPrefs.SetInt("isNight", 0);
 		   races[0].SetActive(true);
 		   races[1].SetActive(true);
@@ -47,6 +49,7 @@ public class mapManager : MonoBehaviour {
 		}
 		else
 		{
+			dayText.text = "DAY";
 			PlayerPrefs.SetInt("isNight", 1);
 			policeicon.SetActive(true);
 			this.GetComponent<Renderer>().material.SetTexture("_MainTex", daytex);
@@ -73,17 +76,18 @@ public class mapManager : MonoBehaviour {
 		}
 		moneytext.text = "MONEY: $" + PlayerPrefs.GetInt("money", 0);
 		reptext.text = "REPUTATION: " + PlayerPrefs.GetInt("reputation", 0);
-		if(PlayerPrefs.GetInt("heat", 0) >= 10)
+		string starChar = new string(heattext.text[heattext.text.Length-1], PlayerPrefs.GetInt("heat", 0));
+		if(PlayerPrefs.GetInt("heat", 0) == 5)
 		{
-			heattext.text = "HEAT: <color=#E80022>DANGEROUS</color>";
+			heattext.text = "HEAT: <color=#d64d61>" + starChar + "</color>";
 		}
-		else if(PlayerPrefs.GetInt("heat", 0) >= 5)
+		else if(PlayerPrefs.GetInt("heat", 0) >= 3)
 		{
-			heattext.text = "HEAT: SUSPICIOUS";
+			heattext.text = "HEAT: <color=#d6cf4d>" + starChar + "</color>";
 		}
 		else
 		{
-			heattext.text = "HEAT: <color=#1082DA>INDIFFERENT</color>";
+			heattext.text = "HEAT: " + starChar;
 		}
 	}
 }

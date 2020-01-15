@@ -28,6 +28,7 @@ namespace RVP
         float jumpDist;
         float jumpTime;
         Vector3 jumpStart;
+        float driftScoreRate;
 
         bool detectDrift = true;
         [SerializeField] Text totalScore;
@@ -53,6 +54,19 @@ namespace RVP
             totalScore.transform.parent.gameObject.SetActive(true);
             timeLeft.transform.parent.gameObject.SetActive(true);
             InvokeRepeating("Countdown", 1f, 1f);
+            driftScoreRate=0.01f+PlayerPrefs.GetFloat("car" + PlayerPrefs.GetInt("currentCar") + "Handling")/10;
+            if(PlayerPrefs.GetInt("car" + PlayerPrefs.GetInt("currentCar") + "Status", 0) == 0)
+            {
+                driftScoreRate=0.08f;
+            }
+            else if(PlayerPrefs.GetInt("car" + PlayerPrefs.GetInt("currentCar") + "Status", 0) == 1)
+            {
+                driftScoreRate=0.1f;
+            }
+            else if(PlayerPrefs.GetInt("car" + PlayerPrefs.GetInt("currentCar") + "Status", 0) == 1)
+            {
+                driftScoreRate=0.1f;
+            }
         }
         void Countdown()
         {
@@ -69,8 +83,20 @@ namespace RVP
                 vp.SetEbrake(1);
                 score+=driftScore;
                 racemusic.PlayEnding();
-                PlayerPrefs.SetInt("reputation", PlayerPrefs.GetInt("reputation", 0) + Mathf.RoundToInt(score/10f));
-                endDrift.text = Mathf.RoundToInt(score/10f) + "\n\n" + PlayerPrefs.GetInt("reputation", 0);
+                if(PlayerPrefs.GetInt("car" + PlayerPrefs.GetInt("currentCar") + "Status", 0) == 0)
+                {
+                    driftScoreRate=0.08f;
+                }
+                else if(PlayerPrefs.GetInt("car" + PlayerPrefs.GetInt("currentCar") + "Status", 0) == 1)
+                {
+                    driftScoreRate=0.1f;
+                }
+                else if(PlayerPrefs.GetInt("car" + PlayerPrefs.GetInt("currentCar") + "Status", 0) == 2)
+                {
+                    driftScoreRate=0.12f;
+                }
+                PlayerPrefs.SetInt("reputation", PlayerPrefs.GetInt("reputation", 0) + Mathf.RoundToInt(score*driftScoreRate));
+                endDrift.text = Mathf.RoundToInt(score*driftScoreRate) + "\n\n" + PlayerPrefs.GetInt("reputation", 0);
                 this.GetComponent<speedometer>().enabled=false;
                 detectDrift=false;
             }
@@ -108,7 +134,7 @@ namespace RVP
 
             if (drifting)
             {
-                driftScore += (StuntManager.driftScoreRateStatic * Mathf.Abs(vp.localVelocity.x)) * Time.timeScale * TimeMaster.inverseFixedTimeFactor;
+                driftScore += (driftScoreRate * Mathf.Abs(vp.localVelocity.x)) * Time.timeScale * TimeMaster.inverseFixedTimeFactor;
                 driftDist += vp.velMag * Time.fixedDeltaTime;
                 string driftText = "GOOD DRIFT";
                 currentScore.gameObject.SetActive(true);

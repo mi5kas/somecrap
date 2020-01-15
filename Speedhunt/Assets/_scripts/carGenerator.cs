@@ -47,7 +47,7 @@ public class carGenerator : MonoBehaviour
             this.transform.GetChild(0).GetChild(tempCarID).GetChild(PlayerPrefs.GetInt("car" + tempCarID + "Status", 0)).gameObject.SetActive(true);
             for(int i=0; i<4; i++)
             {
-                Renderer wheelMat = suspension[0].GetChild(0).GetChild(0).GetChild(PlayerPrefs.GetInt("car" + tempCarID + "Wheels", 0)).GetComponent<Renderer>();
+                Renderer wheelMat = suspension[i].GetChild(0).GetChild(0).GetChild(PlayerPrefs.GetInt("car" + tempCarID + "Wheels", 0)).GetComponent<Renderer>();
                 wheelMat.gameObject.SetActive(true);
                 if(PlayerPrefs.GetInt("car" + tempCarID + "Wheels", 0) != 0)
                 {

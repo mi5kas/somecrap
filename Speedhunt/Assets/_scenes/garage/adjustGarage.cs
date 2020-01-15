@@ -129,7 +129,7 @@ public class adjustGarage : MonoBehaviour
         else if(whichMod == 1)
         {
             confirmMod.transform.parent.gameObject.SetActive(true);
-            confirmMod.text = "<color=#2eacd5ff>LEVEL " + PlayerPrefs.GetInt("car" + PlayerPrefs.GetInt("currentCar") + "Suspension")+1 + " </color>suspension upgrade will increase your handling by <color=#2eacd5ff>" + (10+PlayerPrefs.GetInt("car" + PlayerPrefs.GetInt("currentCar") + "Suspension")) + "%</color>. This upgrade costs <color=#2eacd5ff>" + 200*(PlayerPrefs.GetInt("car" + PlayerPrefs.GetInt("currentCar") + "Suspension")+1) + "$</color>. Do you wish to proceed?";
+            confirmMod.text = "<color=#2eacd5ff>LEVEL " + PlayerPrefs.GetInt("car" + PlayerPrefs.GetInt("currentCar") + "Suspension")+1 + " </color>suspension upgrade will increase your drifting by <color=#2eacd5ff>" + (5+PlayerPrefs.GetInt("car" + PlayerPrefs.GetInt("currentCar") + "Suspension")) + "%</color>. This upgrade costs <color=#2eacd5ff>" + 200*(PlayerPrefs.GetInt("car" + PlayerPrefs.GetInt("currentCar") + "Suspension")+1) + "$</color>. Do you wish to proceed?";
         }
         else if(whichMod == 2)
         {
@@ -139,7 +139,7 @@ public class adjustGarage : MonoBehaviour
         else if(whichMod == 3)
         {
             confirmMod.transform.parent.gameObject.SetActive(true);
-            confirmMod.text = "This will remove all rust and body damage. It costs <color=#2eacd5ff>400$</color>. Do you wish to proceed?";
+            confirmMod.text = "Removing all rust and body damage will increase your reputation gain by 20%. It costs <color=#2eacd5ff>1000$</color>. Do you wish to proceed?";
         }
         else if(whichMod == 4)
         {
@@ -154,7 +154,7 @@ public class adjustGarage : MonoBehaviour
         else if(whichMod == 5)
         {
             confirmMod.transform.parent.gameObject.SetActive(true);
-            confirmMod.text = "This will apply body kit on your car. No performance boosts but it will look cool. This modification costs <color = #2eacd5ff>1000$</color>. Do you wish to proceed?";
+            confirmMod.text = "This will apply a body kit on your car. Your reputation gains will increase by 20%. This modification costs <color = #2eacd5ff>1000$</color>. Do you wish to proceed?";
             playerCar.GetChild(0).GetChild(PlayerPrefs.GetInt("currentCar")).GetChild(2).gameObject.SetActive(true);
             playerCar.GetChild(0).GetChild(PlayerPrefs.GetInt("currentCar")).GetChild(PlayerPrefs.GetInt("car" + PlayerPrefs.GetInt("currentCar") + "Status")).gameObject.SetActive(false);
         }
@@ -348,14 +348,14 @@ public class adjustGarage : MonoBehaviour
             PlayerPrefs.SetInt("car" + PlayerPrefs.GetInt("currentCar") + "Status", 1);
             playerCar.GetChild(0).GetChild(PlayerPrefs.GetInt("currentCar")).GetChild(0).gameObject.SetActive(false);
             playerCar.GetChild(0).GetChild(PlayerPrefs.GetInt("currentCar")).GetChild(1).gameObject.SetActive(true);
-            PlayerPrefs.SetInt("money", PlayerPrefs.GetInt("money")-500);
+            PlayerPrefs.SetInt("money", PlayerPrefs.GetInt("money")-1000);
         }
         else if(whichModConfirmed == 4)
         {
             colorPalette.gameObject.SetActive(false);
             defaultColor = colorPalette.CurrentColor;
             tuningCameras[0].SetActive(false);
-            PlayerPrefs.SetInt("money", PlayerPrefs.GetInt("money")-1000);
+            PlayerPrefs.SetInt("money", PlayerPrefs.GetInt("money")-800);
         }
         else if(whichModConfirmed == 5)
         {

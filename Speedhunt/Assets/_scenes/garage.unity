@@ -322,7 +322,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 14
   m_Mesh: {fileID: 1474361029063556461, guid: 6d14e119e54b50441a833643a71bc04e, type: 3}
 --- !u!1001 &69160324
@@ -4107,7 +4107,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 477400969}
-  - component: {fileID: 477400971}
   - component: {fileID: 477400970}
   m_Layer: 12
   m_Name: collision
@@ -4130,50 +4129,19 @@ Transform:
   m_Father: {fileID: 985499798}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &477400970
-MeshRenderer:
+--- !u!64 &477400970
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 477400968}
-  m_Enabled: 0
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
---- !u!33 &477400971
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 477400968}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 14
   m_Mesh: {fileID: 1474361029063556461, guid: e98f233496ec25d4b85089dc8da7d405, type: 3}
 --- !u!4 &479521196 stripped
 Transform:
@@ -4917,7 +4885,6 @@ GameObject:
   - component: {fileID: 580387036}
   - component: {fileID: 580387039}
   - component: {fileID: 580387040}
-  - component: {fileID: 580387041}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -5087,20 +5054,6 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: Cinemachine.CinemachineBrain+VcamActivatedEvent, Cinemachine, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &580387041
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 580387035}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ae9f4a372e3c1b4db7ae501df390b50, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  variableName: money
-  variableValue: 10000
 --- !u!4 &586305581 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: b3d79397fa36c5f40909087844a5dd7d,
@@ -6308,7 +6261,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerCar: 1
   enemyCar: {x: 0, y: 0}
-  dirtTexture: {fileID: 2800000, guid: 71c174ddea79a9441adfd3870c6918c7, type: 3}
   enemyPower: 0
 --- !u!54 &742128483
 Rigidbody:
@@ -8507,7 +8459,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 929645942}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -26764,7 +26716,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2139363484
 Transform:
   m_ObjectHideFlags: 0
