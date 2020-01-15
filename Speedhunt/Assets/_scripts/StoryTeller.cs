@@ -49,6 +49,18 @@ public class StoryTeller : MonoBehaviour
             ambientSetting.enabled.value = true;
             motionSetting.enabled.value = true;
         }
+        else
+        {
+            Bloom bloomSetting;
+            AmbientOcclusion ambientSetting;
+            MotionBlur motionSetting;
+            pProfile.TryGetSettings(out bloomSetting);
+            pProfile.TryGetSettings(out ambientSetting);
+            pProfile.TryGetSettings(out motionSetting);
+            bloomSetting.enabled.value = false;
+            ambientSetting.enabled.value = false;
+            motionSetting.enabled.value = false;
+        }
         DontDestroyOnLoad(this.gameObject);
     }
     
@@ -66,7 +78,7 @@ public class StoryTeller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown("escape") && !Cursor.visible)
+        if(Input.GetKeyDown(KeyCode.Escape) && !Cursor.visible)
         {
             if(menuObject.activeSelf)
             {

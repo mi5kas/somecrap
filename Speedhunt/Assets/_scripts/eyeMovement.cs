@@ -4,19 +4,25 @@ using UnityEngine;
 
 public class eyeMovement : MonoBehaviour
 {
+    bool look = false;
     // Start is called before the first frame update
     void Start()
     {
         
     }
-
+    void LateUpdate()
+    {
+        if(look)
+            transform.LookAt(Camera.main.transform.position);
+    }
     // Update is called once per frame
     public void LookAtCamera()
     {
-        this.transform.LookAt(Camera.main.transform);
+        look=true;
     }
     public void ResetEyes()
     {
-        this.transform.rotation = Quaternion.Euler(0, 0, 0);
+        transform.rotation = Quaternion.Euler(0, 0, 0);
+        look=false;
     }
 }

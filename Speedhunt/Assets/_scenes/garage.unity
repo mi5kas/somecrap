@@ -4983,8 +4983,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 580387035}
-  m_LocalRotation: {x: -0.0037156227, y: -0.9376692, z: 0.010220863, w: -0.347359}
-  m_LocalPosition: {x: 9.690637, y: 0.27014726, z: -5.0460377}
+  m_LocalRotation: {x: -0.0118843075, y: -0.9387063, z: 0.032777604, w: -0.34295025}
+  m_LocalPosition: {x: 4.479384, y: 0.31234503, z: -5.7080617}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -5185,6 +5185,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 596854230}
+  - component: {fileID: 596854228}
   m_Layer: 0
   m_Name: cutscene1
   m_TagString: Untagged
@@ -5192,6 +5193,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &596854228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 596854227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e8db960dbf3d2b4f90c1a879c8fac86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toEnable: []
+  toDisable:
+  - {fileID: 92146713}
+  fader: {fileID: 0}
 --- !u!4 &596854230
 Transform:
   m_ObjectHideFlags: 0

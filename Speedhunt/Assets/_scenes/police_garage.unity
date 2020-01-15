@@ -7987,7 +7987,7 @@ Transform:
   m_LocalScale: {x: 6, y: 5.5, z: 1}
   m_Children: []
   m_Father: {fileID: 5313664091430718584}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 90.00001, y: 0, z: 0}
 --- !u!64 &449963718
 MeshCollider:
@@ -12845,7 +12845,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &711552240
 Transform:
   m_ObjectHideFlags: 0
@@ -34309,7 +34309,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2139390223
 Transform:
   m_ObjectHideFlags: 0
@@ -35367,8 +35367,8 @@ Transform:
   - {fileID: 3557429254025703666}
   - {fileID: 5371583956448334480}
   - {fileID: 2127602767110785736}
-  - {fileID: 2063243081}
   - {fileID: 449963717}
+  - {fileID: 2063243081}
   - {fileID: 537178555}
   - {fileID: 1593338241}
   - {fileID: 816718268}

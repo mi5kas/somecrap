@@ -67,6 +67,10 @@ public class mapManager : MonoBehaviour {
 			smses[2].SetActive(true);
 			PlayerPrefs.SetInt("story", 4);
 		}
+		else if(PlayerPrefs.GetInt("story", 0) == 4 && PlayerPrefs.GetInt("isNight") == 0)
+		{
+			smses[3].SetActive(true);
+		}
 		moneytext.text = "MONEY: $" + PlayerPrefs.GetInt("money", 0);
 		reptext.text = "REPUTATION: " + PlayerPrefs.GetInt("reputation", 0);
 		if(PlayerPrefs.GetInt("heat", 0) >= 10)
