@@ -27,7 +27,7 @@ public class fadeScreen : MonoBehaviour
             canvas.AddComponent<GraphicRaycaster>();
             canvas.GetComponent<Canvas>().renderMode = RenderMode.ScreenSpaceOverlay;
             GameObject faderObj = new GameObject("fader");
-            canvas.transform.parent = this.transform;
+            canvas.transform.SetParent(this.transform, false);
             faderObj.transform.parent = canvas.transform;
             fader = faderObj.AddComponent<Image>();
             fader.color = new Color(0, 0, 0, 1);
