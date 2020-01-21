@@ -8,7 +8,7 @@ public class damageControl : MonoBehaviour
     [SerializeField] AudioClip[] crashSounds;
     [SerializeField] GameObject crashScene;
 
-    float enemyHealth = 200;
+    float enemyHealth = 1000;
     // Start is called before the first frame update
     void OnCollisionEnter(Collision collision)
     {
@@ -18,7 +18,7 @@ public class damageControl : MonoBehaviour
         {
             crashScene.SetActive(true);
         }
-        damageLine.localScale = new Vector3(enemyHealth/200, 1, 1);
+        damageLine.localScale = new Vector3(enemyHealth/1000, 1, 1);
 
     }
 }
