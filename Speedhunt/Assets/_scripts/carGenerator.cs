@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class carGenerator : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class carGenerator : MonoBehaviour
     void Start()
     {
         int tempCarID;
+        TextMeshPro licenseText = this.transform.GetChild(transform.childCount-1).GetComponent<TextMeshPro>();
         Transform[] suspension = new Transform[4];
         for(int i=0; i<4; i++)
         {
@@ -19,6 +21,7 @@ public class carGenerator : MonoBehaviour
         }
         if(playerCar)
         {
+            licenseText.text = PlayerPrefs.GetString("nickname", "");
             tempCarID = PlayerPrefs.GetInt("currentCar");
             foreach(Material mat in this.transform.GetChild(0).GetChild(tempCarID).GetChild(PlayerPrefs.GetInt("car" + tempCarID + "Status", 0)).GetComponent<Renderer>().materials)
             {
@@ -63,6 +66,15 @@ public class carGenerator : MonoBehaviour
         }
         else
         {
+            if(enemyCar.x == enemyCar.y-1 && enemyCar.x == 4)
+            {
+                licenseText.text = "SC0TTY";
+            }
+            else
+            {
+                string randomLetters = "abcdefghijklmnopqrstuvwxyz";
+                licenseText.text = "" + randomLetters[Random.Range(0, randomLetters.Length)] + randomLetters[Random.Range(0, randomLetters.Length)] + randomLetters[Random.Range(0, randomLetters.Length)] + Random.Range(0, 10) + Random.Range(0, 10) + Random.Range(0, 10);
+            }
             tempCarID = Random.Range(Mathf.RoundToInt(enemyCar.x), Mathf.RoundToInt(enemyCar.y));
             int tempCarBodyKit = Random.Range(0, 2);
             this.transform.GetChild(0).GetChild(tempCarID).GetChild(tempCarBodyKit).gameObject.SetActive(true);
@@ -94,6 +106,8 @@ public class carGenerator : MonoBehaviour
         this.transform.GetChild(0).GetChild(tempCarID).gameObject.SetActive(true);
         if(tempCarID == 0) //Civic
         {
+            licenseText.transform.localPosition = new Vector3(0.01f, 0.19f, -2.12f);
+            licenseText.transform.localScale = new Vector3(0.6f, 1, 1);
             suspension[0].localPosition = new Vector3(-0.84f, -0.20f, 1.335f);
             suspension[1].localPosition = new Vector3(0.84f, -0.20f, -1.475f);
             suspension[2].localPosition = new Vector3(0.84f, -0.2f, 1.335f);
@@ -109,6 +123,7 @@ public class carGenerator : MonoBehaviour
         }
         else if(tempCarID == 1) //E36
         {
+            licenseText.transform.localPosition = new Vector3(0.02f, 0.29f, -2.575f);
             suspension[0].localPosition = new Vector3(-0.9f, -0.20f, 1.73f);
             suspension[1].localPosition = new Vector3(0.9f, -0.20f, -1.54f);
             suspension[2].localPosition = new Vector3(0.9f, -0.2f, 1.73f);
