@@ -139,6 +139,7 @@ public class carGenerator : MonoBehaviour
         }
         else if(tempCarID == 2) //Golf
         {
+            licenseText.transform.localPosition = new Vector3(0.02f, -0.12f, -2.38f);
             suspension[0].localPosition = new Vector3(-0.87f, -0.20f, 1.29f);
             suspension[1].localPosition = new Vector3(0.87f, -0.20f, -1.5f);
             suspension[2].localPosition = new Vector3(0.87f, -0.2f, 1.29f);
@@ -154,6 +155,7 @@ public class carGenerator : MonoBehaviour
         }
         else if(tempCarID == 3) //Miata
         {
+            licenseText.transform.localPosition = new Vector3(0.02f, 0.1f, -2.05f);
             suspension[0].localPosition = new Vector3(-0.81f, -0.20f, 1.27f);
             suspension[1].localPosition = new Vector3(0.81f, -0.20f, -1.21f);
             suspension[2].localPosition = new Vector3(0.81f, -0.2f, 1.27f);
@@ -169,6 +171,7 @@ public class carGenerator : MonoBehaviour
         }
         else if(tempCarID == 4) //RX8
         {  
+            licenseText.transform.localPosition = new Vector3(0.02f, 0.03f, -2.52f);
             suspension[0].localPosition = new Vector3(-0.93f, -0.20f, 1.63f);
             suspension[1].localPosition = new Vector3(0.93f, -0.20f, -1.475f);
             suspension[2].localPosition = new Vector3(0.93f, -0.2f, 1.63f);

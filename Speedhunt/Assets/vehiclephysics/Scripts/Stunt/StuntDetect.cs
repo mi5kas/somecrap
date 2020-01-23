@@ -96,6 +96,8 @@ namespace RVP
                     driftScoreRate=0.12f;
                 }
                 PlayerPrefs.SetInt("reputation", PlayerPrefs.GetInt("reputation", 0) + Mathf.RoundToInt(score*driftScoreRate));
+                PlayerPrefs.SetInt("northtownRep", Mathf.Clamp(PlayerPrefs.GetInt("northtownRep", 0) + Mathf.RoundToInt(score*driftScoreRate), 0, 4000));
+
                 endDrift.text = Mathf.RoundToInt(score*driftScoreRate) + "\n\n" + PlayerPrefs.GetInt("reputation", 0);
                 this.GetComponent<speedometer>().enabled=false;
                 detectDrift=false;

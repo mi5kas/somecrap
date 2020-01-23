@@ -36,11 +36,15 @@ public class mapManager : MonoBehaviour {
 			   labels.GetChild(0).gameObject.SetActive(true);
 			   labels.GetChild(0).GetChild(0).gameObject.SetActive(true);
 			   labels.GetChild(0).GetChild(0).GetComponent<TextMeshPro>().text = PlayerPrefs.GetInt("northtownRep", 0) + "/1000";
-			   if(PlayerPrefs.GetInt("northtownRep", 0) == 1000)
+			   if(PlayerPrefs.GetInt("northtownRep", 0) == 4000)
 			   {
 				   labels.GetChild(0).GetComponent<TextMeshPro>().color = new Color32(45, 170, 210, 255);
 				   labels.GetChild(0).GetChild(0).GetComponent<TextMeshPro>().color = new Color32(45, 170, 210, 255);
 			   }
+		   }
+		   if(PlayerPrefs.GetInt("story", 0) == 5 && PlayerPrefs.GetInt("reputation", 0) > 2000)
+		   {
+			   races[2].SetActive(true);
 		   }
 		   if(PlayerPrefs.GetInt("mainQuest", 0) == 3)
 		   {
@@ -73,6 +77,11 @@ public class mapManager : MonoBehaviour {
 		else if(PlayerPrefs.GetInt("story", 0) == 4 && PlayerPrefs.GetInt("isNight") == 0)
 		{
 			smses[3].SetActive(true);
+		}
+		else if(PlayerPrefs.GetInt("story", 0) == 5 && PlayerPrefs.GetInt("reputation", 0) > 2000)
+		{
+			smses[4].SetActive(true);
+			PlayerPrefs.SetInt("story", 6);
 		}
 		moneytext.text = "MONEY: $" + PlayerPrefs.GetInt("money", 0);
 		reptext.text = "REPUTATION: " + PlayerPrefs.GetInt("reputation", 0);
