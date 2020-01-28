@@ -24,13 +24,13 @@ public class boardController : MonoBehaviour
             {
                 statusText.text = "ESCAPED";
                 statusText.color = new Color(1, 0.2f, 0.2f, 1);
-                fugitiveInfo.text = "NAME: Scott Merkill\nAGE: 64\nSTATUS: On the run\nINFORMATION: Scott learned to work on cars from his father and started his own workshop when he was 16. Later he found out that fixing cars is not that profitable and began upgrading cars for illegal street racers. Not so long after he became a participant himself. However, it didn't take long for him to get busted and be locked up for a few months in a cell. Afterwards he cut all the strings to the street races and continued his legal mechanic business until he received a call from Andrew Jenkins a few months back.";
+                fugitiveInfo.text = "NAME: Scott Merkill\nAGE: 54\nSTATUS: On the run\n\nINFORMATION: Scott learned to work on cars from his father and started his own workshop when he was 16. Later he found out that fixing cars is not that profitable and began smuggling cars, tobacco and illegal meds to the country. However, it didn't take long for him to get busted and be locked up for a few years in a cell. Afterwards he cut all the strings to the smuggling and continued his legal mechanic business until he received a call from Andrew Jenkins a few months back.";
             }
             else
             {
                 statusText.text = "ARRESTED";
                 statusText.color = new Color(0, 0, 0.77f, 1);
-                fugitiveInfo.text = "NAME: Scott Merkill\nAGE: 64\nSTATUS: Apprehended\nINFORMATION: Scott learned to work on cars from his father and started his own workshop when he was 16. Later he found out that fixing cars is not that profitable and began upgrading cars for illegal street racers. Not so long after he became a participant himself. However, it didn't take long for him to get busted and be locked up for a few months in a cell. Afterwards he cut all the strings to the street races and continued his legal mechanic business until he received a call from Andrew Jenkins a few months back.";
+                fugitiveInfo.text = "NAME: Scott Merkill\nAGE: 54\nSTATUS: Apprehended\n\nINFORMATION: Scott learned to work on cars from his father and started his own workshop when he was 16. Later he found out that fixing cars is not that profitable and began smuggling cars, tobacco and illegal meds to the country. However, it didn't take long for him to get busted and be locked up for a few years in a cell. Afterwards he cut all the strings to the smuggling and continued his legal mechanic business until he received a call from Andrew Jenkins a few months back.";
             }
         }
     }

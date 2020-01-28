@@ -17,12 +17,12 @@ public class adjustGarage : MonoBehaviour
     [SerializeField] ColorPicker colorPalette;
     [SerializeField] GameObject[] tuningCameras;
     [SerializeField] Text moneyText;
-    [SerializeField] Material playerMaterial;
+    Material[] playerMaterial = new Material[2];
     [SerializeField] Button[] tuningButtons;
     [SerializeField] Text[] levelTexts;
     [SerializeField] Text[] costTexts;
     [SerializeField] GameObject wheelButtons;
-    [SerializeField] Material wheelsMaterial;
+    Material[] wheelsMaterial = new Material[4];
     [SerializeField] RectTransform powerLine;
     [SerializeField] RectTransform handlingLine;
     [SerializeField] Transform[] suspensions;
@@ -116,6 +116,32 @@ public class adjustGarage : MonoBehaviour
             directionalLight.color = new Color(1f, 1f, 1f, 1);
             garageMaterial.SetColor("_EmissionColor", new Color(1f, 1f, 1f, 1f));
         }
+        int tempCarID = PlayerPrefs.GetInt("currentCar");
+        foreach(Material mat in playerCar.GetChild(0).GetChild(tempCarID).GetComponent<Renderer>().materials)
+        {
+            Debug.Log(playerCar.GetChild(0).GetChild(tempCarID));
+            if(mat.name == "carMaterial (Instance)")
+            {
+                playerMaterial[0] = mat;
+            }
+        }
+        foreach(Material mat in playerCar.GetChild(0).GetChild(tempCarID).GetChild(PlayerPrefs.GetInt("car" + tempCarID + "Status")).GetComponent<Renderer>().materials)
+        {
+            if(mat.name == "carMaterial (Instance)")
+            {
+                playerMaterial[1] = mat;
+            }
+        }
+        for(int i=0; i<4; i++)
+        {
+            foreach(Material mat in playerCar.GetChild(4+i).GetChild(0).GetChild(0).GetChild(PlayerPrefs.GetInt("car" + tempCarID + "Wheels")).GetComponent<Renderer>().materials)
+            {
+                if(mat.name == "wheelMaterial (Instance)")
+                {
+                    wheelsMaterial[i] = mat;
+                }
+            }
+        }
     }
     public void Tuning(int whichMod)
     {
@@ -147,8 +173,8 @@ public class adjustGarage : MonoBehaviour
             colorPalette.gameObject.SetActive(true);
             powerLine.transform.parent.gameObject.SetActive(false);
             handlingLine.transform.parent.gameObject.SetActive(false);
-            defaultColor = playerMaterial.GetColor("_Color");
-            colorPalette.CurrentColor = playerMaterial.GetColor("_Color");
+            defaultColor = playerMaterial[0].GetColor("_Color");
+            colorPalette.CurrentColor = playerMaterial[0].GetColor("_Color");
             tuningButtons[0].transform.parent.gameObject.SetActive(false);
         }
         else if(whichMod == 5)
@@ -172,7 +198,7 @@ public class adjustGarage : MonoBehaviour
             colorPalette.gameObject.SetActive(true);
             powerLine.transform.parent.gameObject.SetActive(false);
             handlingLine.transform.parent.gameObject.SetActive(false);
-            colorPalette.CurrentColor = wheelsMaterial.GetColor("_Color");
+            colorPalette.CurrentColor = wheelsMaterial[0].GetColor("_Color");
         }
         else
         {
@@ -214,9 +240,17 @@ public class adjustGarage : MonoBehaviour
     public void ShowColor()
     {
         if(tuningCameras[0].activeSelf)
-            playerMaterial.SetColor("_Color", colorPalette.CurrentColor);
+        {
+            playerMaterial[0].SetColor("_Color", colorPalette.CurrentColor);
+            playerMaterial[1].SetColor("_Color", colorPalette.CurrentColor);
+        }
         else
-            wheelsMaterial.SetColor("_Color", colorPalette.CurrentColor);
+        {
+            wheelsMaterial[0].SetColor("_Color", colorPalette.CurrentColor);
+            wheelsMaterial[1].SetColor("_Color", colorPalette.CurrentColor);
+            wheelsMaterial[2].SetColor("_Color", colorPalette.CurrentColor);
+            wheelsMaterial[3].SetColor("_Color", colorPalette.CurrentColor);
+        }
     }
     public void RejectTuning()
     {
@@ -228,7 +262,8 @@ public class adjustGarage : MonoBehaviour
         else if(whichModConfirmed == 4)
         {
             colorPalette.gameObject.SetActive(false);
-            playerMaterial.SetColor("_Color", defaultColor);
+            playerMaterial[0].SetColor("_Color", defaultColor);
+            playerMaterial[1].SetColor("_Color", defaultColor);
             tuningCameras[0].SetActive(false);
             tuningButtons[0].transform.parent.gameObject.SetActive(true);
         }
@@ -252,7 +287,7 @@ public class adjustGarage : MonoBehaviour
         }
         else if(whichModConfirmed == 7)
         {
-            wheelsMaterial.SetColor("_Color", new Color(PlayerPrefs.GetFloat("car" + PlayerPrefs.GetInt("currentCar") + "WheelsColor1"), PlayerPrefs.GetFloat("car" + PlayerPrefs.GetInt("currentCar") + "WheelsColor2"), PlayerPrefs.GetFloat("car" + PlayerPrefs.GetInt("currentCar") + "WheelsColor3"), 1));
+            wheelsMaterial[0].SetColor("_Color", new Color(PlayerPrefs.GetFloat("car" + PlayerPrefs.GetInt("currentCar") + "WheelsColor1"), PlayerPrefs.GetFloat("car" + PlayerPrefs.GetInt("currentCar") + "WheelsColor2"), PlayerPrefs.GetFloat("car" + PlayerPrefs.GetInt("currentCar") + "WheelsColor3"), 1));
             tuningCameras[1].SetActive(false);
             tuningButtons[0].transform.parent.gameObject.SetActive(true);
             colorPalette.gameObject.SetActive(false);
@@ -277,7 +312,7 @@ public class adjustGarage : MonoBehaviour
             levelTexts[1].color =  new Color(1, 1, 1, 0.5f);
             costTexts[1].color =  new Color(1, 1, 1, 0.5f);
         }
-        if(currentMoney < 400*(1+PlayerPrefs.GetInt("car" + PlayerPrefs.GetInt("currentCar") + "Nitrous")))
+        if(currentMoney < 400*(1+PlayerPrefs.GetInt("car" + PlayerPrefs.GetInt("currentCar") + "Nitrous")) || PlayerPrefs.GetInt("story", 0) < 10)
         {
             tuningButtons[2].interactable = false;
             levelTexts[2].transform.parent.GetComponent<Image>().color = new Color(1, 1, 1, 0.5f);
@@ -306,6 +341,7 @@ public class adjustGarage : MonoBehaviour
         }
         if(currentMoney < 200 || PlayerPrefs.GetInt("car" + PlayerPrefs.GetInt("currentCar") + "Wheels") == 0)
         {
+            Debug.Log(currentMoney + PlayerPrefs.GetInt("car" + PlayerPrefs.GetInt("currentCar") + "Wheels") == 0);
             tuningButtons[7].interactable = false;
             tuningButtons[7].GetComponent<Image>().color = new Color(1, 1, 1, 0.5f);
         }
@@ -353,9 +389,15 @@ public class adjustGarage : MonoBehaviour
         else if(whichModConfirmed == 4)
         {
             colorPalette.gameObject.SetActive(false);
-            defaultColor = colorPalette.CurrentColor;
+            if(colorPalette.CurrentColor != new Color(PlayerPrefs.GetFloat("car" + PlayerPrefs.GetInt("currentCar") + "Color1"), PlayerPrefs.GetFloat("car" + PlayerPrefs.GetInt("currentCar") + "Color2"), PlayerPrefs.GetFloat("car" + PlayerPrefs.GetInt("currentCar") + "Color3"), 1))
+            {
+                defaultColor = colorPalette.CurrentColor;
+                PlayerPrefs.SetFloat("car" + PlayerPrefs.GetInt("currentCar") + "Color1", defaultColor.r);
+                PlayerPrefs.SetFloat("car" + PlayerPrefs.GetInt("currentCar") + "Color2", defaultColor.g);
+                PlayerPrefs.SetFloat("car" + PlayerPrefs.GetInt("currentCar") + "Color3", defaultColor.b);
+                PlayerPrefs.SetInt("money", PlayerPrefs.GetInt("money")-800);
+            }
             tuningCameras[0].SetActive(false);
-            PlayerPrefs.SetInt("money", PlayerPrefs.GetInt("money")-800);
         }
         else if(whichModConfirmed == 5)
         {
@@ -378,12 +420,12 @@ public class adjustGarage : MonoBehaviour
         {
             tuningCameras[1].SetActive(false);
             colorPalette.gameObject.SetActive(false);
-            if(colorPalette.CurrentColor != new Color(PlayerPrefs.GetFloat("car" + PlayerPrefs.GetInt("currentCar") + "WheelsColor1"), PlayerPrefs.GetFloat("car" + PlayerPrefs.GetInt("currentCar") + "WheelsColor2"), PlayerPrefs.GetFloat("car" + PlayerPrefs.GetInt("currentCar") + "WheelsColor3"), 1))
+            if(colorPalette.CurrentColor != new Color(PlayerPrefs.GetFloat("car" + PlayerPrefs.GetInt("currentCar") + "WheelColor1"), PlayerPrefs.GetFloat("car" + PlayerPrefs.GetInt("currentCar") + "WheelColor2"), PlayerPrefs.GetFloat("car" + PlayerPrefs.GetInt("currentCar") + "WheelColor3"), 1))
             {
                 PlayerPrefs.SetInt("money", PlayerPrefs.GetInt("money")-200);
-                PlayerPrefs.SetFloat("car" + PlayerPrefs.GetInt("currentCar") + "WheelsColor1", colorPalette.CurrentColor.r);
-                PlayerPrefs.SetFloat("car" + PlayerPrefs.GetInt("currentCar") + "WheelsColor2", colorPalette.CurrentColor.g);
-                PlayerPrefs.SetFloat("car" + PlayerPrefs.GetInt("currentCar") + "WheelsColor3", colorPalette.CurrentColor.b);
+                PlayerPrefs.SetFloat("car" + PlayerPrefs.GetInt("currentCar") + "WheelColor1", colorPalette.CurrentColor.r);
+                PlayerPrefs.SetFloat("car" + PlayerPrefs.GetInt("currentCar") + "WheelColor2", colorPalette.CurrentColor.g);
+                PlayerPrefs.SetFloat("car" + PlayerPrefs.GetInt("currentCar") + "WheelColor3", colorPalette.CurrentColor.b);
             }
         }
         UpdateButtons();

@@ -48,7 +48,7 @@ public class dragSystem : MonoBehaviour
     // Update is called once per frame
     void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Player")
+        if(other.transform.root.name == "playerCar")
         {
             endRace.transform.parent.gameObject.SetActive(true);
             CancelInvoke();

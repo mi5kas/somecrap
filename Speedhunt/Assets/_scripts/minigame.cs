@@ -141,7 +141,7 @@ public class minigame : MonoBehaviour
             traitsText+= traitsEvil[traitPicked] + ", ";
             previous[i] = traitPicked;
         }
-        bioText.text = "Suspected for " + crimes[Random.Range(0, crimes.Length)] + ". " + evidenceText + alibiText + " Personal traits: " + traitsText.Substring(0, traitsText.Length - 1);;
+        bioText.text = "Suspected for " + crimes[Random.Range(0, crimes.Length)] + ". " + evidenceText + alibiText + " Personal traits: " + traitsText;
     }
     // Update is called once per frame
     public void EndMinigame()

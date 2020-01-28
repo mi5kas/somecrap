@@ -27,7 +27,7 @@ public class carGenerator : MonoBehaviour
             {
                 if(mat.name == "carMaterial (Instance)")
                 {
-                    mat.color = new Color(PlayerPrefs.GetFloat("car" + tempCarID + "Color1", 0), PlayerPrefs.GetFloat("car" + tempCarID + "Color2", 0), PlayerPrefs.GetFloat("car" + tempCarID + "Color2", 0), 1);
+                    mat.SetColor("_Color", new Color(PlayerPrefs.GetFloat("car" + tempCarID + "Color1", 0), PlayerPrefs.GetFloat("car" + tempCarID + "Color2", 0), PlayerPrefs.GetFloat("car" + tempCarID + "Color3", 0), 1));
                     if(PlayerPrefs.GetInt("car" + tempCarID + "Status", 0) != 0)
                     {
                         mat.SetTexture("_MainTex", null);
@@ -39,7 +39,7 @@ public class carGenerator : MonoBehaviour
             {
                 if(mat.name == "carMaterial (Instance)")
                 {
-                    mat.color = new Color(PlayerPrefs.GetFloat("car" + tempCarID + "Color1", 0), PlayerPrefs.GetFloat("car" + tempCarID + "Color2", 0), PlayerPrefs.GetFloat("car" + tempCarID + "Color2", 0), 1);
+                    mat.SetColor("_Color", new Color(PlayerPrefs.GetFloat("car" + tempCarID + "Color1", 0), PlayerPrefs.GetFloat("car" + tempCarID + "Color2", 0), PlayerPrefs.GetFloat("car" + tempCarID + "Color3", 0), 1));
                     if(PlayerPrefs.GetInt("car" + tempCarID + "Status", 0) != 0)
                     {
                         mat.SetTexture("_MainTex", null);
@@ -56,9 +56,9 @@ public class carGenerator : MonoBehaviour
                 {
                     foreach(Material mat in wheelMat.materials)
                     {
-                        if(mat.name == "wheelMaterial")
+                        if(mat.name == "wheelMaterial (Instance)")
                         {
-                            mat.color = new Color(PlayerPrefs.GetFloat("car" + tempCarID + "WheelColor1"), PlayerPrefs.GetFloat("car" + tempCarID + "WheelColor2"), PlayerPrefs.GetFloat("car" + tempCarID + "WheelColor3"), 1);
+                            mat.SetColor("_Color", new Color(PlayerPrefs.GetFloat("car" + tempCarID + "WheelColor1"), PlayerPrefs.GetFloat("car" + tempCarID + "WheelColor2"), PlayerPrefs.GetFloat("car" + tempCarID + "WheelColor3"), 1));
                         }
                     }
                 }
@@ -83,7 +83,7 @@ public class carGenerator : MonoBehaviour
             {
                 if(mat.name == "carMaterial (Instance)")
                 {
-                    mat.color = enemyColor;
+                    mat.SetColor("_Color", enemyColor);
                     mat.SetTexture("_MainTex", null);
                     break;
                 }
@@ -92,7 +92,7 @@ public class carGenerator : MonoBehaviour
             {
                 if(mat.name == "carMaterial (Instance)")
                 {
-                    mat.color = enemyColor;
+                    mat.SetColor("_Color", enemyColor);
                     mat.SetTexture("_MainTex", null);
                     break;
                 }
@@ -185,7 +185,23 @@ public class carGenerator : MonoBehaviour
                 enemyPower = 0.45f;
             }
         }
-        else if(tempCarID == 5) //Skyline
+        else if(tempCarID == 5) //350z
+        {
+            licenseText.transform.localPosition = new Vector3(0.02f, 0.15f, -2.293f);
+            suspension[0].localPosition = new Vector3(-0.895f, -0.20f, 1.478f);
+            suspension[1].localPosition = new Vector3(0.895f, -0.20f, -1.42f);
+            suspension[2].localPosition = new Vector3(0.895f, -0.2f, 1.478f);
+            suspension[3].localPosition = new Vector3(-0.895f, -0.2f, -1.42f);
+            suspension[0].GetChild(0).GetChild(0).localScale = new Vector3(1f, 1f, 1f);
+            suspension[1].GetChild(0).GetChild(0).localScale = new Vector3(1f, 1f, 1f);
+            suspension[2].GetChild(0).GetChild(0).localScale = new Vector3(1f, 1f, 1f);
+            suspension[3].GetChild(0).GetChild(0).localScale = new Vector3(1f, 1f, 1f);
+            if(!playerCar)
+            {
+                enemyPower = 0.45f;
+            }
+        }
+        else if(tempCarID == 6) //Skyline
         {
             suspension[0].position = new Vector3(-0.85f, -0.20f, 1.42f);
             suspension[1].position = new Vector3(0.85f, -0.20f, -1.48f);

@@ -36,6 +36,20 @@ public class garageCutscene1 : MonoBehaviour
         else if(cutsceneVar == 4)
         {
             PlayerPrefs.SetInt("car" + PlayerPrefs.GetInt("currentCar", 0) + "Status", 1);
+            foreach(Material mat in playerCar.transform.GetChild(0).GetChild(PlayerPrefs.GetInt("currentCar")).GetComponent<Renderer>().materials)
+            {
+                if(mat.name == "carMaterial (Instance)")
+                {
+                    mat.SetTexture("_MainTex", null);
+                }
+            }
+            foreach(Material mat in playerCar.transform.GetChild(0).GetChild(PlayerPrefs.GetInt("currentCar")).GetChild(1).GetComponent<Renderer>().materials)
+            {
+                if(mat.name == "carMaterial (Instance)")
+                {
+                    mat.SetTexture("_MainTex", null);
+                }
+            }
             playerCar.transform.GetChild(0).GetChild(PlayerPrefs.GetInt("currentCar")).GetChild(0).gameObject.SetActive(false);
             playerCar.transform.GetChild(0).GetChild(PlayerPrefs.GetInt("currentCar")).GetChild(1).gameObject.SetActive(true);
             michelle.Play("cutscene3");

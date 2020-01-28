@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class stepSounds : MonoBehaviour
 {
-    AudioSource audio;
+    AudioSource stepSound;
     // Start is called before the first frame update
     void Start()
     {
-        audio = GetComponent<AudioSource>();
+        stepSound = GetComponent<AudioSource>();
     }
     public void Step()
     {
-        audio.Play();
+        stepSound.Play();
+        Debug.Log("Sounds");
     }
 }

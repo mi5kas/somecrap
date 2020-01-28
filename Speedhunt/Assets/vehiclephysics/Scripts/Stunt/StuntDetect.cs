@@ -55,18 +55,18 @@ namespace RVP
             timeLeft.transform.parent.gameObject.SetActive(true);
             InvokeRepeating("Countdown", 1f, 1f);
             driftScoreRate=0.01f+PlayerPrefs.GetFloat("car" + PlayerPrefs.GetInt("currentCar") + "Handling")/10;
-            if(PlayerPrefs.GetInt("car" + PlayerPrefs.GetInt("currentCar") + "Status", 0) == 0)
+            /*if(PlayerPrefs.GetInt("car" + PlayerPrefs.GetInt("currentCar") + "Status", 0) == 0)
             {
-                driftScoreRate=0.08f;
+                driftScoreRate=0.008f;
+            }
+            else if(PlayerPrefs.GetInt("car" + PlayerPrefs.GetInt("currentCar") + "Status", 0) == 1)
+            {
+                driftScoreRate=0.01f;
             }
             else if(PlayerPrefs.GetInt("car" + PlayerPrefs.GetInt("currentCar") + "Status", 0) == 1)
             {
                 driftScoreRate=0.1f;
-            }
-            else if(PlayerPrefs.GetInt("car" + PlayerPrefs.GetInt("currentCar") + "Status", 0) == 1)
-            {
-                driftScoreRate=0.1f;
-            }
+            }*/
         }
         void Countdown()
         {
