@@ -69,10 +69,10 @@ public class mapManager : MonoBehaviour {
 			smses[1].SetActive(true);
 			PlayerPrefs.SetInt("story", 3);
 		}
-		else if(PlayerPrefs.GetInt("story", 0) == 3) //Showing Mia's SMS about extra work
+		else if(PlayerPrefs.GetInt("story", 0) == 4) //Showing Mia's SMS about extra work
 		{
 			smses[2].SetActive(true);
-			PlayerPrefs.SetInt("story", 4);
+			PlayerPrefs.SetInt("story", 5);
 		}
 		else if(PlayerPrefs.GetInt("story", 0) == 4 && PlayerPrefs.GetInt("isNight") == 0)
 		{

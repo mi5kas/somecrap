@@ -48,6 +48,7 @@ public class garageCutscene1 : MonoBehaviour
                 if(mat.name == "carMaterial (Instance)")
                 {
                     mat.SetTexture("_MainTex", null);
+                    mat.SetColor("_Color", new Color(PlayerPrefs.GetFloat("car" + PlayerPrefs.GetInt("currentCar") + "Color1"), PlayerPrefs.GetFloat("car" + PlayerPrefs.GetInt("currentCar") + "Color2"), PlayerPrefs.GetFloat("car" + PlayerPrefs.GetInt("currentCar") + "Color3"), 1));
                 }
             }
             playerCar.transform.GetChild(0).GetChild(PlayerPrefs.GetInt("currentCar")).GetChild(0).gameObject.SetActive(false);

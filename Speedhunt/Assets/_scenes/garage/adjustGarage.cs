@@ -183,6 +183,14 @@ public class adjustGarage : MonoBehaviour
             confirmMod.text = "This will apply a body kit on your car. Your reputation gains will increase by 20%. This modification costs <color = #2eacd5ff>1000$</color>. Do you wish to proceed?";
             playerCar.GetChild(0).GetChild(PlayerPrefs.GetInt("currentCar")).GetChild(2).gameObject.SetActive(true);
             playerCar.GetChild(0).GetChild(PlayerPrefs.GetInt("currentCar")).GetChild(PlayerPrefs.GetInt("car" + PlayerPrefs.GetInt("currentCar") + "Status")).gameObject.SetActive(false);
+            foreach (Material mat in playerCar.GetChild(0).GetChild(PlayerPrefs.GetInt("currentCar")).GetChild(2).GetComponent<Renderer>().materials)
+            {
+                if (mat.name == "carMaterial (Instance)")
+                {
+                    mat.SetColor("_Color", new Color(PlayerPrefs.GetFloat("car" + PlayerPrefs.GetInt("currentCar") + "Color1"), PlayerPrefs.GetFloat("car" + PlayerPrefs.GetInt("currentCar") + "Color2"), PlayerPrefs.GetFloat("car" + PlayerPrefs.GetInt("currentCar") + "Color3"), 1));
+                    break;
+                }
+            }
         }
         else if(whichMod == 6)
         {

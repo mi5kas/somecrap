@@ -57,7 +57,8 @@ public class dialogs : MonoBehaviour
             dialogueText.font = ubuntu;
             dialogueText.alignment = TextAnchor.MiddleCenter;
             dialogueText.fontSize = 30;
-            textObj.AddComponent<Outline>();
+            Outline outline = textObj.AddComponent<Outline>();
+            outline.effectDistance = new Vector2(2f, -2f);
             canvas.transform.parent = this.transform;
         }
         currentDialogue = 0;
