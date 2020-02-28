@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2617d221ea418ff49a4694d307ca7107
+guid: e589d32ce7f79a64695e132e77a28941
 ModelImporter:
   serializedVersion: 19300
   internalIDToNameTable: []
@@ -7,53 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: 2x2 lane road
-    second: {fileID: 2100000, guid: 6ee1f1085387d374e8a70cba08003fe3, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: BUILDING_DEFAULT_0
-    second: {fileID: 2100000, guid: 968b4ea7307f91e4b93eb29cb1d18bcf, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: crossing material
-    second: {fileID: 2100000, guid: 998f01a792f6eb840b02c792dbfe3976, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: pavement
-    second: {fileID: 2100000, guid: 70fb28d6a4ae8fa459ffbdb9b80aa7fa, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: road material
-    second: {fileID: 2100000, guid: f3eee0ac7069c7e48810647a038db5d2, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: roofs
-    second: {fileID: 2100000, guid: 0e9a4f0c1d1146b49bd00c5387334373, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: sidewalk
-    second: {fileID: 2100000, guid: a393177dc2c4a7d428707eb4ea982619, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: sidewalk 1
-    second: {fileID: 2100000, guid: 55948b3f2b2b06149849389550f94e2a, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: wall2
-    second: {fileID: 2100000, guid: e8b73ca2a91b0ff4c940d1e6c54f2ea4, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: wall3
-    second: {fileID: 2100000, guid: 9e52bd792adac8c439bf3826d9c768e5, type: 2}
+      name: SVGMat.003
+    second: {fileID: 2100000, guid: 02d3eb579a742bd478f9718a1f62c83b, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
@@ -84,7 +39,7 @@ ModelImporter:
     isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 50
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
@@ -94,7 +49,7 @@ ModelImporter:
     importCameras: 1
     importLights: 1
     swapUVChannels: 0
-    generateSecondaryUV: 1
+    generateSecondaryUV: 0
     useFileUnits: 1
     keepQuads: 0
     weldVertices: 1
@@ -130,14 +85,14 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 1
+    globalScale: 0.5
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   avatarSetup: 0
   additionalBone: 0
