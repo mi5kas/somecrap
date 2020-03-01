@@ -49,7 +49,7 @@ public class walkObjective : MonoBehaviour
             {
                 textMesh.gameObject.SetActive(true);
                 float distance = Vector3.Distance(this.transform.position, Camera.main.transform.position);
-                Vector3 namePose = Camera.main.WorldToScreenPoint(this.transform.position);
+                Vector3 namePose = Camera.main.WorldToScreenPoint(new Vector3(this.transform.position.x, this.transform.position.y+distance/30f, this.transform.position.z));
                 textMesh.text = "OBJECTIVE " + Mathf.RoundToInt(distance) + "M";
                 textMesh.transform.position = namePose;
             }

@@ -14,18 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_CustomBlends:
   - m_From: CM vcam8 (1)
-    m_To: CM vcam9
-    m_Blend:
-      m_Style: 0
-      m_Time: 2
-      m_CustomCurve:
-        serializedVersion: 2
-        m_Curve: []
-        m_PreInfinity: 0
-        m_PostInfinity: 0
-        m_RotationOrder: 0
-  - m_From: CM vcam8 (1)
-    m_To: playerCamera
+    m_To: '**ANY CAMERA**'
     m_Blend:
       m_Style: 0
       m_Time: 2
@@ -48,6 +37,17 @@ MonoBehaviour:
         m_RotationOrder: 0
   - m_From: tuningCamera
     m_To: playerCamera
+    m_Blend:
+      m_Style: 0
+      m_Time: 2
+      m_CustomCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 0
+        m_PostInfinity: 0
+        m_RotationOrder: 0
+  - m_From: CM vcam8
+    m_To: '**ANY CAMERA**'
     m_Blend:
       m_Style: 0
       m_Time: 2

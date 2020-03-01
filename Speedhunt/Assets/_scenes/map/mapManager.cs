@@ -42,6 +42,10 @@ public class mapManager : MonoBehaviour {
 				   labels.GetChild(0).GetChild(0).GetComponent<TextMeshPro>().color = new Color32(45, 170, 210, 255);
 			   }
 		   }
+		   if(PlayerPrefs.GetInt("story") >= 7)
+			{
+
+			}
 		   if(PlayerPrefs.GetInt("story", 0) == 5 && PlayerPrefs.GetInt("reputation", 0) > 2000)
 		   {
 			   races[2].SetActive(true);
@@ -63,16 +67,20 @@ public class mapManager : MonoBehaviour {
 		{
 			smses[0].SetActive(true);
 			PlayerPrefs.SetInt("story", 2);
+			races[0].GetComponent<Animator>().Play("upAnimation", 0);
+			races[1].GetComponent<Animator>().Play("upAnimation", 0);
 		}
 		else if(PlayerPrefs.GetInt("story", 0) == 2)//Showing Bob's SMS
 		{
 			smses[1].SetActive(true);
 			PlayerPrefs.SetInt("story", 3);
+			garageicon.GetComponent<Animator>().Play("upAnimation", 0);
 		}
 		else if(PlayerPrefs.GetInt("story", 0) == 4) //Showing Mia's SMS about extra work
 		{
 			smses[2].SetActive(true);
 			PlayerPrefs.SetInt("story", 5);
+			policeicon.GetComponent<Animator>().Play("upAnimation", 0);
 		}
 		else if(PlayerPrefs.GetInt("story", 0) == 4 && PlayerPrefs.GetInt("isNight") == 0)
 		{
@@ -82,6 +90,7 @@ public class mapManager : MonoBehaviour {
 		{
 			smses[4].SetActive(true);
 			PlayerPrefs.SetInt("story", 6);
+			races[2].GetComponent<Animator>().Play("upAnimation", 0);
 		}
 		moneytext.text = "MONEY: $" + PlayerPrefs.GetInt("money", 0);
 		reptext.text = "REPUTATION: " + PlayerPrefs.GetInt("reputation", 0);

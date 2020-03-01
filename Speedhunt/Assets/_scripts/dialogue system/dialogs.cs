@@ -59,7 +59,7 @@ public class dialogs : MonoBehaviour
             dialogueText.fontSize = 30;
             Outline outline = textObj.AddComponent<Outline>();
             outline.effectDistance = new Vector2(2f, -2f);
-            canvas.transform.parent = this.transform;
+            canvas.transform.SetParent(this.transform);
         }
         currentDialogue = 0;
         ShowDialogue(dialogues[0]);
