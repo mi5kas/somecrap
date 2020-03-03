@@ -23,6 +23,9 @@ public class dragSystem : MonoBehaviour
     [SerializeField] TextMeshPro resultText;
     [SerializeField] racemusic dragMusic;
     [SerializeField] GameObject backToMap;
+    [SerializeField] Button shiftButton;
+    [SerializeField] Button gasButton;
+    [SerializeField] GameObject nosSystem;
     float playerRPM=1000f;
     int currentGear=1;
     float playerPower = 0.3f;
@@ -34,15 +37,70 @@ public class dragSystem : MonoBehaviour
     float shifting = 0;
     float currentTime = 0;
     bool raceWon = true;
+
+    bool revving = false;
     CinemachineBasicMultiChannelPerlin vcam;
     // Start is called before the first frame update
     void Start()
     {
         playerPower = PlayerPrefs.GetFloat("car" + PlayerPrefs.GetInt("currentCar") + "Power");
         enemyPower = enemyCar.GetComponent<carGenerator>().enemyPower;
-        InvokeRepeating("SetSpeed", 1f, 0.05f);
         vcam = carCamera.GetComponent<CinemachineVirtualCamera>().GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
         roadSlider.maxValue = Vector3.Distance(playerCar.transform.position, finishLine.transform.position);
+        InvokeRepeating("Rev", 1f, 0.05f);
+        Invoke("StartRace", 3f);
+    }
+    void StartRace()
+    {
+        CancelInvoke();
+        InvokeRepeating("SetSpeed", 1f, 0.05f);
+        playerCar.Play("dragStart");
+        enemyCar.Play("dragStart");
+        gasButton.interactable = false;
+        if(playerRPM > 7000)
+        {
+            playerCar.speed = 0.5f;
+        }
+        else if(playerRPM < 5000)
+        {
+            playerCar.speed = 1f;
+        }
+        else
+        {
+            playerCar.speed = 1.5f;
+        }
+        playerRPM = 3000;
+    }
+    void Rev()
+    {
+        if(revving)
+        {
+            playerRPM += 300f;
+        }
+        else
+        {
+            playerRPM -= 150f;
+        }
+        if(playerRPM > 8000)
+        {
+            playerRPM = 7000;
+        }
+        else if(playerRPM < 1000)
+        {
+            playerRPM = 1000;
+        }
+        Debug.Log(playerRPM);
+        rpmNeedle.rotation = Quaternion.Euler(0, 0, 100 - 160 * 0.001f * playerRPM/8);
+        engineSound.pitch = 0.3f + 1f * playerRPM / 6000;
+        engineSound.volume = 0.3f + 0.6f * playerRPM / 7000;
+    }
+    public void RevUp()
+    {
+        revving = true;
+    }
+    public void RevDown()
+    {
+        revving = false;
     }
 
     // Update is called once per frame
@@ -79,13 +137,13 @@ public class dragSystem : MonoBehaviour
     {
         if(shifting <= 0)
         {
-            if(playerRPM < 6800f)
+            if(playerRPM < 7000f)
                 playerCar.speed+= 0.07f/gearRatio*playerPower; //Cia greiti nustato pagal apsukas ir dabartini begi
                 vcam.m_FrequencyGain = playerCar.speed;
             playerRPM += 1000f*playerPower/(currentGear*gearRatio); //Cia prideda apsukas kas 0.05 sekundes;
-            if(playerRPM > 7000f) //REV LIMITER
+            if(playerRPM > 8000f) //REV LIMITER
             {
-                playerRPM = 6800f;
+                playerRPM = 7500f;
             }
         }
         else
