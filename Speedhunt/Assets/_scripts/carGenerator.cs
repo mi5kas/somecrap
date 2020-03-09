@@ -63,47 +63,49 @@ public class carGenerator : MonoBehaviour
                     }
                 }
             }
+            this.transform.GetChild(0).GetChild(tempCarID).gameObject.SetActive(true);
         }
         else
         {
             if(enemyCar.x == enemyCar.y-1 && enemyCar.x == 4)
             {
                 licenseText.text = "SC0TTY";
+                tempCarID = 4;
             }
             else
             {
                 string randomLetters = "abcdefghijklmnopqrstuvwxyz";
                 licenseText.text = "" + randomLetters[Random.Range(0, randomLetters.Length)] + randomLetters[Random.Range(0, randomLetters.Length)] + randomLetters[Random.Range(0, randomLetters.Length)] + Random.Range(0, 10) + Random.Range(0, 10) + Random.Range(0, 10);
-            }
-            tempCarID = Random.Range(Mathf.RoundToInt(enemyCar.x), Mathf.RoundToInt(enemyCar.y));
-            int tempCarBodyKit = Random.Range(0, 2);
-            this.transform.GetChild(0).GetChild(tempCarID).GetChild(tempCarBodyKit).gameObject.SetActive(true);
-            Color enemyColor = new Color(Random.Range(0f, 1f), Random.Range(0f, 1f), Random.Range(0f, 1f), 1);
-            foreach(Material mat in this.transform.GetChild(0).GetChild(tempCarID).GetChild(tempCarBodyKit).GetComponent<Renderer>().materials)
-            {
-                if(mat.name == "carMaterial (Instance)")
+                tempCarID = Random.Range(Mathf.RoundToInt(enemyCar.x), Mathf.RoundToInt(enemyCar.y));
+                int tempCarBodyKit = Random.Range(0, 2);
+                this.transform.GetChild(0).GetChild(tempCarID).GetChild(tempCarBodyKit).gameObject.SetActive(true);
+                Color enemyColor = new Color(Random.Range(0f, 1f), Random.Range(0f, 1f), Random.Range(0f, 1f), 1);
+                foreach (Material mat in this.transform.GetChild(0).GetChild(tempCarID).GetChild(tempCarBodyKit).GetComponent<Renderer>().materials)
                 {
-                    mat.SetColor("_Color", enemyColor);
-                    mat.SetTexture("_MainTex", null);
-                    break;
+                    if (mat.name == "carMaterial (Instance)")
+                    {
+                        mat.SetColor("_Color", enemyColor);
+                        mat.SetTexture("_MainTex", null);
+                        break;
+                    }
                 }
-            }
-            foreach(Material mat in this.transform.GetChild(0).GetChild(tempCarID).GetComponent<Renderer>().materials)
-            {
-                if(mat.name == "carMaterial (Instance)")
+                foreach (Material mat in this.transform.GetChild(0).GetChild(tempCarID).GetComponent<Renderer>().materials)
                 {
-                    mat.SetColor("_Color", enemyColor);
-                    mat.SetTexture("_MainTex", null);
-                    break;
+                    if (mat.name == "carMaterial (Instance)")
+                    {
+                        mat.SetColor("_Color", enemyColor);
+                        mat.SetTexture("_MainTex", null);
+                        break;
+                    }
                 }
+                int randomWheels = Random.Range(1, 9);
+                suspension[0].GetChild(0).GetChild(0).GetChild(randomWheels).gameObject.SetActive(true);
+                suspension[1].GetChild(0).GetChild(0).GetChild(randomWheels).gameObject.SetActive(true);
+                suspension[2].GetChild(0).GetChild(0).GetChild(randomWheels).gameObject.SetActive(true);
+                suspension[3].GetChild(0).GetChild(0).GetChild(randomWheels).gameObject.SetActive(true);
+                this.transform.GetChild(0).GetChild(tempCarID).gameObject.SetActive(true);
             }
-            int randomWheels = Random.Range(1, 9);
-            suspension[0].GetChild(0).GetChild(0).GetChild(randomWheels).gameObject.SetActive(true);
-            suspension[1].GetChild(0).GetChild(0).GetChild(randomWheels).gameObject.SetActive(true);
-            suspension[2].GetChild(0).GetChild(0).GetChild(randomWheels).gameObject.SetActive(true);
-            suspension[3].GetChild(0).GetChild(0).GetChild(randomWheels).gameObject.SetActive(true);
         }
-        this.transform.GetChild(0).GetChild(tempCarID).gameObject.SetActive(true);
         if(tempCarID == 0) //Civic
         {
             licenseText.transform.localPosition = new Vector3(0.01f, 0.19f, -2.12f);

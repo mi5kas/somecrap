@@ -47,19 +47,21 @@ public class dragSystem : MonoBehaviour
         enemyPower = enemyCar.GetComponent<carGenerator>().enemyPower;
         vcam = carCamera.GetComponent<CinemachineVirtualCamera>().GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
         roadSlider.maxValue = Vector3.Distance(playerCar.transform.position, finishLine.transform.position);
+        rpmNeedle.transform.parent.gameObject.SetActive(true);
         InvokeRepeating("Rev", 1f, 0.05f);
-        Invoke("StartRace", 3f);
+        Invoke("StartRace", 4f);
     }
     void StartRace()
     {
         CancelInvoke();
         InvokeRepeating("SetSpeed", 1f, 0.05f);
-        playerCar.Play("dragStart");
-        enemyCar.Play("dragStart");
+        playerCar.Play("playerStart");
+        enemyCar.Play("enemyStart");
+        revving = true;
         gasButton.interactable = false;
         if(playerRPM > 7000)
         {
-            playerCar.speed = 0.5f;
+            playerCar.speed = 0.8f;
         }
         else if(playerRPM < 5000)
         {
@@ -67,9 +69,8 @@ public class dragSystem : MonoBehaviour
         }
         else
         {
-            playerCar.speed = 1.5f;
+            playerCar.speed = 1.2f;
         }
-        playerRPM = 3000;
     }
     void Rev()
     {
@@ -89,7 +90,6 @@ public class dragSystem : MonoBehaviour
         {
             playerRPM = 1000;
         }
-        Debug.Log(playerRPM);
         rpmNeedle.rotation = Quaternion.Euler(0, 0, 100 - 160 * 0.001f * playerRPM/8);
         engineSound.pitch = 0.3f + 1f * playerRPM / 6000;
         engineSound.volume = 0.3f + 0.6f * playerRPM / 7000;
@@ -100,7 +100,8 @@ public class dragSystem : MonoBehaviour
     }
     public void RevDown()
     {
-        revving = false;
+        if(gasButton.interactable)
+            revving = false;
     }
 
     // Update is called once per frame
@@ -113,9 +114,10 @@ public class dragSystem : MonoBehaviour
             playerCar.speed = 1f;
             enemyCar.speed = 1f;
             engineSound.Stop();
-            rpmNeedle.transform.parent.parent.gameObject.SetActive(false);
+            rpmNeedle.transform.parent.gameObject.SetActive(false);
             dragMusic.GetComponent<AudioSource>().volume=1;
             dragMusic.PlayEnding();
+            carCamera.gameObject.SetActive(false);
             if(raceWon)
             {
                 PlayerPrefs.SetInt("money", PlayerPrefs.GetInt("money", 0)+200);
@@ -140,7 +142,17 @@ public class dragSystem : MonoBehaviour
             if(playerRPM < 7000f)
                 playerCar.speed+= 0.07f/gearRatio*playerPower; //Cia greiti nustato pagal apsukas ir dabartini begi
                 vcam.m_FrequencyGain = playerCar.speed;
-            playerRPM += 1000f*playerPower/(currentGear*gearRatio); //Cia prideda apsukas kas 0.05 sekundes;
+            if(revving)
+            {
+                playerRPM -= 200;
+                Debug.Log(playerRPM);
+                if (playerRPM <= 3000)
+                {
+                    revving = false;
+                }
+            }
+            else
+                playerRPM += 1000f*playerPower/(currentGear*gearRatio); //Cia prideda apsukas kas 0.05 sekundes;
             if(playerRPM > 8000f) //REV LIMITER
             {
                 playerRPM = 7500f;
@@ -157,7 +169,7 @@ public class dragSystem : MonoBehaviour
             engineSound.pitch = 0.5f+1f*playerRPM/(gearRatio)/4000;
         engineSound.volume = 0.3f+0.6f*playerRPM/7000;
         enemyRPM += 1000f*enemyPower/(enemyGear*enemyRatio);
-        rpmNeedle.rotation = Quaternion.Euler(0, 0, 0-200*0.0001f*playerRPM);
+        rpmNeedle.rotation = Quaternion.Euler(0, 0, 100 - 160 * 0.001f * playerRPM / 8);
         enemyCar.speed+= 0.07f/enemyRatio*enemyPower;
         roadSlider.value = roadSlider.maxValue - Vector3.Distance(playerCar.transform.position, finishLine.transform.position);
         enemySound.pitch = 0.5f+1f*enemyRPM/(enemyRatio)/4000;
@@ -171,10 +183,11 @@ public class dragSystem : MonoBehaviour
             enemyRatio = enemyRatio*1.75f;
         }
     }
-    void FixedUpdate()
+    void Update()
     {
+        Debug.Log(Vector3.Distance(enemyCar.transform.position, finishLine.position) - Vector3.Distance(playerCar.transform.position, finishLine.position));
         if(!endRace.transform.parent.gameObject.activeSelf)
-            carCamera.localPosition = new Vector3(carCamera.localPosition.x, carCamera.localPosition.y, Mathf.Clamp(Vector3.Distance(enemyCar.transform.position, finishLine.position)-Vector3.Distance(playerCar.transform.position, finishLine.position), -5f, 5f));
+            carCamera.localPosition = new Vector3(carCamera.localPosition.x, carCamera.localPosition.y, Mathf.Clamp((Vector3.Distance(enemyCar.transform.position, finishLine.position)-Vector3.Distance(playerCar.transform.position, finishLine.position)), -5f, 5f));
         else if(Input.GetKeyDown(KeyCode.Return))
         {
             backToMap.SetActive(true);
