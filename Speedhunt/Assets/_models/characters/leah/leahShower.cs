@@ -16,6 +16,16 @@ public class leahShower : MonoBehaviour
             //StartCoroutine("RotateTowardsCamera");
             leah.transform.LookAt(Camera.main.transform);
             leah.transform.eulerAngles = new Vector3(0, leah.transform.rotation.y, 0);
+            PlayerPrefs.SetInt("leahStory", 1);
+        }
+        else
+        {
+            transform.GetChild(1).gameObject.SetActive(true);
+            leah.CrossFadeInFixedTime("covering2", 0.5f, 0);
+            //StartCoroutine("RotateTowardsCamera");
+            leah.transform.LookAt(Camera.main.transform);
+            leah.transform.eulerAngles = new Vector3(0, leah.transform.rotation.y, 0);
+            PlayerPrefs.SetInt("leahStory", 2);
         }
     }
     void LateUpdate()
