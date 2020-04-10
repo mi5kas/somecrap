@@ -92,6 +92,13 @@ public class mapManager : MonoBehaviour {
 			PlayerPrefs.SetInt("story", 6);
 			races[2].GetComponent<Animator>().Play("upAnimation", 0);
 		}
+		else if(PlayerPrefs.GetInt("car3Power", 0) == 69)
+		{
+			smses[5].SetActive(true);
+			PlayerPrefs.SetFloat("car3Power", 0.3f);
+			PlayerPrefs.SetFloat("car3Handling", 0.4f);
+			PlayerPrefs.SetInt("rileySidequest", 3);
+		}
 		moneytext.text = "MONEY: $" + PlayerPrefs.GetInt("money", 0);
 		reptext.text = "REPUTATION: " + PlayerPrefs.GetInt("reputation", 0);
 		string starChar = new string(heattext.text[heattext.text.Length-1], PlayerPrefs.GetInt("heat", 0));

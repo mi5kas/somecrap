@@ -6,12 +6,19 @@ public class applyAnimation : MonoBehaviour
 {
     [SerializeField] string animationName;
     [SerializeField] bool randomizeSpeed;
+    [SerializeField] Animator actor = null;
     // Start is called before the first frame update
     void Start()
     {
-        this.GetComponent<Animator>().Play(animationName);
+        if(actor == null)
+            actor = this.GetComponent<Animator>();
         if(randomizeSpeed)
-            this.GetComponent<Animator>().speed = Random.Range(0.5f, 1f);
+        {
+            actor.speed = Random.Range(0.5f, 1f);
+            actor.CrossFadeInFixedTime(animationName, 1f);
+        }
+        else
+            actor.Play(animationName);
     }
     public void ResetAnimation()
     {

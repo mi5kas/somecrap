@@ -8,50 +8,59 @@ public class lickingPussy : MonoBehaviour
 {
     [SerializeField] SkinnedMeshRenderer girl;
     [SerializeField] Image progressBar;
-    [SerializeField] Image[] guideLines;
-    [SerializeField] Transform[] guidePositions;
+    [SerializeField] Image guideLines;
+    [SerializeField] Transform guidePositions;
     [SerializeField] CinemachineVirtualCamera cameraTemp;
+    [SerializeField] Animator animator;
     CinemachinePOV povCamera;
-    int activeButton = 0;
+    bool activeButton = false;
+    float orgasm = 0f;
     // Start is called before the first frame update
     void Start()
     {
         povCamera = cameraTemp.GetCinemachineComponent<CinemachinePOV>();
-        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = true;
     }
     public void MouseDown(int buttonNumber)
     {
-        Debug.Log("Spaudziam");
-        activeButton = buttonNumber;
-        guideLines[0].enabled = false;
-        guideLines[1].enabled = false;
+        activeButton = true;
+        guideLines.enabled = false;
         povCamera.m_HorizontalAxis.m_MaxSpeed = 0;
         povCamera.m_VerticalAxis.m_MaxSpeed = 0;
+        animator.CrossFadeInFixedTime("licking", 0.5f);
     }
     public void MouseExit()
     {
-        activeButton = 0;
-        guideLines[0].enabled = true;
-        guideLines[1].enabled = true;
+        activeButton = false;
+        guideLines.enabled = true;
         povCamera.m_HorizontalAxis.m_MaxSpeed = 50;
         povCamera.m_VerticalAxis.m_MaxSpeed = 50;
+        animator.CrossFadeInFixedTime("lickyIdle", 0.5f);
     }
     // Update is called once per frame
     void Update()
     {
-        if(activeButton == 1)
+        if(activeButton)
         {
-            girl.SetBlendShapeWeight(5, girl.GetBlendShapeWeight(5) + Input.GetAxis("Mouse X"));
-        }
-        else if(activeButton == 2)
-        {
-            girl.SetBlendShapeWeight(7, girl.GetBlendShapeWeight(7) + Input.GetAxis("Mouse Y"));
+            orgasm += (Mathf.Abs(Input.GetAxis("Mouse X")) + Mathf.Abs(Input.GetAxis("Mouse Y")))/(1f/Time.deltaTime);
+            progressBar.fillAmount = orgasm / 100f;
+            girl.SetBlendShapeWeight(5, Mathf.Clamp((girl.GetBlendShapeWeight(5) + Input.GetAxis("Mouse X")*-1), 0f, 100f));
+            girl.SetBlendShapeWeight(7, Mathf.Clamp(girl.GetBlendShapeWeight(7) + Input.GetAxis("Mouse Y"), 0f, 100f));
+            if(orgasm >= 100)
+            {
+                activeButton = false;
+                guideLines.gameObject.SetActive(false);
+                guidePositions.gameObject.SetActive(false);
+                progressBar.transform.parent.parent.gameObject.SetActive(false);
+                povCamera.m_HorizontalAxis.m_MaxSpeed = 50;
+                povCamera.m_VerticalAxis.m_MaxSpeed = 50;
+                animator.CrossFadeInFixedTime("cumming", 1f);
+            }
         }
         else
         {
-            guideLines[0].transform.position = Camera.main.WorldToScreenPoint(guidePositions[0].position);
-            guideLines[1].transform.position = Camera.main.WorldToScreenPoint(guidePositions[1].position);
+            guideLines.transform.position = Camera.main.WorldToScreenPoint(guidePositions.position);
         }
     }
 }

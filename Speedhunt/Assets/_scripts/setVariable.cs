@@ -13,7 +13,10 @@ public class setVariable : MonoBehaviour
     }
     void OnEnable()
     {
-        PlayerPrefs.SetInt(variableName, variableValue);
+        if (variableName == "Money")
+            PlayerPrefs.SetInt("Money", PlayerPrefs.GetInt("Money") + variableValue);
+        else
+            PlayerPrefs.SetInt(variableName, variableValue);
     }
     // Update is called once per frame
 }

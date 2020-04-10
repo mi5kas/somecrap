@@ -40,6 +40,13 @@ public class adjustGarage : MonoBehaviour
             cutscenes[0].SetActive(true);
             sceneCar.gameObject.SetActive(true);
         }
+        else if(PlayerPrefs.GetInt("rileySidequest") == 0 && PlayerPrefs.GetInt("IsNight") == 1)
+        {
+            cutscenes[2].SetActive(true);
+            jeff.gameObject.SetActive(false);
+            michelle.gameObject.SetActive(false);
+            sceneCar.gameObject.SetActive(false);
+        }
         else
         {
             cutscenes[1].SetActive(true);

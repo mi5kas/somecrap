@@ -43,7 +43,7 @@ public class choices : MonoBehaviour
         button.targetGraphic = button1Text;
         ColorBlock cb = button.colors;
         cb.normalColor = new Color(1, 1, 1, 0.5f);
-        cb.highlightedColor = new Color(1,1,1,1);
+        cb.highlightedColor = new Color(1, 1, 1, 1);
         button.colors = cb;
         button.onClick.AddListener(() => ButtonClicked(0));
 
@@ -68,28 +68,30 @@ public class choices : MonoBehaviour
         cb.highlightedColor = new Color(1,1,1,1);
         button.colors = cb;
         button.onClick.AddListener(() => ButtonClicked(1));
-
-        button1 = new GameObject("button1");
-        button1.transform.parent = canvas.transform;
-        button1Text = button1.AddComponent<Text>();
-        button1.AddComponent<Outline>();
-        button = button1.AddComponent<Button>();
-        rect = button1.GetComponent<RectTransform>();
-        rect.anchorMin = new Vector2(0.5f, 0.5f);
-        rect.anchorMax = new Vector2(0.5f, 0.5f);
-        rect.pivot = new Vector2(0.5f, 0.5f);
-        rect.anchoredPosition = new Vector3(0f, -440f, 0);
-        rect.sizeDelta = new Vector2(500f, 50f);
-        button1Text.font = ubuntu;
-        button1Text.text = buttonTexts[2];
-        button1Text.fontSize = 30;
-        button1Text.alignment = TextAnchor.MiddleCenter;
-        button.targetGraphic = button1Text;
-        cb = button.colors;
-        cb.normalColor = new Color(1, 1, 1, 0.5f);
-        cb.highlightedColor = new Color(1,1,1,1);
-        button.colors = cb;
-        button.onClick.AddListener(() => ButtonClicked(2));
+        if(buttonTexts.Length == 3)
+        {
+            button1 = new GameObject("button1");
+            button1.transform.parent = canvas.transform;
+            button1Text = button1.AddComponent<Text>();
+            button1.AddComponent<Outline>();
+            button = button1.AddComponent<Button>();
+            rect = button1.GetComponent<RectTransform>();
+            rect.anchorMin = new Vector2(0.5f, 0.5f);
+            rect.anchorMax = new Vector2(0.5f, 0.5f);
+            rect.pivot = new Vector2(0.5f, 0.5f);
+            rect.anchoredPosition = new Vector3(0f, -440f, 0);
+            rect.sizeDelta = new Vector2(500f, 50f);
+            button1Text.font = ubuntu;
+            button1Text.text = buttonTexts[2];
+            button1Text.fontSize = 30;
+            button1Text.alignment = TextAnchor.MiddleCenter;
+            button.targetGraphic = button1Text;
+            cb = button.colors;
+            cb.normalColor = new Color(1, 1, 1, 0.5f);
+            cb.highlightedColor = new Color(1, 1, 1, 1);
+            button.colors = cb;
+            button.onClick.AddListener(() => ButtonClicked(2));
+        }
 
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
@@ -99,6 +101,7 @@ public class choices : MonoBehaviour
     }
     void ButtonClicked(int whichButton)
     {
+        Debug.Log("whichButton " + whichButton);
         if(afterButton[whichButton])
         {
             afterButton[whichButton].SetActive(false);
