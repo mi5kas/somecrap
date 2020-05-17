@@ -12,6 +12,8 @@ public class lickingPussy : MonoBehaviour
     [SerializeField] Transform guidePositions;
     [SerializeField] CinemachineVirtualCamera cameraTemp;
     [SerializeField] Animator animator;
+    [SerializeField] AudioSource moaning;
+    [SerializeField] AudioClip[] moaningSounds;
     CinemachinePOV povCamera;
     bool activeButton = false;
     float orgasm = 0f;
@@ -19,8 +21,13 @@ public class lickingPussy : MonoBehaviour
     void Start()
     {
         povCamera = cameraTemp.GetCinemachineComponent<CinemachinePOV>();
+        animator.transform.position = new Vector3(-24.818f, 24.247f, -24.865f);
+        animator.transform.eulerAngles = new Vector3(0f, 90f, 0f);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = true;
+        moaning.gameObject.SetActive(true);
+        moaning.clip = moaningSounds[0];
+        moaning.Play();
     }
     public void MouseDown(int buttonNumber)
     {
@@ -29,6 +36,8 @@ public class lickingPussy : MonoBehaviour
         povCamera.m_HorizontalAxis.m_MaxSpeed = 0;
         povCamera.m_VerticalAxis.m_MaxSpeed = 0;
         animator.CrossFadeInFixedTime("licking", 0.5f);
+        moaning.clip = moaningSounds[1];
+        moaning.Play();
     }
     public void MouseExit()
     {
@@ -37,6 +46,8 @@ public class lickingPussy : MonoBehaviour
         povCamera.m_HorizontalAxis.m_MaxSpeed = 50;
         povCamera.m_VerticalAxis.m_MaxSpeed = 50;
         animator.CrossFadeInFixedTime("lickyIdle", 0.5f);
+        moaning.clip = moaningSounds[0];
+        moaning.Play();
     }
     // Update is called once per frame
     void Update()
@@ -56,6 +67,8 @@ public class lickingPussy : MonoBehaviour
                 povCamera.m_HorizontalAxis.m_MaxSpeed = 50;
                 povCamera.m_VerticalAxis.m_MaxSpeed = 50;
                 animator.CrossFadeInFixedTime("cumming", 1f);
+                moaning.clip = moaningSounds[2];
+                moaning.Play();
             }
         }
         else

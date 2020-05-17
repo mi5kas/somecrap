@@ -687,6 +687,11 @@ MonoBehaviour:
   guidePositions: {fileID: 1190382353}
   cameraTemp: {fileID: 525777797}
   animator: {fileID: 1810422714}
+  moaning: {fileID: 1355265613}
+  moaningSounds:
+  - {fileID: 8300000, guid: c958780f8ec305c438eda39c42a05f87, type: 3}
+  - {fileID: 8300000, guid: 831de30db0972ea44b2271c5e2b0a394, type: 3}
+  - {fileID: 8300000, guid: 39ea999a4a242c449906f5e24a5c14b5, type: 3}
 --- !u!1 &54598383
 GameObject:
   m_ObjectHideFlags: 0
@@ -16873,7 +16878,7 @@ MonoBehaviour:
   - girl@angry@Hey! Wait... it's you again?
   - girl@angry@You either got some serious balls or you're just stupid.
   - girl@angry@Anyway, you want some pussy? Come and lick it then!
-  afterDialogue: {fileID: 1241732723}
+  afterDialogue: {fileID: 2143139575}
   nextDialogue: 0
   LookAtCamera: 0
 --- !u!1 &876520129
@@ -24241,7 +24246,7 @@ MonoBehaviour:
   toEnable:
   - {fileID: 1743904043208185}
   toDisable:
-  - {fileID: 1261029920}
+  - {fileID: 1810422712}
   - {fileID: 2110761907495317015}
   - {fileID: 2143139575}
   fader: {fileID: 0}
@@ -33202,6 +33207,133 @@ RectTransform:
   m_AnchoredPosition: {x: 338, y: -227.64}
   m_SizeDelta: {x: 160, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1355265612
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1355265614}
+  - component: {fileID: 1355265613}
+  m_Layer: 12
+  m_Name: moaning
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!82 &1355265613
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1355265612}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 50
+  Pan2D: 0
+  rolloffMode: 1
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &1355265614
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1355265612}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2003836879}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1364027759
 GameObject:
   m_ObjectHideFlags: 0
@@ -54065,6 +54197,12 @@ Light:
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!4 &2003836879 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -6081470830831867213, guid: 911753f836a954248b945bf9414e9c2c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1810422710}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2006430683
 GameObject:
   m_ObjectHideFlags: 0
@@ -54081,7 +54219,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2006430684
 MonoBehaviour:
   m_ObjectHideFlags: 0
